@@ -897,6 +897,52 @@
       animation: fadeUp .25s ease both;
     }
 
+    .status-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .status-tag { display: inline-flex; align-items: center; gap: 7px; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 900; background: #fff; border: 1px solid var(--line); }
+    .status-tag:before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+    .status-tag.defined { color: var(--green); background: var(--paper-green); }
+    .status-tag.validation { color: var(--amber); background: var(--paper-orange); }
+    .status-tag.pending { color: var(--red); background: #fff0ed; }
+    .editorial-title { font-size: clamp(22px, 2vw, 30px); margin-bottom: 14px; }
+    .journey-flow { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; counter-reset: journey; }
+    .journey-step { position: relative; min-height: 130px; padding: 46px 14px 14px; background: #fff; border: 1px solid var(--line); border-radius: 18px; }
+    .journey-step:before { counter-increment: journey; content: counter(journey, decimal-leading-zero); position: absolute; top: 13px; left: 14px; color: var(--brand-blue); font-weight: 900; font-size: 12px; }
+    .journey-step:after { content: "→"; position: absolute; right: -10px; top: 50%; z-index: 2; color: var(--brand-orange); font-weight: 900; }
+    .journey-step:last-child:after { display: none; }
+    .journey-step strong { display: block; margin-bottom: 5px; }
+    .journey-step span { color: var(--muted); font-size: 13px; }
+    .key-rules { margin-top: 18px; display: grid; grid-template-columns: .62fr 1.38fr; gap: 18px; padding: 22px; border-radius: 22px; background: var(--dark); color: #fff; }
+    .key-rules p { color: #c8d3e4; font-size: 14px; margin-top: 8px; }
+    .check-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 16px; }
+    .check-item { display: flex; gap: 9px; align-items: flex-start; font-size: 14px; }
+    .check-item:before { content: "✓"; flex: 0 0 auto; width: 21px; height: 21px; display: grid; place-items: center; border-radius: 50%; background: rgba(5,189,123,.16); color: #7ce8be; font-weight: 900; }
+    .data-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+    .data-table { width: 100%; border-collapse: collapse; min-width: 720px; }
+    .data-table th { padding: 13px 15px; text-align: left; background: var(--dark); color: #fff; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+    .data-table td { padding: 13px 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; vertical-align: top; }
+    .data-table td strong { color: var(--ink); }
+    .pending-checklist { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; list-style: none; padding: 0; margin: 14px 0 0; }
+    .pending-checklist li { padding: 12px; border: 1px solid var(--line); border-radius: 14px; background: #fff; font-size: 13px; font-weight: 800; }
+    .pending-checklist li:before { content: "○"; color: var(--brand-orange); margin-right: 8px; font-size: 17px; }
+    .course-overview { padding: 20px 22px; border-left: 6px solid var(--brand-blue); border-radius: 0 18px 18px 0; background: var(--paper-blue); }
+    .course-overview p { color: var(--muted); }
+    .score-ruler { display: grid; gap: 13px; }
+    .score-row { display: grid; grid-template-columns: minmax(210px, .65fr) minmax(0, 1.35fr) 52px; gap: 14px; align-items: center; }
+    .score-row strong { font-size: 14px; }
+    .score-track { height: 12px; background: #e1ddd4; border-radius: 999px; overflow: hidden; }
+    .score-fill { height: 100%; width: var(--score); border-radius: inherit; background: linear-gradient(90deg, var(--brand-blue), var(--brand-green)); }
+    .score-row b { color: var(--brand-blue); font-size: 17px; }
+    .engagement-map { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .engagement-path { position: relative; padding: 18px; min-height: 150px; border: 1px solid var(--line); border-top: 5px solid var(--brand-blue); border-radius: 18px; background: #fff; }
+    .engagement-path:nth-child(2) { border-top-color: var(--brand-orange); }
+    .engagement-path:nth-child(3) { border-top-color: var(--brand-green); }
+    .engagement-path:nth-child(4) { border-top-color: var(--violet); }
+    .engagement-path strong { display: block; margin-bottom: 8px; font-size: 18px; }
+    .engagement-path span { color: var(--muted); font-size: 14px; }
+    .outcome-strip { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 18px 20px; border-radius: 18px; background: var(--dark); color: #fff; }
+    .outcome-strip strong { margin-right: auto; }
+    .outcome-strip span { padding: 7px 11px; border-radius: 999px; background: rgba(255,255,255,.1); font-size: 13px; font-weight: 800; }
+
     .footer {
       background: var(--dark);
       color: #aeb9c9;
@@ -1489,6 +1535,9 @@
       .flow-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+      .journey-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .journey-step:nth-child(3):after { display: none; }
+      .pending-checklist, .engagement-map { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .decision-box { position: relative; top: auto; }
       .action-roadmap { grid-template-columns: 1fr; padding-top: 0; }
       .action-roadmap:before,
@@ -1570,6 +1619,13 @@
       .signal-row {
         grid-template-columns: 1fr;
       }
+      .journey-flow, .key-rules, .check-grid, .pending-checklist, .engagement-map { grid-template-columns: 1fr; }
+      .journey-step:after { content: "↓"; top: auto; bottom: -13px; right: 50%; }
+      .journey-step:nth-child(3):after { display: block; }
+      .journey-step:last-child:after { display: none; }
+      .score-row { grid-template-columns: 1fr 48px; gap: 7px 10px; }
+      .score-track { grid-column: 1; grid-row: 2; }
+      .score-row b { grid-column: 2; grid-row: 1 / span 2; }
       .flow-node:after { display: none; }
       .document-viewer-bar {
         align-items: stretch;
@@ -2050,111 +2106,32 @@
           <div class="section-head reveal">
             <div>
               <h2 class="section-label">Matrícula, permanência e equipamentos</h2>
-              <p class="lead">
-                Fluxo de entrada e acompanhamento do aluno após a convocação: matrícula, Termo de Compromisso, entrega de kit, configuração de acessos, permanência obrigatória e devolução de equipamentos quando aplicável.
-              </p>
+              <p class="lead">Da convocação ao acompanhamento contínuo, a entrada do aluno combina validação documental, entrega responsável do kit e ativação dos acessos.</p>
+              <div class="status-row"><span class="status-tag defined">Definido</span><span class="status-tag validation">Em validação</span></div>
             </div>
           </div>
-
-          <div class="grid-4 reveal">
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Matrícula</h3>
-              <p>
-                Os convocados devem apresentar documentação, confirmar os dados exigidos pelo edital e confirmar a matrícula no programa dentro do prazo definido.
-              </p>
-            </article>
-
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Termo de Compromisso</h3>
-              <p>
-                A matrícula inclui assinatura do Termo de Compromisso, com regras de participação, uso, conservação e devolução dos equipamentos.
-              </p>
-            </article>
-
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Kit do aluno</h3>
-              <p>
-                Cada aluno receberá equipamentos e materiais do programa, com registro individual de entrega, responsabilidade de uso e regras de devolução.
-              </p>
-            </article>
-
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Primeiro acesso</h3>
-              <p>
-                A entrada da turma deve incluir configuração dos notebooks, acesso à Plataforma Institucional, entrada no Discord, senhas e orientações iniciais.
-              </p>
-            </article>
+          <h3 class="editorial-title reveal" style="margin-top:30px">Jornada do aluno</h3>
+          <div class="journey-flow reveal">
+            <div class="journey-step"><strong>Convocação</strong><span>Chamada conforme classificação e vaga.</span></div>
+            <div class="journey-step"><strong>Documentos</strong><span>Conferência de dados e requisitos do edital.</span></div>
+            <div class="journey-step"><strong>Termo</strong><span>Assinatura pelo aluno ou responsável legal.</span></div>
+            <div class="journey-step"><strong>Kit</strong><span>Entrega individual registrada e orientada.</span></div>
+            <div class="journey-step"><strong>Primeiro acesso</strong><span>Notebook, plataforma, Discord e senhas.</span></div>
+            <div class="journey-step"><strong>Acompanhamento</strong><span>Aulas, atividades, monitorias e chamados.</span></div>
           </div>
-
-          <div class="timeline reveal" style="margin-top:18px">
-            <div class="step-card">
-              <strong>Convocação</strong>
-              <span>Aluno aprovado é chamado conforme classificação e disponibilidade de vaga.</span>
+          <div class="key-rules reveal">
+            <div><h3>Regras-chave de permanência</h3><p>Compromissos essenciais para manter a vaga e o acompanhamento ativo.</p></div>
+            <div class="check-grid">
+              <div class="check-item">Acessar a plataforma</div><div class="check-item">Realizar atividades no prazo</div>
+              <div class="check-item">Participar da monitoria obrigatória</div><div class="check-item">Manter dados atualizados</div>
+              <div class="check-item">Responder aos chamados da coordenação</div><div class="check-item">Devolver equipamentos em caso de desligamento</div>
             </div>
-
-            <div class="step-card">
-              <strong>Conferência documental</strong>
-              <span>Equipe valida documentos, dados cadastrais e requisitos previstos no edital.</span>
-            </div>
-
-            <div class="step-card">
-              <strong>Assinatura dos termos</strong>
-              <span>Aluno ou responsável legal confirma que conhece as regras de permanência e uso dos equipamentos.</span>
-            </div>
-
-            <div class="step-card">
-              <strong>Entrega e configuração</strong>
-              <span>Kit é entregue, registrado e configurado com acessos à plataforma, Discord e orientações iniciais.</span>
-            </div>
-
-            <div class="step-card">
-              <strong>Acompanhamento</strong>
-              <span>Aluno passa a seguir rotina de aulas, atividades, monitorias, chamados e participação na comunidade.</span>
-            </div>
-          </div>
-
-          <div class="grid-3 reveal" style="margin-top:18px">
-            <article class="card">
-              <h3>Critério de permanência</h3>
-              <p>
-                O aluno deve acessar a plataforma, acompanhar aulas, realizar atividades no prazo, participar de monitoria pelo menos a cada 15 dias, manter dados atualizados e responder aos chamados da coordenação.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>Inatividade</h3>
-              <p>
-                Ausência de acesso ou participação por mais de 15 dias corridos sem justificativa pode caracterizar inatividade. A coordenação deve emitir alertas antes de qualquer desligamento.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>Desligamento</h3>
-              <p>
-                Desistência formal libera a vaga para um suplente. Abandono injustificado, fraude ou descumprimento grave pode gerar desligamento e impedimento de participação em novas iniciativas por período definido no edital.
-              </p>
-            </article>
           </div>
 
           <div class="accordion reveal" style="margin-top:18px">
-            <div class="accordion-item open">
-              <button class="accordion-button">Como funciona a logística reversa dos equipamentos? <span>+</span></button>
-              <div class="accordion-content">
-                Em caso de desistência, abandono ou desligamento, o aluno deve devolver os equipamentos na sede local dentro do prazo definido no Termo de Compromisso. Um técnico responsável recebe, registra, inspeciona e encaminha manutenção quando necessário.
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-button">O que acontece se o aluno não devolver o equipamento? <span>+</span></button>
-              <div class="accordion-content">
-                A coordenação deve realizar contato formal por e-mail e WhatsApp. Após esgotadas as tentativas, o caso pode ser encaminhado para medidas administrativas ou jurídicas conforme previsto no edital e no termo assinado.
-              </div>
-            </div>
-
+            <div class="accordion-item"><button class="accordion-button">Devolução e logística dos equipamentos <span>+</span></button><div class="accordion-content">Em caso de desistência, abandono ou desligamento, o aluno deve devolver os equipamentos na sede local dentro do prazo definido no Termo de Compromisso. Um técnico recebe, registra, inspeciona e encaminha manutenção quando necessário. Se não houver devolução, a coordenação realiza contato formal por e-mail e WhatsApp e, esgotadas as tentativas, pode adotar medidas administrativas ou jurídicas previstas.</div></div>
+            <div class="accordion-item"><button class="accordion-button">Abandono, fraude ou descumprimento grave <span>+</span></button><div class="accordion-content">Mais de 15 dias corridos sem acesso ou participação e sem justificativa pode caracterizar inatividade, após alertas da coordenação. Desistência libera a vaga para suplente; abandono injustificado, fraude ou descumprimento grave pode gerar desligamento e impedimento temporário previsto no edital.</div></div>
+            <div class="accordion-item"><button class="accordion-button">Dúvidas frequentes sobre matrícula e permanência <span>+</span></button><div class="accordion-content">Os convocados devem confirmar dados e matrícula no prazo. Menores dependem da assinatura do responsável legal. O Termo de Compromisso reúne participação, conservação, uso e devolução do kit; o primeiro acesso inclui notebook, Plataforma Institucional, Discord, senhas e orientações.</div></div>
           </div>
         </div>
       </section>
@@ -2164,116 +2141,25 @@
           <div class="section-head reveal">
             <div>
               <h2 class="section-label">Evento de lançamento</h2>
-              <p class="lead">
-                Etapa presencial de entrada da turma, com apresentação da estrutura do programa, entrega dos kits, configuração dos acessos, orientação inicial e validação da logística de suporte.
-              </p>
+              <p class="lead">Encontro presencial para ativar a primeira turma, entregar os kits e garantir que cada aluno saia com acessos e próximos passos claros.</p>
+              <div class="status-row"><span class="status-tag validation">Em validação</span><span class="status-tag pending">Pendências operacionais</span></div>
             </div>
           </div>
-
-          <div class="grid-4 reveal">
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Objetivo do evento</h3>
-              <p>
-                Iniciar oficialmente a primeira turma, apresentar a dinâmica do Connecta, alinhar expectativas de participação e orientar os alunos sobre curso, suporte, comunidade e responsabilidades.
-              </p>
-            </article>
-
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Entrega dos kits</h3>
-              <p>
-                Entrega dos equipamentos e materiais aos alunos, com registro individual de recebimento e responsabilidade.
-              </p>
-            </article>
-
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Configuração inicial</h3>
-              <p>
-                O evento deve incluir estações para primeiro acesso, configuração dos notebooks, entrada na Plataforma Institucional, acesso ao Discord, senhas e orientações operacionais.
-              </p>
-            </article>
-
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Suporte de hardware</h3>
-              <p>
-                Os alunos devem ser orientados sobre como reportar defeitos, onde levar equipamentos com problema e como funcionará o suporte técnico na sede local.
-              </p>
-            </article>
-          </div>
-
-          <div class="timeline reveal" style="margin-top:18px">
-            <div class="step-card">
-              <strong>Credenciamento</strong>
-              <span>Recepção dos alunos, confirmação de presença, conferência final de dados e organização do fluxo de entrada.</span>
-            </div>
-
-            <div class="step-card">
-              <strong>Apresentação</strong>
-              <span>Explicação da estrutura do programa, trilhas, monitorias, Discord, projetos, eventos e regras de permanência.</span>
-            </div>
-
-            <div class="step-card">
-              <strong>Entrega do kit</strong>
-              <span>Distribuição dos equipamentos e materiais, com registro individual de recebimento e orientação de responsabilidade.</span>
-            </div>
-
-            <div class="step-card">
-              <strong>Configuração</strong>
-              <span>Primeiro acesso à Plataforma Institucional, entrada no Discord, validação de senhas e configuração inicial dos notebooks.</span>
-            </div>
-
-            <div class="step-card">
-              <strong>Encaminhamento</strong>
-              <span>Alunos saem com próximos passos claros: rotina de estudos, canais oficiais, monitoria obrigatória e suporte disponível.</span>
-            </div>
-          </div>
-
-          <div class="grid-3 reveal" style="margin-top:18px">
-            <article class="card">
-              <h3>Estrutura do local</h3>
-              <p>
-                O espaço precisa comportar mais de 50 pessoas, ter internet, energia, organização para estações de configuração, circulação dos alunos e equipe de apoio técnico.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>Organização dos equipamentos</h3>
-              <p>
-                É necessário organizar transporte, conferência, separação dos kits, registro de entrega e plano de suporte para eventuais problemas no primeiro acesso.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>Divulgação e cobertura institucional</h3>
-              <p>
-                A operação deve prever divulgação prévia, material visual, cobertura fotográfica/audiovisual e peças para redes sociais e canais institucionais.
-              </p>
-            </article>
-          </div>
-
-          <div class="priority-grid reveal" style="margin-top:18px">
-            <div class="priority-card critical">
-              <h3>Pendências críticas</h3>
-              <ul>
-                <li>Definir data e local do evento.</li>
-                <li>Elaborar roteiro completo.</li>
-                <li>Definir equipe responsável por cada etapa.</li>
-                <li>Confirmar logística de transporte dos equipamentos.</li>
-              </ul>
-            </div>
-
-            <div class="priority-card important">
-              <h3>Pontos de validação</h3>
-              <ul>
-                <li>Validar se o local comporta estações de configuração.</li>
-                <li>Testar internet e energia para operação simultânea.</li>
-                <li>Confirmar fluxo de credenciamento e entrega dos kits.</li>
-                <li>Garantir suporte técnico no dia do evento.</li>
-              </ul>
-            </div>
+          <div class="course-overview reveal" style="margin-top:30px"><h3>Objetivo do evento</h3><p>Iniciar oficialmente a turma, apresentar a dinâmica do Connecta, alinhar responsabilidades e orientar curso, suporte, comunidade e uso dos equipamentos.</p></div>
+          <h3 class="editorial-title reveal" style="margin-top:26px">Roteiro visual</h3>
+          <div class="data-table-wrap reveal"><table class="data-table"><thead><tr><th>Momento</th><th>O que acontece</th><th>Responsável</th></tr></thead><tbody>
+            <tr><td><strong>Credenciamento</strong></td><td>Presença, dados e organização da entrada.</td><td>Recepção e operação</td></tr>
+            <tr><td><strong>Apresentação do programa</strong></td><td>Trilhas, monitorias, Discord, projetos e permanência.</td><td>Coordenação</td></tr>
+            <tr><td><strong>Entrega dos kits</strong></td><td>Distribuição, registro individual e termo de responsabilidade.</td><td>Operação e patrimônio</td></tr>
+            <tr><td><strong>Configuração inicial</strong></td><td>Notebook, Plataforma Institucional, Discord e senhas.</td><td>Equipe técnica</td></tr>
+            <tr><td><strong>Próximos passos</strong></td><td>Rotina de estudos, canais oficiais, monitoria e suporte.</td><td>Coordenação e monitores</td></tr>
+          </tbody></table></div>
+          <h3 class="editorial-title reveal" style="margin-top:26px">Checklist de validação</h3>
+          <ul class="pending-checklist reveal"><li>Data</li><li>Local</li><li>Internet e energia</li><li>Transporte dos equipamentos</li><li>Equipe por etapa</li><li>Roteiro oficial</li><li>Cobertura institucional</li><li>Suporte técnico no dia</li></ul>
+          <div class="accordion reveal" style="margin-top:18px">
+            <div class="accordion-item"><button class="accordion-button">Estrutura, circulação e estações de configuração <span>+</span></button><div class="accordion-content">O local deve comportar mais de 50 pessoas, circulação, internet e energia simultâneas, estações de configuração e equipe de apoio. O fluxo de credenciamento e entrega precisa ser testado antes do evento.</div></div>
+            <div class="accordion-item"><button class="accordion-button">Logística dos kits e suporte de hardware <span>+</span></button><div class="accordion-content">A operação inclui transporte, conferência, separação, registro de entrega e plano para problemas no primeiro acesso. Os alunos devem saber como reportar defeitos e onde buscar suporte técnico na sede local.</div></div>
+            <div class="accordion-item"><button class="accordion-button">Divulgação e cobertura institucional <span>+</span></button><div class="accordion-content">Prever divulgação prévia, material visual, cobertura fotográfica e audiovisual e peças para redes sociais e canais institucionais.</div></div>
           </div>
 
         </div>
@@ -2284,214 +2170,43 @@
           <div class="section-head reveal">
             <div>
               <h2 class="section-label">Curso, trilhas e forma de avaliação</h2>
-              <p class="lead">
-                O Connecta terá trilhas organizadas por área, com duração, carga horária, possibilidades de atuação, materiais didáticos e critérios comuns de avaliação.
-              </p>
+              <p class="lead">Formação por trilhas, com experiências práticas na plataforma e critérios comuns para avaliar projetos, desafios e entregas.</p>
+              <div class="status-row"><span class="status-tag defined">Estrutura definida</span><span class="status-tag validation">Conteúdo em validação</span></div>
             </div>
           </div>
-
-          <div class="filterbar reveal" aria-label="Filtros de trilhas">
-            <button class="filter active" data-filter="all">Todas</button>
-            <button class="filter" data-filter="dev">Desenvolvimento</button>
-            <button class="filter" data-filter="dados">Dados e IA</button>
-            <button class="filter" data-filter="infra">Infra e segurança</button>
-            <button class="filter" data-filter="negocios">Negócios</button>
-          </div>
-
-          <div class="tracks reveal">
-            <article class="track" data-track="infra">
-              <div>
-                <strong>Suporte Técnico e Helpdesk</strong>
-                <span>Base prática para atendimento, informática, suporte ao usuário e operação de TI.</span>
-              </div>
-              <div class="chips">
-                <span class="chip">6 meses</span>
-                <span class="chip">240h</span>
-                <span class="chip">Técnico de Suporte</span>
-              </div>
-            </article>
-
-            <article class="track" data-track="dev">
-              <div>
-                <strong>Desenvolvimento Web Full Stack</strong>
-                <span>Front-end, back-end, projetos web, versionamento e construção de portfólio.</span>
-              </div>
-              <div class="chips">
-                <span class="chip">12 meses</span>
-                <span class="chip">480h</span>
-                <span class="chip">Full Stack Jr.</span>
-              </div>
-            </article>
-
-            <article class="track" data-track="dados">
-              <div>
-                <strong>Análise de Dados e BI</strong>
-                <span>Relatórios, dashboards, indicadores, análise de dados e inteligência de mercado.</span>
-              </div>
-              <div class="chips">
-                <span class="chip">10 meses</span>
-                <span class="chip">400h</span>
-                <span class="chip">Analista de Dados Jr.</span>
-              </div>
-            </article>
-
-            <article class="track" data-track="infra">
-              <div>
-                <strong>Cibersegurança</strong>
-                <span>Fundamentos de segurança, práticas defensivas, análise inicial e operação em SOC.</span>
-              </div>
-              <div class="chips">
-                <span class="chip">8 meses</span>
-                <span class="chip">320h</span>
-                <span class="chip">SOC Analyst L1</span>
-              </div>
-            </article>
-
-            <article class="track" data-track="infra">
-              <div>
-                <strong>DevOps Essencial</strong>
-                <span>CI/CD, containers, cloud, infraestrutura como código e operação moderna.</span>
-              </div>
-              <div class="chips">
-                <span class="chip">8 meses</span>
-                <span class="chip">320h</span>
-                <span class="chip">DevOps Jr.</span>
-              </div>
-            </article>
-
-            <article class="track" data-track="infra">
-              <div>
-                <strong>DevOps Avançado</strong>
-                <span>SRE, monitoramento, GitOps, automação e engenharia de plataforma.</span>
-              </div>
-              <div class="chips">
-                <span class="chip">12 meses</span>
-                <span class="chip">480h</span>
-                <span class="chip">SRE / Platform</span>
-              </div>
-            </article>
-
-            <article class="track" data-track="negocios dados">
-              <div>
-                <strong>IA para Negócios</strong>
-                <span>Aplicações práticas sem código, automações corporativas e uso de IA em processos.</span>
-              </div>
-              <div class="chips">
-                <span class="chip">5 meses</span>
-                <span class="chip">200h</span>
-                <span class="chip">Assistente de IA</span>
-              </div>
-            </article>
-
-            <article class="track" data-track="dados dev">
-              <div>
-                <strong>ML e IA para Devs</strong>
-                <span>Machine learning, IA aplicada, engenharia de features e desenvolvimento de soluções inteligentes.</span>
-              </div>
-              <div class="chips">
-                <span class="chip">10 meses</span>
-                <span class="chip">400h</span>
-                <span class="chip">ML Engineer Jr.</span>
-              </div>
-            </article>
-
-            <article class="track" data-track="dados negocios">
-              <div>
-                <strong>IA Aplicada e Automação</strong>
-                <span>RPA, prompts, automações, integrações e soluções práticas com inteligência artificial.</span>
-              </div>
-              <div class="chips">
-                <span class="chip">14 meses</span>
-                <span class="chip">560h</span>
-                <span class="chip">Automação / IA Jr.</span>
-              </div>
-            </article>
-
-            <article class="track" data-track="infra">
-              <div>
-                <strong>Redes e Cloud Computing</strong>
-                <span>Administração de redes, computação em nuvem, sistemas e infraestrutura.</span>
-              </div>
-              <div class="chips">
-                <span class="chip">18 meses</span>
-                <span class="chip">720h</span>
-                <span class="chip">Cloud Engineer Jr.</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="grid-3 reveal" style="margin-top:18px">
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Formato do conteúdo</h3>
-              <p>
-                O curso deve combinar aulas gravadas, materiais escritos, guias técnicos, exercícios práticos, projetos guiados, quizzes e avaliações.
-              </p>
-            </article>
-
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Plataforma Institucional</h3>
-              <p>
-                O material ficará na Plataforma Institucional do Connecta, acessível pelos notebooks fornecidos e usado como base para acompanhamento dos alunos.
-              </p>
-            </article>
-
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Conteúdo complementar</h3>
-              <p>
-                Lives gravadas, sessões de aulas práticas ao vivo e dúvidas recorrentes registradas pela monitoria podem apoiar a evolução do material didático.
-              </p>
-            </article>
-          </div>
+          <div class="course-overview reveal" style="margin-top:30px"><h3>1 — Visão geral do curso</h3><p>As trilhas reúnem conteúdos na Plataforma Institucional, aulas gravadas, guias, exercícios, projetos, quizzes, avaliações e atividades complementares. Lives e dúvidas recorrentes podem ampliar o material didático.</p></div>
+          <h3 class="editorial-title reveal" style="margin-top:26px">2 — Trilhas</h3>
+          <div class="data-table-wrap reveal"><table class="data-table"><thead><tr><th>Área</th><th>Trilha</th><th>Duração</th><th>Carga horária</th><th>Saída esperada</th></tr></thead><tbody>
+            <tr><td>Infra</td><td><strong>Suporte Técnico e Helpdesk</strong></td><td>6 meses</td><td>240h</td><td>Técnico de Suporte</td></tr>
+            <tr><td>Desenvolvimento</td><td><strong>Desenvolvimento Web Full Stack</strong></td><td>12 meses</td><td>480h</td><td>Full Stack Jr.</td></tr>
+            <tr><td>Dados</td><td><strong>Análise de Dados e BI</strong></td><td>10 meses</td><td>400h</td><td>Analista de Dados Jr.</td></tr>
+            <tr><td>Segurança</td><td><strong>Cibersegurança</strong></td><td>8 meses</td><td>320h</td><td>SOC Analyst L1</td></tr>
+            <tr><td>Infra</td><td><strong>DevOps Essencial</strong></td><td>8 meses</td><td>320h</td><td>DevOps Jr.</td></tr>
+            <tr><td>Infra</td><td><strong>DevOps Avançado</strong></td><td>12 meses</td><td>480h</td><td>SRE / Platform</td></tr>
+            <tr><td>Negócios e IA</td><td><strong>IA para Negócios</strong></td><td>5 meses</td><td>200h</td><td>Assistente de IA</td></tr>
+            <tr><td>Dados e Dev</td><td><strong>ML e IA para Devs</strong></td><td>10 meses</td><td>400h</td><td>ML Engineer Jr.</td></tr>
+            <tr><td>Dados e Negócios</td><td><strong>IA Aplicada e Automação</strong></td><td>14 meses</td><td>560h</td><td>Automação / IA Jr.</td></tr>
+            <tr><td>Infra</td><td><strong>Redes e Cloud Computing</strong></td><td>18 meses</td><td>720h</td><td>Cloud Engineer Jr.</td></tr>
+          </tbody></table></div>
 
           <div class="section-head reveal" style="margin-top:32px">
             <div>
-              <h2 class="section-label">Critérios de avaliação</h2>
-              <p class="lead">
-                Critérios padronizados para avaliação de projetos, entregas e desafios, reduzindo subjetividade e garantindo consistência entre monitores.
-              </p>
+              <h2 class="section-label">3 — Avaliação</h2>
+              <p class="lead">Pesos comuns tornam a correção mais transparente e consistente entre monitores.</p>
             </div>
           </div>
 
-          <div class="grid-4 reveal">
-            <article class="card">
-              <h3>40% Código e funcionalidade</h3>
-              <p>
-                Verifica se a solução funciona conforme os requisitos, qualidade do código, boas práticas, organização e versionamento.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>25% Interface e experiência</h3>
-              <p>
-                Avalia layout, usabilidade, responsividade, clareza visual e acessibilidade básica quando aplicável.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>20% Entendimento do problema e da solução</h3>
-              <p>
-                Considera problema resolvido, proposta de valor, viabilidade, entendimento do usuário e coerência da solução.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>15% Documentação e apresentação</h3>
-              <p>
-                Analisa README, pitch, clareza da explicação, organização da entrega e capacidade de comunicar o projeto.
-              </p>
-            </article>
-          </div>
+          <div class="score-ruler reveal"><div class="score-row"><strong>Código e funcionalidade</strong><div class="score-track"><div class="score-fill" style="--score:40%"></div></div><b>40%</b></div><div class="score-row"><strong>Interface e experiência</strong><div class="score-track"><div class="score-fill" style="--score:25%"></div></div><b>25%</b></div><div class="score-row"><strong>Entendimento do problema</strong><div class="score-track"><div class="score-fill" style="--score:20%"></div></div><b>20%</b></div><div class="score-row"><strong>Documentação e apresentação</strong><div class="score-track"><div class="score-fill" style="--score:15%"></div></div><b>15%</b></div></div>
 
           <div class="accordion reveal" style="margin-top:18px">
-            <div class="accordion-item open">
+            <div class="accordion-item">
               <button class="accordion-button">O que ainda precisa ser definido no curso? <span>+</span></button>
               <div class="accordion-content">
                 Ementa detalhada de cada trilha, produção do material didático, cronograma de produção, aprovação dos critérios de avaliação e definição de como lives e aulas práticas ao vivo serão reaproveitadas como conteúdo complementar.
               </div>
             </div>
+            <div class="accordion-item"><button class="accordion-button">Detalhes e foco de cada trilha <span>+</span></button><div class="accordion-content">Suporte: atendimento e operação de TI. Full Stack: front-end, back-end, versionamento e portfólio. Dados e BI: relatórios, dashboards e indicadores. Cibersegurança: defesa e operação inicial em SOC. DevOps: CI/CD, containers, cloud, SRE e plataforma. IA: aplicações de negócio, machine learning, RPA, prompts e integrações. Redes e Cloud: administração de redes, sistemas e nuvem.</div></div>
+            <div class="accordion-item"><button class="accordion-button">Como os critérios são aplicados <span>+</span></button><div class="accordion-content">Código considera funcionamento, requisitos, qualidade, organização e versionamento. Interface considera layout, usabilidade, responsividade e acessibilidade. Problema considera proposta de valor, viabilidade e usuário. Documentação considera README, pitch, organização e clareza da apresentação.</div></div>
 
             <div class="accordion-item">
               <button class="accordion-button">Por que os critérios de avaliação são importantes? <span>+</span></button>
@@ -2685,120 +2400,16 @@
           <div class="section-head reveal">
             <div>
               <h2 class="section-label">Projetos, participação e oportunidades</h2>
-              <p class="lead">
-                Desafios, projetos e atividades em grupo mantêm a comunidade ativa, geram portfólio e aproximam os alunos de novas oportunidades.
-              </p>
+              <p class="lead">Como os alunos participam além das aulas: prática orientada, colaboração, experiências ao vivo e conexão com o mercado.</p>
+              <div class="status-row"><span class="status-tag defined">Caminhos definidos</span><span class="status-tag validation">Operação em validação</span></div>
             </div>
           </div>
-
-          <div class="grid-4 reveal">
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Desafios</h3>
-              <p>
-                Competições periódicas com descrição da atividade, prazo e critérios de avaliação. São opcionais, fora da carga horária e voltadas à prática, portfólio e reconhecimento dos melhores projetos.
-              </p>
-            </article>
-
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Grupos de projeto</h3>
-              <p>
-                Grupos multidisciplinares formados por alunos de trilhas diferentes para simular uma operação real, desenvolver projetos e criar entregas de portfólio.
-              </p>
-            </article>
-
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Aulas práticas ao vivo</h3>
-              <p>
-                Sessões ao vivo conduzidas pelo time da NIC ou monitores técnicos, com desenvolvimento de soluções em tempo real, explicações e dúvidas dos alunos.
-              </p>
-            </article>
-
-            <article class="card brand-card">
-              <div class="brand-line"><i></i><i></i><i></i></div>
-              <h3>Oportunidades</h3>
-              <p>
-                Vagas, eventos externos, dicas de carreira, projetos reais e conexões com mercado podem ser organizados em canais próprios no Discord e no sistema.
-              </p>
-            </article>
-          </div>
-
-          <div class="timeline reveal" style="margin-top:18px">
-            <div class="step-card">
-              <strong>Descrição da atividade</strong>
-              <span>Equipe define desafio, projeto ou oportunidade com objetivo, escopo, prazo e critérios de avaliação.</span>
-            </div>
-
-            <div class="step-card">
-              <strong>Participação</strong>
-              <span>Alunos participam individualmente ou em grupos de projeto, conforme a natureza da atividade e as competências necessárias.</span>
-            </div>
-
-            <div class="step-card">
-              <strong>Acompanhamento</strong>
-              <span>Monitores, coordenação de negócios, design ou NIC podem apoiar dúvidas, decisões técnicas e orientação de entrega.</span>
-            </div>
-
-            <div class="step-card">
-              <strong>Entrega e avaliação</strong>
-              <span>Projetos e desafios são avaliados com critérios de avaliação padronizados, considerando código, interface, entendimento do problema e da solução, documentação e apresentação.</span>
-            </div>
-
-            <div class="step-card">
-              <strong>Portfólio e destaque</strong>
-              <span>Entregas relevantes alimentam portfólio, podem gerar destaque na comunidade e ajudam a evidenciar evolução prática dos alunos.</span>
-            </div>
-          </div>
-
-          <div class="grid-3 reveal" style="margin-top:18px">
-            <article class="card">
-              <h3>Super Módulos</h3>
-              <p>
-                Cursos extras de 2 a 3 meses, com uma aula semanal de 2 a 3 horas, certificado, presença mínima e projeto final.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>Vagas e eventos externos</h3>
-              <p>
-                A frente de oportunidades pode organizar vagas, eventos externos, orientações de carreira, mural de talentos e divulgação de projetos.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>Projetos reais</h3>
-              <p>
-                O Connecta pode divulgar oportunidades reais, mas negociação, pagamento, escopo e entrega devem ocorrer diretamente entre alunos e clientes, fora da responsabilidade pelo funcionamento do programa.
-              </p>
-            </article>
-          </div>
-
-          <div class="priority-grid reveal" style="margin-top:18px">
-            <div class="priority-card important">
-              <h3>Pontos de validação</h3>
-              <ul>
-                <li>Definir frequência e calendário dos eventos online.</li>
-                <li>Definir responsáveis por desafios, projetos, live codes e Super Módulos.</li>
-                <li>Definir os primeiros temas de desafios e Super Módulos.</li>
-                <li>Validar se a equipe atual comporta uma rotina semanal de eventos.</li>
-              </ul>
-            </div>
-
-            <div class="priority-card critical">
-              <h3>Regras de proteção</h3>
-              <ul>
-                <li>Projetos reais devem ter acesso restrito a alunos maiores de 18 anos.</li>
-                <li>Pode ser exigido nível mínimo no ranking para acesso ao canal.</li>
-                <li>Negociação, pagamento e entrega são responsabilidade de alunos e clientes.</li>
-                <li>Projetos reais não devem contar para ranking na primeira versão.</li>
-              </ul>
-            </div>
-          </div>
+          <h3 class="editorial-title reveal" style="margin-top:30px">Mapa de engajamento</h3>
+          <div class="engagement-map reveal"><div class="engagement-path"><strong>Desafios</strong><span>Prática opcional com prazo, critérios claros e entregas para portfólio.</span></div><div class="engagement-path"><strong>Grupos de projeto</strong><span>Times multidisciplinares que simulam uma operação real.</span></div><div class="engagement-path"><strong>Aulas práticas ao vivo</strong><span>Soluções construídas em tempo real com NIC e monitores.</span></div><div class="engagement-path"><strong>Oportunidades</strong><span>Vagas, eventos, carreira, talentos e conexão com o mercado.</span></div></div>
+          <div class="outcome-strip reveal" style="margin-top:18px"><strong>Resultado esperado</strong><span>Mais prática</span><span>Mais engajamento</span><span>Mais portfólio</span><span>Mais conexão com o mercado</span></div>
 
           <div class="accordion reveal" style="margin-top:18px">
-            <div class="accordion-item open">
+            <div class="accordion-item">
               <button class="accordion-button">Qual é o papel dos desafios? <span>+</span></button>
               <div class="accordion-content">
                 Os desafios criam prática recorrente fora da carga horária, estimulam entregas e ajudam na construção de portfólio. O reconhecimento de cada edição será definido em regulamento.
@@ -2811,6 +2422,10 @@
                 Os grupos de projeto reúnem alunos de trilhas diferentes para simular uma equipe real. A composição pode considerar competências complementares e, futuramente, testes de perfil para formar grupos equilibrados.
               </div>
             </div>
+            <div class="accordion-item"><button class="accordion-button">Fluxo, responsabilidades e avaliação das atividades <span>+</span></button><div class="accordion-content">A equipe define objetivo, escopo, prazo e critérios. Alunos participam individualmente ou em grupos; monitores, negócios, design ou NIC apoiam a execução. A entrega segue os critérios padronizados e projetos relevantes alimentam portfólio e destaque na comunidade.</div></div>
+            <div class="accordion-item"><button class="accordion-button">Super Módulos, vagas e eventos externos <span>+</span></button><div class="accordion-content">Super Módulos são cursos extras de 2 a 3 meses, com aula semanal de 2 a 3 horas, presença mínima, certificado e projeto final. A frente de oportunidades pode organizar vagas, eventos, carreira, mural de talentos e divulgação de projetos.</div></div>
+            <div class="accordion-item"><button class="accordion-button">Proteções para projetos reais <span>+</span></button><div class="accordion-content">Acesso restrito a maiores de 18 anos e, se necessário, nível mínimo no ranking. Negociação, pagamento, escopo e entrega são responsabilidade direta de alunos e clientes. Projetos reais não contam para ranking na primeira versão.</div></div>
+            <div class="accordion-item"><button class="accordion-button">Pendências operacionais do engajamento <span>+</span></button><div class="accordion-content">Definir frequência e calendário dos eventos, responsáveis por desafios, projetos, aulas ao vivo e Super Módulos, primeiros temas e capacidade da equipe para sustentar a rotina.</div></div>
 
             <div class="accordion-item">
               <button class="accordion-button">Por que projetos reais exigem regra específica? <span>+</span></button>
