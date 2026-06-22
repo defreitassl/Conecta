@@ -896,6 +896,19 @@
       display: block;
       animation: fadeUp .25s ease both;
     }
+    .evaluation-accordion .accordion-button { padding: 19px 20px; font-size: 16px; }
+    .evaluation-accordion .accordion-content { padding: 2px 20px 20px; line-height: 1.6; }
+    .detail-intro { max-width: 760px; margin-bottom: 14px; color: var(--muted); }
+    .detail-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 20px; margin: 0; padding: 0; list-style: none; }
+    .detail-list li { position: relative; padding: 10px 12px 10px 35px; border-radius: 12px; background: var(--paper-blue); color: var(--ink); }
+    .detail-list li:before { content: ""; position: absolute; left: 14px; top: 17px; width: 8px; height: 8px; border-radius: 50%; background: var(--brand-blue); }
+    .detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .detail-block { padding: 14px 15px; border: 1px solid var(--line); border-radius: 14px; background: #fffdf8; }
+    .detail-block strong { display: block; margin-bottom: 5px; color: var(--ink); font-size: 14px; }
+    .detail-block span { display: block; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .detail-benefits { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .detail-benefit { padding: 14px; border-radius: 14px; background: var(--dark); color: #fff; font-size: 13px; line-height: 1.45; }
+    .detail-benefit strong { display: block; margin-bottom: 5px; color: #8fe3ca; }
 
     .status-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .status-tag { display: inline-flex; align-items: center; gap: 7px; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 900; background: #fff; border: 1px solid var(--line); }
@@ -1626,6 +1639,7 @@
       .score-row { grid-template-columns: 1fr 48px; gap: 7px 10px; }
       .score-track { grid-column: 1; grid-row: 2; }
       .score-row b { grid-column: 2; grid-row: 1 / span 2; }
+      .detail-list, .detail-grid, .detail-benefits { grid-template-columns: 1fr; }
       .flow-node:after { display: none; }
       .document-viewer-bar {
         align-items: stretch;
@@ -2198,20 +2212,51 @@
 
           <div class="score-ruler reveal"><div class="score-row"><strong>Código e funcionalidade</strong><div class="score-track"><div class="score-fill" style="--score:40%"></div></div><b>40%</b></div><div class="score-row"><strong>Interface e experiência</strong><div class="score-track"><div class="score-fill" style="--score:25%"></div></div><b>25%</b></div><div class="score-row"><strong>Entendimento do problema</strong><div class="score-track"><div class="score-fill" style="--score:20%"></div></div><b>20%</b></div><div class="score-row"><strong>Documentação e apresentação</strong><div class="score-track"><div class="score-fill" style="--score:15%"></div></div><b>15%</b></div></div>
 
-          <div class="accordion reveal" style="margin-top:18px">
+          <div class="accordion evaluation-accordion reveal" style="margin-top:18px">
             <div class="accordion-item">
               <button class="accordion-button">O que ainda precisa ser definido no curso? <span>+</span></button>
               <div class="accordion-content">
-                Ementa detalhada de cada trilha, produção do material didático, cronograma de produção, aprovação dos critérios de avaliação e definição de como lives e aulas práticas ao vivo serão reaproveitadas como conteúdo complementar.
+                <p class="detail-intro">Cinco decisões concentram a próxima etapa de estruturação pedagógica:</p>
+                <ul class="detail-list">
+                  <li>Ementa detalhada de cada trilha</li>
+                  <li>Produção do material didático</li>
+                  <li>Cronograma de produção</li>
+                  <li>Aprovação dos critérios de avaliação</li>
+                  <li>Uso de lives e aulas práticas como conteúdo complementar</li>
+                </ul>
               </div>
             </div>
-            <div class="accordion-item"><button class="accordion-button">Detalhes e foco de cada trilha <span>+</span></button><div class="accordion-content">Suporte: atendimento e operação de TI. Full Stack: front-end, back-end, versionamento e portfólio. Dados e BI: relatórios, dashboards e indicadores. Cibersegurança: defesa e operação inicial em SOC. DevOps: CI/CD, containers, cloud, SRE e plataforma. IA: aplicações de negócio, machine learning, RPA, prompts e integrações. Redes e Cloud: administração de redes, sistemas e nuvem.</div></div>
-            <div class="accordion-item"><button class="accordion-button">Como os critérios são aplicados <span>+</span></button><div class="accordion-content">Código considera funcionamento, requisitos, qualidade, organização e versionamento. Interface considera layout, usabilidade, responsividade e acessibilidade. Problema considera proposta de valor, viabilidade e usuário. Documentação considera README, pitch, organização e clareza da apresentação.</div></div>
+            <div class="accordion-item">
+              <button class="accordion-button">Detalhes e foco de cada trilha <span>+</span></button>
+              <div class="accordion-content"><div class="detail-grid">
+                <div class="detail-block"><strong>Suporte</strong><span>Atendimento ao usuário e operação de TI.</span></div>
+                <div class="detail-block"><strong>Full Stack</strong><span>Front-end, back-end, versionamento e portfólio.</span></div>
+                <div class="detail-block"><strong>Dados e BI</strong><span>Relatórios, dashboards e indicadores.</span></div>
+                <div class="detail-block"><strong>Cibersegurança</strong><span>Defesa e operação inicial em SOC.</span></div>
+                <div class="detail-block"><strong>DevOps</strong><span>CI/CD, containers, cloud, SRE e plataforma.</span></div>
+                <div class="detail-block"><strong>Inteligência Artificial</strong><span>Negócios, machine learning, RPA, prompts e integrações.</span></div>
+                <div class="detail-block"><strong>Redes e Cloud</strong><span>Administração de redes, sistemas e nuvem.</span></div>
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-button">Como os critérios são aplicados <span>+</span></button>
+              <div class="accordion-content"><div class="detail-grid">
+                <div class="detail-block"><strong>Código e funcionalidade · 40%</strong><span>Funcionamento, requisitos, qualidade, organização e versionamento.</span></div>
+                <div class="detail-block"><strong>Interface e experiência · 25%</strong><span>Layout, usabilidade, responsividade e acessibilidade.</span></div>
+                <div class="detail-block"><strong>Entendimento do problema · 20%</strong><span>Proposta de valor, viabilidade e entendimento do usuário.</span></div>
+                <div class="detail-block"><strong>Documentação e apresentação · 15%</strong><span>README, pitch, organização e clareza da comunicação.</span></div>
+              </div></div>
+            </div>
 
             <div class="accordion-item">
               <button class="accordion-button">Por que os critérios de avaliação são importantes? <span>+</span></button>
               <div class="accordion-content">
-                Os critérios de avaliação reduzem avaliações subjetivas, orientam os alunos antes da entrega, padronizam a correção entre monitores e facilitam o registro de desempenho em projetos e desafios.
+                <div class="detail-benefits">
+                  <div class="detail-benefit"><strong>Mais objetividade</strong>Reduz avaliações subjetivas.</div>
+                  <div class="detail-benefit"><strong>Mais orientação</strong>Mostra ao aluno o que será avaliado antes da entrega.</div>
+                  <div class="detail-benefit"><strong>Mais consistência</strong>Padroniza a correção entre monitores.</div>
+                  <div class="detail-benefit"><strong>Mais rastreabilidade</strong>Facilita o registro do desempenho em projetos e desafios.</div>
+                </div>
               </div>
             </div>
 
