@@ -1,0 +1,799 @@
+- generic [ref=e4]:
+  - complementary [ref=e5]:
+    - generic [ref=e6]:
+      - img "Logo Connecta" [ref=e8]
+      - generic [ref=e9]:
+        - strong [ref=e10]: Programa Connecta
+        - generic [ref=e11]: Painel executivo
+    - navigation "Navegação da apresentação" [ref=e12]:
+      - link "Início" [ref=e13] [cursor=pointer]:
+        - /url: "#inicio"
+        - text: Início
+      - link "Roadmap" [ref=e15] [cursor=pointer]:
+        - /url: "#roadmap"
+        - text: Roadmap
+      - link "Visão geral" [ref=e17] [cursor=pointer]:
+        - /url: "#narrativa"
+        - text: Visão geral
+      - link "Frentes" [ref=e19] [cursor=pointer]:
+        - /url: "#mapa"
+        - text: Frentes
+      - link "Infraestrutura NIC" [ref=e21] [cursor=pointer]:
+        - /url: "#infraestrutura"
+        - text: Infraestrutura NIC
+      - link "Seleção e prova" [ref=e23] [cursor=pointer]:
+        - /url: "#selecao"
+        - text: Seleção e prova
+      - link "Matrícula e aluno" [ref=e25] [cursor=pointer]:
+        - /url: "#aluno"
+        - text: Matrícula e aluno
+      - link "Lançamento" [ref=e27] [cursor=pointer]:
+        - /url: "#lancamento"
+        - text: Lançamento
+      - link "Curso e trilhas" [ref=e29] [cursor=pointer]:
+        - /url: "#trilhas"
+        - text: Curso e trilhas
+      - link "Monitoria e suporte" [ref=e31] [cursor=pointer]:
+        - /url: "#operacao"
+        - text: Monitoria e suporte
+      - link "Discord e comunidade" [ref=e33] [cursor=pointer]:
+        - /url: "#discord"
+        - text: Discord e comunidade
+      - link "Prioridades" [ref=e35] [cursor=pointer]:
+        - /url: "#prioridades"
+        - text: Prioridades
+      - link "Próximos passos" [ref=e37] [cursor=pointer]:
+        - /url: "#proximos"
+        - text: Próximos passos
+  - main [ref=e39]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - heading "Programa Connecta" [level=1] [ref=e43]
+        - generic [ref=e44]: Apresentação executiva · Santa Bárbara / MG
+        - paragraph [ref=e45]: Visão consolidada do escopo, da operação planejada, das pendências e dos próximos passos do Programa Connecta.
+        - generic [ref=e46]:
+          - link "Roadmap ↓" [ref=e47] [cursor=pointer]:
+            - /url: "#roadmap"
+            - text: Roadmap
+            - generic [ref=e48]: ↓
+          - link "Pendências" [ref=e49] [cursor=pointer]:
+            - /url: "#prioridades"
+          - link "Próximas ações" [ref=e50] [cursor=pointer]:
+            - /url: "#proximos"
+      - generic [ref=e52]:
+        - generic [ref=e53]: Painel Connecta
+        - generic [ref=e57]:
+          - generic [ref=e58]:
+            - generic [ref=e59]:
+              - strong [ref=e60]: "50"
+              - generic [ref=e61]: alunos na primeira turma
+            - generic [ref=e62]:
+              - strong [ref=e63]: "50"
+              - generic [ref=e64]: convocados + até 200 suplentes
+            - generic [ref=e65]:
+              - strong [ref=e66]: 12h
+              - generic [ref=e67]: cobertura diária de suporte
+          - generic "Radar visual de operação" [ref=e68]:
+            - img "Logo Connecta" [ref=e73]
+          - generic [ref=e74]:
+            - generic [ref=e75]: Edital
+            - generic [ref=e76]: App Exame
+            - generic [ref=e77]: Monitoria
+            - generic [ref=e78]: Discord
+    - generic [ref=e80]:
+      - generic [ref=e82]:
+        - heading "Roadmap do Connecta" [level=2] [ref=e83]
+        - paragraph [ref=e84]: Sequência prevista para implantação do programa. As datas dependem da assinatura do contrato com a Prefeitura e da validação das entregas bloqueantes.
+      - list [ref=e85]:
+        - listitem [ref=e86]:
+          - link "01 Formalização institucional Assinatura do contrato com a Prefeitura, validações jurídicas e definição do cronograma oficial." [ref=e88] [cursor=pointer]:
+            - /url: "#prioridades"
+            - generic [ref=e89]:
+              - generic [ref=e90]: "01"
+              - text: Formalização institucional
+            - generic [ref=e91]: Assinatura do contrato com a Prefeitura, validações jurídicas e definição do cronograma oficial.
+            - generic [ref=e92]: ↓
+        - listitem [ref=e93]:
+          - link "02 Infraestrutura digital Preparação e testes do portal de inscrições, App Exame, plataforma acadêmica e integrações da NIC." [ref=e95] [cursor=pointer]:
+            - /url: "#mapa"
+            - generic [ref=e96]:
+              - generic [ref=e97]: "02"
+              - text: Infraestrutura digital
+            - generic [ref=e98]: Preparação e testes do portal de inscrições, App Exame, plataforma acadêmica e integrações da NIC.
+            - generic [ref=e99]: ↓
+        - listitem [ref=e100]:
+          - link "03 Seleção da primeira turma Publicação do edital, inscrições, aplicação da prova, classificação e convocação dos candidatos." [ref=e102] [cursor=pointer]:
+            - /url: "#selecao"
+            - generic [ref=e103]:
+              - generic [ref=e104]: "03"
+              - text: Seleção da primeira turma
+            - generic [ref=e105]: Publicação do edital, inscrições, aplicação da prova, classificação e convocação dos candidatos.
+            - generic [ref=e106]: ↓
+        - listitem [ref=e107]:
+          - link "04 Estruturação da operação Contratação dos monitores, definição da triagem, Manual do Monitor e configuração do Discord e dos bots." [ref=e109] [cursor=pointer]:
+            - /url: "#operacao"
+            - generic [ref=e110]:
+              - generic [ref=e111]: "04"
+              - text: Estruturação da operação
+            - generic [ref=e112]: Contratação dos monitores, definição da triagem, Manual do Monitor e configuração do Discord e dos bots.
+            - generic [ref=e113]: ↓
+        - listitem [ref=e114]:
+          - link "05 Matrícula e preparação da turma Formalização dos alunos, termos de compromisso, separação dos kits e configuração dos acessos." [ref=e116] [cursor=pointer]:
+            - /url: "#aluno"
+            - generic [ref=e117]:
+              - generic [ref=e118]: "05"
+              - text: Matrícula e preparação da turma
+            - generic [ref=e119]: Formalização dos alunos, termos de compromisso, separação dos kits e configuração dos acessos.
+            - generic [ref=e120]: ↓
+        - listitem [ref=e121]:
+          - link "06 Lançamento e início do curso Evento presencial, entrega dos equipamentos, onboarding dos alunos e início das trilhas formativas." [ref=e123] [cursor=pointer]:
+            - /url: "#aluno"
+            - generic [ref=e124]:
+              - generic [ref=e125]: "06"
+              - text: Lançamento e início do curso
+            - generic [ref=e126]: Evento presencial, entrega dos equipamentos, onboarding dos alunos e início das trilhas formativas.
+            - generic [ref=e127]: ↓
+        - listitem [ref=e128]:
+          - link "07 Comunidade, projetos e engajamento Monitorias, lives, núcleos de projeto, desafios mensais, ranking e produção de portfólio." [ref=e130] [cursor=pointer]:
+            - /url: "#operacao"
+            - generic [ref=e131]:
+              - generic [ref=e132]: "07"
+              - text: Comunidade, projetos e engajamento
+            - generic [ref=e133]: Monitorias, lives, núcleos de projeto, desafios mensais, ranking e produção de portfólio.
+            - generic [ref=e134]: ↓
+        - listitem [ref=e135]:
+          - link "08 Evolução do ecossistema Super Módulos, vagas, projetos reais, dashboard de métricas, política de dados e certificações." [ref=e137] [cursor=pointer]:
+            - /url: "#prioridades"
+            - generic [ref=e138]:
+              - generic [ref=e139]: "08"
+              - text: Evolução do ecossistema
+            - generic [ref=e140]: Super Módulos, vagas, projetos reais, dashboard de métricas, política de dados e certificações.
+            - generic [ref=e141]: ↓
+    - generic [ref=e143]:
+      - generic [ref=e145]:
+        - heading "Visão geral da estrutura" [level=2] [ref=e146]
+        - paragraph [ref=e147]: "Síntese das principais frentes já estruturadas na Matriz Connecta: seleção, infraestrutura, curso, suporte, comunidade, projetos, operação e próximos passos."
+      - generic [ref=e148]:
+        - article [ref=e149]:
+          - heading "Contexto" [level=3] [ref=e154]
+          - paragraph [ref=e155]: O Connecta está sendo estruturado como uma operação completa de formação em tecnologia, com seleção pública, infraestrutura própria, acompanhamento técnico e integração com oportunidades profissionais.
+        - article [ref=e156]:
+          - heading "Estrutura definida" [level=3] [ref=e161]
+          - paragraph [ref=e162]: A matriz já consolida processo seletivo, prova, matrícula, entrega de equipamentos, trilhas, monitoria, Discord, desafios, ranking, eventos online, equipe operacional e pendências priorizadas.
+        - article [ref=e163]:
+          - heading "Resultado operacional esperado" [level=3] [ref=e168]
+          - paragraph [ref=e169]: Uma turma acompanhada de forma contínua, com suporte organizado, dados operacionais registrados, evolução por trilhas, participação em comunidade e produção de portfólio.
+      - generic [ref=e170]:
+        - generic [ref=e171]:
+          - strong [ref=e172]: "10"
+          - generic [ref=e173]: trilhas formativas previstas
+        - generic [ref=e174]:
+          - strong [ref=e175]: 6-18
+          - generic [ref=e176]: meses de duração por trilha
+        - generic [ref=e177]:
+          - strong [ref=e178]: 30-40
+          - generic [ref=e179]: minutos por monitoria
+        - generic [ref=e180]:
+          - strong [ref=e181]: 48h
+          - generic [ref=e182]: SLA máximo para tickets
+    - generic [ref=e184]:
+      - generic [ref=e186]:
+        - heading "Frentes de implantação" [level=2] [ref=e187]
+        - paragraph [ref=e188]: "Organização das frentes que precisam avançar em paralelo para transformar a matriz em execução: seleção, plataformas, curso, suporte, comunidade, logística e governança."
+      - generic [ref=e189]:
+        - tablist "Frentes do Programa Connecta" [ref=e190]:
+          - tab "Seleção pública Inscrição, prova, classificação, recursos e matrícula." [selected] [ref=e191] [cursor=pointer]:
+            - strong [ref=e192]: Seleção pública
+            - generic [ref=e193]: Inscrição, prova, classificação, recursos e matrícula.
+          - tab "Infraestrutura NIC Portal, App Exame, plataforma acadêmica e integrações." [ref=e194] [cursor=pointer]:
+            - strong [ref=e195]: Infraestrutura NIC
+            - generic [ref=e196]: Portal, App Exame, plataforma acadêmica e integrações.
+          - tab "Prova e classificação Matriz da prova, turnos, correção, resultado e desempate." [ref=e197] [cursor=pointer]:
+            - strong [ref=e198]: Prova e classificação
+            - generic [ref=e199]: Matriz da prova, turnos, correção, resultado e desempate.
+          - tab "Matrícula e equipamentos Termos, kits, acessos, permanência e devolução." [ref=e200] [cursor=pointer]:
+            - strong [ref=e201]: Matrícula e equipamentos
+            - generic [ref=e202]: Termos, kits, acessos, permanência e devolução.
+          - tab "Curso e material Trilhas, ementas, aulas, projetos, quizzes e rubrica." [ref=e203] [cursor=pointer]:
+            - strong [ref=e204]: Curso e material
+            - generic [ref=e205]: Trilhas, ementas, aulas, projetos, quizzes e rubrica.
+          - tab "Monitoria e suporte Calendly, tickets, triagem, atendimento e escalonamento." [ref=e206] [cursor=pointer]:
+            - strong [ref=e207]: Monitoria e suporte
+            - generic [ref=e208]: Calendly, tickets, triagem, atendimento e escalonamento.
+          - tab "Discord e comunidade Avisos, canais, cargos, base, ranking, bots e métricas." [ref=e209] [cursor=pointer]:
+            - strong [ref=e210]: Discord e comunidade
+            - generic [ref=e211]: Avisos, canais, cargos, base, ranking, bots e métricas.
+          - tab "Projetos e oportunidades Desafios, núcleos, lives, Super Módulos, vagas e projetos reais." [ref=e212] [cursor=pointer]:
+            - strong [ref=e213]: Projetos e oportunidades
+            - generic [ref=e214]: Desafios, núcleos, lives, Super Módulos, vagas e projetos reais.
+        - generic [ref=e215]:
+          - generic [ref=e216]:
+            - generic [ref=e217]: Seleção pública
+            - paragraph [ref=e218]: O candidato entra pelo Portal de Processo Seletivo, passa pela validação dos requisitos, realiza prova presencial digital, acompanha gabarito e resultado, e segue para convocação e matrícula se aprovado.
+          - generic [ref=e219]:
+            - generic [ref=e220]:
+              - strong [ref=e221]: 50 vagas
+              - text: Primeira turma oficial.
+            - generic [ref=e222]:
+              - strong [ref=e223]: Até 200 suplentes
+              - text: Lista de espera para reposição.
+            - generic [ref=e224]:
+              - strong [ref=e225]: Edital
+              - text: Referência oficial das regras.
+    - generic [ref=e227]:
+      - generic [ref=e229]:
+        - heading "Infraestrutura Digital NIC" [level=2] [ref=e230]
+        - paragraph [ref=e231]: Plataformas digitais sob responsabilidade da NIC para sustentar inscrição, aplicação da prova, divulgação de resultados, área acadêmica, integrações e acompanhamento operacional.
+      - generic [ref=e232]:
+        - article [ref=e233]:
+          - heading "Portal de Processo Seletivo" [level=3] [ref=e238]
+          - paragraph [ref=e239]: Ambiente de inscrição e acompanhamento do candidato, com validação de CPF único, coleta de dados obrigatórios, publicação de gabarito, resultados, convocados e lista de espera.
+          - list [ref=e240]:
+            - listitem [ref=e241]: Formulário de inscrição com dados do edital.
+            - listitem [ref=e242]: Consulta individual do candidato.
+            - listitem [ref=e243]: Controle de convocação e abertura de slots.
+            - listitem [ref=e244]: Tratamento de dados conforme requisitos de proteção de dados.
+        - article [ref=e245]:
+          - heading "App Exame" [level=3] [ref=e250]
+          - paragraph [ref=e251]: Aplicação digital da prova objetiva presencial, com identificação do candidato, controle de tempo, registro de respostas, bloqueios de segurança e exportação dos dados para correção.
+          - list [ref=e252]:
+            - listitem [ref=e253]: Aplicação presencial em computadores preparados.
+            - listitem [ref=e254]: Controle de tempo e envio das respostas.
+            - listitem [ref=e255]: Bloqueio de navegação externa e capturas de tela.
+            - listitem [ref=e256]: Integração com o Portal de Processo Seletivo.
+        - article [ref=e257]:
+          - heading "Plataforma Institucional" [level=3] [ref=e262]
+          - paragraph [ref=e263]: Ambiente acadêmico oficial do Connecta, onde ficarão hospedadas as aulas gravadas, materiais de estudo, conteúdos complementares e recursos de acompanhamento dos alunos.
+          - list [ref=e264]:
+            - listitem [ref=e265]: Acesso às aulas gravadas.
+            - listitem [ref=e266]: Materiais escritos, guias e documentação técnica.
+            - listitem [ref=e267]: Exercícios, projetos, quizzes e avaliações.
+            - listitem [ref=e268]: Base para acompanhamento pedagógico e evolução do aluno.
+      - generic [ref=e269]:
+        - generic [ref=e270]:
+          - strong [ref=e271]: "3"
+          - generic [ref=e272]: plataformas principais sob responsabilidade da NIC
+        - generic [ref=e273]:
+          - strong [ref=e274]: "1"
+          - generic [ref=e275]: fluxo integrado entre inscrição, prova, resultado e matrícula
+        - generic [ref=e276]:
+          - strong [ref=e277]: LGPD
+          - generic [ref=e278]: atenção ao tratamento e proteção dos dados dos candidatos
+        - generic [ref=e279]:
+          - strong [ref=e280]: Teste
+          - generic [ref=e281]: homologação e testes de carga antes da abertura operacional
+      - generic [ref=e282]:
+        - generic [ref=e283]:
+          - button "O que precisa ser validado pela NIC? +" [ref=e284] [cursor=pointer]:
+            - text: O que precisa ser validado pela NIC?
+            - generic [ref=e285]: +
+          - generic [ref=e286]: Marcos de entrega das plataformas, integração entre App Exame e Portal, teste de carga, simulação do fluxo de prova, segurança da aplicação e disponibilidade da plataforma acadêmica antes do início da turma.
+        - button "Qual é o principal risco técnico? +" [ref=e288] [cursor=pointer]:
+          - text: Qual é o principal risco técnico?
+          - generic [ref=e289]: +
+        - button "Como essa frente se conecta ao restante da operação? +" [ref=e291] [cursor=pointer]:
+          - text: Como essa frente se conecta ao restante da operação?
+          - generic [ref=e292]: +
+    - generic [ref=e294]:
+      - generic [ref=e296]:
+        - heading "Processo seletivo e prova" [level=2] [ref=e297]
+        - paragraph [ref=e298]: Estrutura prevista para inscrição, validação de candidatos, aplicação da prova presencial digital, classificação, recursos, convocação e matrícula da primeira turma.
+      - generic [ref=e299]:
+        - generic [ref=e300]:
+          - strong [ref=e301]: Inscrição
+          - text: Portal da NIC com CPF único, dados obrigatórios, aceite do edital e validação inicial dos requisitos.
+        - generic [ref=e302]:
+          - strong [ref=e303]: Validação
+          - text: Conferência de idade mínima, residência em Santa Bárbara, documento, WhatsApp, e-mail e dados do responsável quando menor.
+        - generic [ref=e304]:
+          - strong [ref=e305]: Prova presencial digital
+          - text: Aplicação pelo App Exame, com controle de tempo, registro de respostas, bloqueios de segurança e aplicação em turnos se necessário.
+        - generic [ref=e306]:
+          - strong [ref=e307]: Resultado e recursos
+          - text: Correção, gabarito, resultado preliminar, prazo para recursos, julgamento e publicação do resultado final.
+        - generic [ref=e308]:
+          - strong [ref=e309]: Convocação e matrícula
+          - text: Convocação dos 50 primeiros, formação da lista de espera e matrícula com conferência documental e termo de compromisso.
+      - tablist "Detalhes da seleção" [ref=e310]:
+        - button "Prova" [ref=e311] [cursor=pointer]
+        - button "Requisitos" [ref=e312] [cursor=pointer]
+        - button "Classificação" [ref=e313] [cursor=pointer]
+        - button "Pontos de atenção" [ref=e314] [cursor=pointer]
+      - generic [ref=e316]:
+        - generic [ref=e317]:
+          - 'heading "Matriz prevista: 40 questões" [level=3] [ref=e318]'
+          - paragraph [ref=e319]: 20 questões de raciocínio lógico-matemático, 10 de língua portuguesa/interpretação e 10 de conhecimentos gerais e cultura digital.
+        - generic [ref=e320]:
+          - heading "100 pontos" [level=3] [ref=e321]
+          - paragraph [ref=e322]: Prova classificatória e eliminatória, com pontuação total prevista de 100 pontos.
+        - generic [ref=e323]:
+          - heading "Até 2 horas" [level=3] [ref=e324]
+          - paragraph [ref=e325]: Duração total prevista, incluindo identificação, orientações iniciais e envio das respostas.
+        - generic [ref=e326]:
+          - heading "Resultado após os turnos" [level=3] [ref=e327]
+          - paragraph [ref=e328]: O resultado individual não deve aparecer ao final da prova para evitar vazamento de informações entre candidatos.
+    - generic [ref=e330]:
+      - generic [ref=e332]:
+        - heading "Matrícula, permanência e equipamentos" [level=2] [ref=e333]
+        - paragraph [ref=e334]: "Fluxo de entrada e acompanhamento do aluno após a convocação: matrícula, termo de compromisso, entrega de kit, configuração de acessos, permanência obrigatória e devolução de equipamentos quando aplicável."
+      - generic [ref=e335]:
+        - article [ref=e336]:
+          - heading "Matrícula" [level=3] [ref=e341]
+          - paragraph [ref=e342]: Os convocados devem apresentar documentação, confirmar os dados exigidos pelo edital e formalizar a entrada no programa dentro do prazo definido.
+        - article [ref=e343]:
+          - heading "Termo de compromisso" [level=3] [ref=e348]
+          - paragraph [ref=e349]: A matrícula inclui assinatura do Termo de Compromisso e Responsabilidade, com regras de participação, uso, conservação e devolução dos equipamentos.
+        - article [ref=e350]:
+          - heading "Kit do aluno" [level=3] [ref=e355]
+          - paragraph [ref=e356]: Cada aluno receberá notebook, acesso à internet, camisa, mochila, teclado e mouse, com registro individual de entrega e responsabilidade.
+        - article [ref=e357]:
+          - heading "Primeiro acesso" [level=3] [ref=e362]
+          - paragraph [ref=e363]: A entrada da turma deve incluir configuração dos notebooks, acesso à plataforma acadêmica, entrada no Discord, senhas e orientações iniciais.
+      - generic [ref=e364]:
+        - generic [ref=e365]:
+          - strong [ref=e366]: Convocação
+          - text: Aluno aprovado é chamado conforme classificação e disponibilidade de slot.
+        - generic [ref=e367]:
+          - strong [ref=e368]: Conferência documental
+          - text: Equipe valida documentos, dados cadastrais e requisitos previstos no edital.
+        - generic [ref=e369]:
+          - strong [ref=e370]: Assinatura dos termos
+          - text: Aluno ou responsável legal formaliza ciência das regras de permanência e uso dos equipamentos.
+        - generic [ref=e371]:
+          - strong [ref=e372]: Entrega e configuração
+          - text: Kit é entregue, registrado e configurado com acessos à plataforma, Discord e orientações iniciais.
+        - generic [ref=e373]:
+          - strong [ref=e374]: Acompanhamento
+          - text: Aluno passa a seguir rotina de aulas, atividades, monitorias, chamados e participação na comunidade.
+      - generic [ref=e375]:
+        - article [ref=e376]:
+          - heading "Critério de permanência" [level=3] [ref=e377]
+          - paragraph [ref=e378]: O aluno deve acessar a plataforma, acompanhar aulas, realizar atividades no prazo, participar de monitoria pelo menos a cada 15 dias, manter dados atualizados e responder aos chamados da coordenação.
+        - article [ref=e379]:
+          - heading "Inatividade" [level=3] [ref=e380]
+          - paragraph [ref=e381]: Ausência de acesso ou participação por mais de 15 dias corridos sem justificativa pode caracterizar inatividade. A coordenação deve emitir alertas antes de qualquer desligamento.
+        - article [ref=e382]:
+          - heading "Desligamento" [level=3] [ref=e383]
+          - paragraph [ref=e384]: Desistência formal libera slot para suplente. Abandono injustificado, fraude ou descumprimento grave pode gerar desligamento e impedimento de participação em novas iniciativas por período definido no edital.
+      - generic [ref=e385]:
+        - generic [ref=e386]:
+          - button "Como funciona a logística reversa dos equipamentos? +" [ref=e387] [cursor=pointer]:
+            - text: Como funciona a logística reversa dos equipamentos?
+            - generic [ref=e388]: +
+          - generic [ref=e389]: Em caso de desistência, abandono ou desligamento, o aluno deve devolver os equipamentos na sede local dentro do prazo definido no Termo de Compromisso. Um técnico responsável recebe, registra, inspeciona e encaminha manutenção quando necessário.
+        - button "O que acontece se o aluno não devolver o equipamento? +" [ref=e391] [cursor=pointer]:
+          - text: O que acontece se o aluno não devolver o equipamento?
+          - generic [ref=e392]: +
+        - button "Qual é o papel da sede local? +" [ref=e394] [cursor=pointer]:
+          - text: Qual é o papel da sede local?
+          - generic [ref=e395]: +
+    - generic [ref=e397]:
+      - generic [ref=e399]:
+        - heading "Evento de lançamento" [level=2] [ref=e400]
+        - paragraph [ref=e401]: Etapa presencial de entrada da turma, com apresentação da estrutura do programa, entrega dos kits, configuração dos acessos, orientação inicial e validação da logística de suporte.
+      - generic [ref=e402]:
+        - article [ref=e403]:
+          - heading "Objetivo do evento" [level=3] [ref=e408]
+          - paragraph [ref=e409]: Iniciar oficialmente a primeira turma, apresentar a dinâmica do Connecta, alinhar expectativas de participação e orientar os alunos sobre curso, suporte, comunidade e responsabilidades.
+        - article [ref=e410]:
+          - heading "Entrega dos kits" [level=3] [ref=e415]
+          - paragraph [ref=e416]: Cada aluno recebe notebook, acesso à internet, camisa, mochila, teclado e mouse, com registro individual de recebimento e responsabilidade sobre os equipamentos.
+        - article [ref=e417]:
+          - heading "Configuração inicial" [level=3] [ref=e422]
+          - paragraph [ref=e423]: O evento deve incluir estações para primeiro acesso, configuração dos notebooks, entrada na plataforma acadêmica, acesso ao Discord, senhas e orientações operacionais.
+        - article [ref=e424]:
+          - heading "Suporte de hardware" [level=3] [ref=e429]
+          - paragraph [ref=e430]: Os alunos devem ser orientados sobre como reportar defeitos, onde levar equipamentos com problema e como funcionará o suporte técnico na sede local.
+      - generic [ref=e431]:
+        - generic [ref=e432]:
+          - strong [ref=e433]: Credenciamento
+          - text: Recepção dos alunos, confirmação de presença, conferência final de dados e organização do fluxo de entrada.
+        - generic [ref=e434]:
+          - strong [ref=e435]: Apresentação
+          - text: Explicação da estrutura do programa, trilhas, monitorias, Discord, projetos, ranking, eventos e regras de permanência.
+        - generic [ref=e436]:
+          - strong [ref=e437]: Entrega do kit
+          - text: Distribuição dos equipamentos e materiais, com registro individual de recebimento e orientação de responsabilidade.
+        - generic [ref=e438]:
+          - strong [ref=e439]: Configuração
+          - text: Primeiro acesso à plataforma acadêmica, entrada no Discord, validação de senhas e configuração inicial dos notebooks.
+        - generic [ref=e440]:
+          - strong [ref=e441]: Encaminhamento
+          - text: "Alunos saem com próximos passos claros: rotina de estudos, canais oficiais, monitoria obrigatória e suporte disponível."
+      - generic [ref=e442]:
+        - article [ref=e443]:
+          - heading "Infraestrutura do local" [level=3] [ref=e444]
+          - paragraph [ref=e445]: O espaço precisa comportar mais de 50 pessoas, ter internet, energia, organização para estações de configuração, circulação dos alunos e equipe de apoio técnico.
+        - article [ref=e446]:
+          - heading "Logística dos equipamentos" [level=3] [ref=e447]
+          - paragraph [ref=e448]: É necessário organizar transporte, conferência, separação dos kits, registro de entrega e plano de suporte para eventuais problemas no primeiro acesso.
+        - article [ref=e449]:
+          - heading "Comunicação e marketing" [level=3] [ref=e450]
+          - paragraph [ref=e451]: A operação deve prever divulgação prévia, material visual, cobertura fotográfica/audiovisual e peças para redes sociais e canais institucionais.
+      - generic [ref=e452]:
+        - generic [ref=e453]:
+          - heading "Pendências críticas" [level=3] [ref=e454]
+          - list [ref=e455]:
+            - listitem [ref=e456]: Definir data e local do evento.
+            - listitem [ref=e457]: Elaborar roteiro completo.
+            - listitem [ref=e458]: Definir equipe responsável por cada etapa.
+            - listitem [ref=e459]: Confirmar logística de transporte dos equipamentos.
+        - generic [ref=e460]:
+          - heading "Pontos de validação" [level=3] [ref=e461]
+          - list [ref=e462]:
+            - listitem [ref=e463]: Validar se o local comporta estações de configuração.
+            - listitem [ref=e464]: Testar internet e energia para operação simultânea.
+            - listitem [ref=e465]: Confirmar fluxo de credenciamento e entrega dos kits.
+            - listitem [ref=e466]: Garantir suporte técnico no dia do evento.
+      - generic [ref=e467]:
+        - generic [ref=e468]:
+          - button "O que o aluno precisa entender ao final do evento? +" [ref=e469] [cursor=pointer]:
+            - text: O que o aluno precisa entender ao final do evento?
+            - generic [ref=e470]: +
+          - generic [ref=e471]: O aluno deve sair sabendo como acessar a plataforma, como usar o Discord, como agendar monitoria, quais são as regras de permanência, como cuidar dos equipamentos e onde buscar suporte.
+        - button "Qual é o principal risco operacional do lançamento? +" [ref=e473] [cursor=pointer]:
+          - text: Qual é o principal risco operacional do lançamento?
+          - generic [ref=e474]: +
+        - button "Como o evento se conecta ao início do curso? +" [ref=e476] [cursor=pointer]:
+          - text: Como o evento se conecta ao início do curso?
+          - generic [ref=e477]: +
+    - generic [ref=e479]:
+      - generic [ref=e481]:
+        - heading "Curso, trilhas e avaliação" [level=2] [ref=e482]
+        - paragraph [ref=e483]: Estrutura formativa prevista para o Connecta, com trilhas por área, duração, carga horária, empregabilidade, materiais didáticos e critérios padronizados de avaliação.
+      - generic "Filtros de trilhas" [ref=e484]:
+        - button "Todas" [ref=e485] [cursor=pointer]
+        - button "Desenvolvimento" [ref=e486] [cursor=pointer]
+        - button "Dados e IA" [ref=e487] [cursor=pointer]
+        - button "Infra e segurança" [ref=e488] [cursor=pointer]
+        - button "Negócios" [ref=e489] [cursor=pointer]
+      - generic [ref=e490]:
+        - article [ref=e491]:
+          - generic [ref=e492]:
+            - strong [ref=e493]: Suporte Técnico e Helpdesk
+            - generic [ref=e494]: Base prática para atendimento, informática, suporte ao usuário e operação de TI.
+          - generic [ref=e495]:
+            - generic [ref=e496]: 6 meses
+            - generic [ref=e497]: 240h
+            - generic [ref=e498]: Técnico de Suporte
+        - article [ref=e499]:
+          - generic [ref=e500]:
+            - strong [ref=e501]: Desenvolvimento Web Full Stack
+            - generic [ref=e502]: Front-end, back-end, projetos web, versionamento e construção de portfólio.
+          - generic [ref=e503]:
+            - generic [ref=e504]: 12 meses
+            - generic [ref=e505]: 480h
+            - generic [ref=e506]: Full Stack Jr.
+        - article [ref=e507]:
+          - generic [ref=e508]:
+            - strong [ref=e509]: Análise de Dados e BI
+            - generic [ref=e510]: Relatórios, dashboards, indicadores, análise de dados e inteligência de mercado.
+          - generic [ref=e511]:
+            - generic [ref=e512]: 10 meses
+            - generic [ref=e513]: 400h
+            - generic [ref=e514]: Analista de Dados Jr.
+        - article [ref=e515]:
+          - generic [ref=e516]:
+            - strong [ref=e517]: Cibersegurança
+            - generic [ref=e518]: Fundamentos de segurança, práticas defensivas, análise inicial e operação em SOC.
+          - generic [ref=e519]:
+            - generic [ref=e520]: 8 meses
+            - generic [ref=e521]: 320h
+            - generic [ref=e522]: SOC Analyst L1
+        - article [ref=e523]:
+          - generic [ref=e524]:
+            - strong [ref=e525]: DevOps Essencial
+            - generic [ref=e526]: CI/CD, containers, cloud, infraestrutura como código e operação moderna.
+          - generic [ref=e527]:
+            - generic [ref=e528]: 8 meses
+            - generic [ref=e529]: 320h
+            - generic [ref=e530]: DevOps Jr.
+        - article [ref=e531]:
+          - generic [ref=e532]:
+            - strong [ref=e533]: DevOps Avançado
+            - generic [ref=e534]: SRE, observabilidade, GitOps, automação e engenharia de plataforma.
+          - generic [ref=e535]:
+            - generic [ref=e536]: 12 meses
+            - generic [ref=e537]: 480h
+            - generic [ref=e538]: SRE / Platform
+        - article [ref=e539]:
+          - generic [ref=e540]:
+            - strong [ref=e541]: IA para Negócios
+            - generic [ref=e542]: Aplicações práticas sem código, automações corporativas e uso de IA em processos.
+          - generic [ref=e543]:
+            - generic [ref=e544]: 5 meses
+            - generic [ref=e545]: 200h
+            - generic [ref=e546]: Assistente de IA
+        - article [ref=e547]:
+          - generic [ref=e548]:
+            - strong [ref=e549]: ML e IA para Devs
+            - generic [ref=e550]: Machine learning, IA aplicada, engenharia de features e desenvolvimento de soluções inteligentes.
+          - generic [ref=e551]:
+            - generic [ref=e552]: 10 meses
+            - generic [ref=e553]: 400h
+            - generic [ref=e554]: ML Engineer Jr.
+        - article [ref=e555]:
+          - generic [ref=e556]:
+            - strong [ref=e557]: IA Aplicada e Automação
+            - generic [ref=e558]: RPA, prompts, automações, integrações e soluções práticas com inteligência artificial.
+          - generic [ref=e559]:
+            - generic [ref=e560]: 14 meses
+            - generic [ref=e561]: 560h
+            - generic [ref=e562]: Automação / IA Jr.
+        - article [ref=e563]:
+          - generic [ref=e564]:
+            - strong [ref=e565]: Redes e Cloud Computing
+            - generic [ref=e566]: Administração de redes, computação em nuvem, sistemas e infraestrutura.
+          - generic [ref=e567]:
+            - generic [ref=e568]: 18 meses
+            - generic [ref=e569]: 720h
+            - generic [ref=e570]: Cloud Engineer Jr.
+      - generic [ref=e571]:
+        - article [ref=e572]:
+          - heading "Formato do conteúdo" [level=3] [ref=e577]
+          - paragraph [ref=e578]: O curso deve combinar aulas gravadas, materiais escritos, guias técnicos, exercícios práticos, projetos guiados, quizzes e avaliações.
+        - article [ref=e579]:
+          - heading "Plataforma acadêmica" [level=3] [ref=e584]
+          - paragraph [ref=e585]: O material ficará na plataforma institucional do Connecta, acessível pelos notebooks fornecidos e usado como base para acompanhamento dos alunos.
+        - article [ref=e586]:
+          - heading "Conteúdo complementar" [level=3] [ref=e591]
+          - paragraph [ref=e592]: Lives gravadas, sessões de live code e dúvidas recorrentes registradas pela monitoria podem retroalimentar a evolução do material didático.
+      - generic [ref=e593]:
+        - generic [ref=e594]:
+          - strong [ref=e595]: "10"
+          - generic [ref=e596]: trilhas formativas previstas
+        - generic [ref=e597]:
+          - strong [ref=e598]: 200h+
+          - generic [ref=e599]: carga mínima entre as trilhas previstas
+        - generic [ref=e600]:
+          - strong [ref=e601]: 720h
+          - generic [ref=e602]: maior carga horária prevista
+        - generic [ref=e603]:
+          - strong [ref=e604]: "4"
+          - generic [ref=e605]: critérios principais na rubrica de avaliação
+      - generic [ref=e607]:
+        - heading "Rubrica de avaliação" [level=2] [ref=e608]
+        - paragraph [ref=e609]: Critérios padronizados para avaliação de projetos, entregas e desafios, reduzindo subjetividade e garantindo consistência entre monitores.
+      - generic [ref=e610]:
+        - article [ref=e611]:
+          - heading "40% Código e funcionalidade" [level=3] [ref=e612]
+          - paragraph [ref=e613]: Verifica se a solução funciona conforme os requisitos, qualidade do código, boas práticas, organização e versionamento.
+        - article [ref=e614]:
+          - heading "25% Interface e experiência" [level=3] [ref=e615]
+          - paragraph [ref=e616]: Avalia layout, usabilidade, responsividade, clareza visual e acessibilidade básica quando aplicável.
+        - article [ref=e617]:
+          - heading "20% Visão de negócio" [level=3] [ref=e618]
+          - paragraph [ref=e619]: Considera problema resolvido, proposta de valor, viabilidade, entendimento do usuário e coerência da solução.
+        - article [ref=e620]:
+          - heading "15% Documentação e apresentação" [level=3] [ref=e621]
+          - paragraph [ref=e622]: Analisa README, pitch, clareza da explicação, organização da entrega e capacidade de comunicar o projeto.
+      - generic [ref=e623]:
+        - generic [ref=e624]:
+          - button "O que ainda precisa ser definido no curso? +" [ref=e625] [cursor=pointer]:
+            - text: O que ainda precisa ser definido no curso?
+            - generic [ref=e626]: +
+          - generic [ref=e627]: Ementa detalhada de cada trilha, produção do material didático, cronograma de produção, aprovação da rubrica e definição de como lives e live codes serão reaproveitados como conteúdo complementar.
+        - button "Por que a rubrica é importante? +" [ref=e629] [cursor=pointer]:
+          - text: Por que a rubrica é importante?
+          - generic [ref=e630]: +
+        - button "Como as dúvidas dos alunos melhoram o material? +" [ref=e632] [cursor=pointer]:
+          - text: Como as dúvidas dos alunos melhoram o material?
+          - generic [ref=e633]: +
+    - generic [ref=e635]:
+      - generic [ref=e637]:
+        - heading "Monitoria e suporte" [level=2] [ref=e638]
+        - paragraph [ref=e639]: Estrutura de acompanhamento técnico e operacional dos alunos, combinando agendamento via Calendly, triagem no Discord, tickets, chamadas, registros, base de conhecimento, lives e escalonamento.
+      - generic [ref=e640]:
+        - generic [ref=e641]:
+          - heading "Equipe mínima de suporte" [level=3] [ref=e642]
+          - paragraph [ref=e643]: A operação diária depende de papéis claros para atendimento, registro e direcionamento das demandas dos alunos.
+          - generic [ref=e644]:
+            - strong [ref=e645]: Monitor técnico — manhã
+            - text: Atendimento previsto das 09h às 15h, com monitorias técnicas, chamadas e apoio às entregas.
+          - generic [ref=e646]:
+            - strong [ref=e647]: Monitor técnico — tarde
+            - text: Atendimento previsto das 15h às 21h, mantendo cobertura total de 12 horas diárias.
+          - generic [ref=e648]:
+            - strong [ref=e649]: Agente de triagem Discord
+            - text: Recebe demandas, classifica tickets, registra solicitações, direciona responsáveis e acompanha escalonamentos.
+          - generic [ref=e650]:
+            - strong [ref=e651]: Coordenações sob demanda
+            - text: Negócios, operação, design, NIC e administração entram quando o caso exige decisão especializada.
+        - generic [ref=e652]:
+          - generic [ref=e653]:
+            - strong [ref=e654]: Dúvida ou demanda
+            - text: Aluno precisa de ajuda técnica, acadêmica, operacional ou orientação de projeto.
+          - generic [ref=e655]:
+            - strong [ref=e656]: Entrada
+            - text: Demanda chega por Calendly, ticket no Discord ou WhatsApp auxiliar do agente de triagem.
+          - generic [ref=e657]:
+            - strong [ref=e658]: Triagem
+            - text: Agente identifica categoria, urgência, responsável e melhor caminho de atendimento.
+          - generic [ref=e659]:
+            - strong [ref=e660]: Atendimento
+            - text: Monitor atende por chamada, resolve a dúvida, registra o caso ou aciona especialista.
+          - generic [ref=e661]:
+            - strong [ref=e662]: Registro
+            - text: Atendimento é fechado com status, resumo, responsável e possíveis pendências operacionais.
+          - generic [ref=e663]:
+            - strong [ref=e664]: Base ou live
+            - text: Dúvida recorrente vira base de conhecimento, tutorial ou live complementar.
+      - generic [ref=e665]:
+        - article [ref=e666]:
+          - heading "Calendly" [level=3] [ref=e671]
+          - paragraph [ref=e672]: Link fixado no Discord e no WhatsApp auxiliar para agendamento de monitorias técnicas de 30 a 40 minutos dentro dos turnos disponíveis.
+        - article [ref=e673]:
+          - heading "Tickets no Discord" [level=3] [ref=e678]
+          - paragraph [ref=e679]: Canal oficial para dúvidas que precisam de registro, atendimento privado, status, responsável, histórico ou escalonamento.
+        - article [ref=e680]:
+          - heading "Base de conhecimento" [level=3] [ref=e685]
+          - paragraph [ref=e686]: Dúvidas recorrentes devem virar tutoriais, respostas padronizadas ou posts de referência para reduzir retrabalho da equipe.
+        - article [ref=e687]:
+          - heading "Lives complementares" [level=3] [ref=e692]
+          - paragraph [ref=e693]: Quando um tema acumular muitas dúvidas, a triagem pode acionar live técnica, de negócio, carreira ou dúvidas gerais.
+      - generic [ref=e694]:
+        - generic [ref=e695]:
+          - strong [ref=e696]: "2"
+          - generic [ref=e697]: monitores técnicos em turnos separados
+        - generic [ref=e698]:
+          - strong [ref=e699]: 12h
+          - generic [ref=e700]: cobertura diária prevista de atendimento
+        - generic [ref=e701]:
+          - strong [ref=e702]: 15d
+          - generic [ref=e703]: intervalo máximo previsto entre monitorias obrigatórias
+        - generic [ref=e704]:
+          - strong [ref=e705]: 48h
+          - generic [ref=e706]: SLA máximo previsto para resposta em tickets
+      - generic [ref=e707]:
+        - generic [ref=e708]:
+          - button "Como a monitoria evita evasão? +" [ref=e709] [cursor=pointer]:
+            - text: Como a monitoria evita evasão?
+            - generic [ref=e710]: +
+          - generic [ref=e711]: Cada aluno deve participar de pelo menos uma monitoria a cada 15 dias. Esse contato recorrente ajuda a identificar travas cedo, acompanhar evolução e acionar a coordenação antes que o aluno abandone o curso.
+        - button "Qual é o papel da triagem? +" [ref=e713] [cursor=pointer]:
+          - text: Qual é o papel da triagem?
+          - generic [ref=e714]: +
+        - button "Quando uma dúvida vira base de conhecimento? +" [ref=e716] [cursor=pointer]:
+          - text: Quando uma dúvida vira base de conhecimento?
+          - generic [ref=e717]: +
+        - button "Quando acionar coordenação ou especialista? +" [ref=e719] [cursor=pointer]:
+          - text: Quando acionar coordenação ou especialista?
+          - generic [ref=e720]: +
+    - generic [ref=e722]:
+      - generic [ref=e724]:
+        - heading "Discord e comunidade" [level=2] [ref=e725]
+        - paragraph [ref=e726]: Canal oficial e obrigatório do Connecta para centralizar comunicação, suporte, comunidade, atividades, projetos, ranking, oportunidades, automações e dados operacionais.
+      - generic [ref=e727]:
+        - article [ref=e728]:
+          - heading "Comunicação oficial" [level=3] [ref=e733]
+          - paragraph [ref=e734]: O Discord será o ambiente principal para avisos, calendário, novidades, materiais, orientações da equipe e comunicação recorrente com os alunos.
+        - article [ref=e735]:
+          - heading "Suporte organizado" [level=3] [ref=e740]
+          - paragraph [ref=e741]: Tickets, categorias, responsáveis, status, histórico e base de conhecimento evitam que dúvidas se percam em chats abertos ou conversas informais.
+        - article [ref=e742]:
+          - heading "Engajamento e comunidade" [level=3] [ref=e747]
+          - paragraph [ref=e748]: O servidor também concentra apresentações, networking, desafios, projetos, plantões, eventos online, ranking, talentos e oportunidades.
+        - article [ref=e749]:
+          - heading "Operação e dados" [level=3] [ref=e754]
+          - paragraph [ref=e755]: Bots, cargos, logs, métricas, pendências, registros de suporte e automações tornam o Discord uma camada operacional do programa.
+      - generic [ref=e756]:
+        - generic [ref=e757]:
+          - strong [ref=e758]: "12"
+          - generic [ref=e759]: categorias previstas para organizar o servidor
+        - generic [ref=e760]:
+          - strong [ref=e761]: "6"
+          - generic [ref=e762]: "categorias iniciais de ticket: acesso, aula, dúvida técnica, certificado, projeto e outro"
+        - generic [ref=e763]:
+          - strong [ref=e764]: "100"
+          - generic [ref=e765]: pontos previstos no ranking geral dos alunos
+        - generic [ref=e766]:
+          - strong [ref=e767]: Bot
+          - generic [ref=e768]: onboarding, verificação, ranking, pendências, vagas e métricas
+      - generic [ref=e769]:
+        - generic [ref=e770]:
+          - strong [ref=e771]: Entrada controlada
+          - text: Aluno entra no servidor, passa pelo onboarding e só acessa os canais internos após validação.
+        - generic [ref=e772]:
+          - strong [ref=e773]: Cargos e acessos
+          - text: "Cargos liberam canais conforme perfil: aluno verificado, monitor, convidado, ex-aluno ou equipe interna."
+        - generic [ref=e774]:
+          - strong [ref=e775]: Rotina operacional
+          - text: Alunos usam o Discord para avisos, suporte, materiais, dúvidas, plantões, projetos e atividades da comunidade.
+        - generic [ref=e776]:
+          - strong [ref=e777]: Registro e acompanhamento
+          - text: Tickets, logs, pendências e métricas ajudam a equipe a acompanhar volume, recorrência e qualidade do suporte.
+        - generic [ref=e778]:
+          - strong [ref=e779]: Evolução da comunidade
+          - text: Desafios, ranking, projetos, talentos, vagas e Super Módulos fortalecem engajamento e portfólio dos alunos.
+      - generic [ref=e780]:
+        - article [ref=e781]:
+          - heading "Estrutura do servidor" [level=3] [ref=e782]
+          - paragraph [ref=e783]: A estrutura prevista divide o servidor em áreas de início, anúncios, suporte, área acadêmica, aulas e eventos, desenvolvimento em grupo, comunidade, projetos, vagas, desafios, equipe interna e logs.
+        - article [ref=e784]:
+          - heading "Bots e automações" [level=3] [ref=e785]
+          - paragraph [ref=e786]: A estratégia combina recursos nativos do Discord, bots públicos para operação genérica e bots próprios para regras de negócio do Connecta.
+        - article [ref=e787]:
+          - heading "WhatsApp como apoio" [level=3] [ref=e788]
+          - paragraph [ref=e789]: O WhatsApp deve funcionar como canal auxiliar e emergencial. A rotina oficial, os registros e o suporte organizado devem permanecer no Discord.
+      - generic [ref=e790]:
+        - button "Por que o Discord é obrigatório? +" [ref=e792] [cursor=pointer]:
+          - text: Por que o Discord é obrigatório?
+          - generic [ref=e793]: +
+        - generic [ref=e795]:
+          - button "O que fica no HTML específico do Discord? +" [ref=e796] [cursor=pointer]:
+            - text: O que fica no HTML específico do Discord?
+            - generic [ref=e797]: +
+          - generic [ref=e871]: O documento específico do Discord detalha onboarding, verificação, tickets, bots, canais, cargos, ranking, desafios, plantões e Super Módulos. Esta seção apenas resume o papel do Discord dentro da matriz geral.
+        - generic [ref=e798]:
+          - button "Qual é o principal risco operacional? +" [active] [ref=e799] [cursor=pointer]:
+            - text: Qual é o principal risco operacional?
+            - generic [ref=e800]: +
+          - generic [ref=e872]: Criar muitos canais, cargos ou automações antes de validar a rotina real da equipe. A estrutura precisa ser organizada, mas simples o suficiente para os alunos usarem e para os monitores manterem.
+        - button "Como o Discord ajuda a gestão? +" [ref=e802] [cursor=pointer]:
+          - text: Como o Discord ajuda a gestão?
+          - generic [ref=e803]: +
+    - generic [ref=e805]:
+      - generic [ref=e807]:
+        - heading "Pendências por prioridade" [level=2] [ref=e808]
+        - paragraph [ref=e809]: Itens classificados como bloqueantes, críticos, importantes e desejáveis.
+      - generic [ref=e810]:
+        - generic [ref=e811]:
+          - generic [ref=e812]:
+            - heading "Bloqueantes" [level=3] [ref=e813]
+            - list [ref=e814]:
+              - listitem [ref=e815]: Contrato com a Prefeitura.
+              - listitem [ref=e816]: Conteúdo da prova.
+              - listitem [ref=e817]: Ementa e material didático.
+              - listitem [ref=e818]: Plataformas NIC prontas e testadas.
+          - generic [ref=e819]:
+            - heading "Críticas" [level=3] [ref=e820]
+            - list [ref=e821]:
+              - listitem [ref=e822]: Cronograma completo.
+              - listitem [ref=e823]: Data e turnos da prova.
+              - listitem [ref=e824]: Edital preenchido.
+              - listitem [ref=e825]: Discord e bots configurados.
+              - listitem [ref=e826]: Monitores e agente definidos.
+          - generic [ref=e827]:
+            - heading "Importantes" [level=3] [ref=e828]
+            - list [ref=e829]:
+              - listitem [ref=e830]: Roteiro do lançamento.
+              - listitem [ref=e831]: Estratégia de marketing.
+              - listitem [ref=e832]: Teste de perfil para núcleos.
+              - listitem [ref=e833]: Rubrica aprovada.
+              - listitem [ref=e834]: Calendário de lives e eventos.
+          - generic [ref=e835]:
+            - heading "Desejáveis" [level=3] [ref=e836]
+            - list [ref=e837]:
+              - listitem [ref=e838]: Política de privacidade.
+              - listitem [ref=e839]: Dashboard de métricas.
+              - listitem [ref=e840]: Temas dos Super Módulos.
+              - listitem [ref=e841]: Política de projetos reais.
+              - listitem [ref=e842]: Modelo de certificado.
+        - complementary [ref=e843]:
+          - heading "Leitura executiva" [level=3] [ref=e844]
+          - paragraph [ref=e845]: A estrutura operacional do Connecta já está desenhada. A etapa atual é transformar pendências críticas em responsáveis, prazos, validações e entregas verificáveis.
+          - generic [ref=e846]:
+            - generic [ref=e847]:
+              - strong [ref=e848]: Risco principal
+              - text: Datas públicas antes de prova, plataforma e logística estarem testadas.
+            - generic [ref=e849]:
+              - strong [ref=e850]: Maior alavanca
+              - text: Fechar contrato e cronograma oficial.
+            - generic [ref=e851]:
+              - strong [ref=e852]: Próximo controle
+              - text: Reunião de validação com NIC, jurídico, coordenação e logística.
+    - generic [ref=e854]:
+      - generic [ref=e856]:
+        - heading "Próximas ações" [level=2] [ref=e857]
+        - paragraph [ref=e858]: Ações necessárias para consolidar o cronograma e iniciar a execução.
+      - generic [ref=e859]:
+        - generic [ref=e860]:
+          - heading "1. Formalizar contrato e cronograma" [level=3] [ref=e861]
+          - paragraph [ref=e862]: Sem contrato assinado, o cronograma permanece provisório. A formalização institucional é o marco inicial para publicação de datas e execução oficial.
+        - generic [ref=e863]:
+          - heading "2. Validar prova, plataformas e integrações" [level=3] [ref=e864]
+          - paragraph [ref=e865]: Portal, App Exame, correção, resultados, carga, segurança, integrações e fluxo de divulgação precisam ser testados antes da abertura operacional.
+        - generic [ref=e866]:
+          - heading "3. Preparar matrícula, lançamento e onboarding" [level=3] [ref=e867]
+          - paragraph [ref=e868]: Matrícula, termos, kits, evento, Discord, bots, monitores, manual e material didático precisam estar prontos antes do início da turma.
+    - generic [ref=e870]: Apresentação executiva baseada na Matriz Connecta V2. Arquivo preparado para leitura em navegador e ajustes por seção.

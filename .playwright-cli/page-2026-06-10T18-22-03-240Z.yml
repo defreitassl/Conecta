@@ -1,0 +1,659 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: C
+      - generic [ref=e6]:
+        - strong [ref=e7]: Discord Conecta
+        - generic [ref=e8]: Proposta operacional
+    - navigation "Navegação da apresentação" [ref=e9]:
+      - link "Visão" [ref=e10] [cursor=pointer]:
+        - /url: "#visao"
+        - text: Visão
+      - link "Mapa" [ref=e12] [cursor=pointer]:
+        - /url: "#mapa"
+        - text: Mapa
+      - link "Problema" [ref=e14] [cursor=pointer]:
+        - /url: "#problema"
+        - text: Problema
+      - link "Modelo" [ref=e16] [cursor=pointer]:
+        - /url: "#modelo"
+        - text: Modelo
+      - link "Jornada" [ref=e18] [cursor=pointer]:
+        - /url: "#jornada"
+        - text: Jornada
+      - link "Servidor" [ref=e20] [cursor=pointer]:
+        - /url: "#servidor"
+        - text: Servidor
+      - link "Suporte" [ref=e22] [cursor=pointer]:
+        - /url: "#suporte"
+        - text: Suporte
+      - link "Automações" [ref=e24] [cursor=pointer]:
+        - /url: "#automacoes"
+        - text: Automações
+      - link "Engajamento" [ref=e26] [cursor=pointer]:
+        - /url: "#engajamento"
+        - text: Engajamento
+      - link "Métricas" [ref=e28] [cursor=pointer]:
+        - /url: "#metricas"
+        - text: Métricas
+      - link "Decisões" [ref=e30] [cursor=pointer]:
+        - /url: "#decisoes"
+        - text: Decisões
+  - main [ref=e32]:
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]: Planejamento do servidor oficial
+        - heading "Discord como central operacional do Conecta" [level=1] [ref=e37]
+        - paragraph [ref=e38]: Uma comunidade obrigatória, rastreável e útil para organizar comunicação, suporte, plantões, desafios, vagas, projetos e indicadores da operação acadêmica.
+        - generic "Pilares da proposta" [ref=e39]:
+          - generic [ref=e40]: Fonte da verdade
+          - generic [ref=e41]: Suporte rastreável
+          - generic [ref=e42]: Comunidade ativa
+          - generic [ref=e43]: Dados para gestão
+      - generic "Visual do servidor Discord Conecta" [ref=e44]:
+        - generic [ref=e46]: Conecta Server
+    - generic [ref=e86]:
+      - generic [ref=e88]:
+        - generic [ref=e89]: Mapa visual
+        - heading "Uma plataforma de rotina, não apenas uma comunidade." [level=2] [ref=e90]
+        - paragraph [ref=e91]: A ideia central é conectar tudo que o aluno e a equipe precisam fazer. O Discord vira o lugar onde a operação acontece e onde cada ação deixa rastro útil.
+      - generic "Mapa operacional do Discord Conecta" [ref=e92]:
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - strong [ref=e95]: Entrada e verificação
+            - generic [ref=e96]: Convite oficial, aceite de regras, dados privados, cargos e segmentações.
+          - generic [ref=e97]:
+            - strong [ref=e98]: Comunicação oficial
+            - generic [ref=e99]: Avisos, calendário, materiais importantes, eventos, prazos e novidades.
+          - generic [ref=e100]:
+            - strong [ref=e101]: Suporte e dúvidas
+            - generic [ref=e102]: Tickets, fóruns, triagem, SLA, escalonamento e base de conhecimento.
+        - generic [ref=e104]:
+          - strong [ref=e105]: Discord Conecta
+          - text: Centro operacional obrigatório para alunos, monitores e gestão.
+        - generic [ref=e106]:
+          - generic [ref=e107]:
+            - strong [ref=e108]: Aulas e plantões
+            - generic [ref=e109]: Agenda, palcos, salas de voz, mentorias, dúvidas ao vivo e eventos.
+          - generic [ref=e110]:
+            - strong [ref=e111]: Comunidade e carreira
+            - generic [ref=e112]: Networking, projetos, desafios, ranking, vagas, talentos e conquistas.
+          - generic [ref=e113]:
+            - strong [ref=e114]: Métricas e decisões
+            - generic [ref=e115]: Logs, indicadores, carga dos monitores, gargalos, relatórios e dashboard futuro.
+      - generic [ref=e116]:
+        - generic [ref=e123]:
+          - strong [ref=e124]: Obrigatório
+          - text: O aluno precisa do Discord para acompanhar a rotina do curso.
+        - generic [ref=e131]:
+          - strong [ref=e132]: Organizado
+          - text: Canais existem por função, com área acadêmica flexível.
+        - generic [ref=e139]:
+          - strong [ref=e140]: Rastreável
+          - text: Tickets, status, responsáveis, prazos e histórico pesquisável.
+        - generic [ref=e147]:
+          - strong [ref=e148]: Vivo
+          - text: Plantões, desafios, projetos, vagas e comunidade geram retorno.
+        - generic [ref=e155]:
+          - strong [ref=e156]: Mensurável
+          - text: Dados viram métricas para coordenação e melhoria contínua.
+    - generic [ref=e158]:
+      - generic [ref=e159]:
+        - generic [ref=e160]:
+          - generic [ref=e161]: Dor central
+          - heading "O problema não é ter Discord. É o aluno não precisar dele." [level=2] [ref=e162]
+          - paragraph [ref=e163]: A experiência anterior mostrou que, quando WhatsApp resolve tudo, o Discord vira acessório. O resultado é perda de informação, baixa rastreabilidade, pouco senso de comunidade e suporte difícil de medir.
+        - generic [ref=e164]:
+          - heading "Tese da proposta" [level=3] [ref=e165]
+          - paragraph [ref=e166]: Informação completa nasce ou fica registrada no Discord. O WhatsApp serve para emergência, lembrete e redirecionamento.
+      - generic "Transição proposta de WhatsApp para Discord" [ref=e167]:
+        - generic [ref=e168]:
+          - heading "Quando tudo acontece no WhatsApp" [level=3] [ref=e169]
+          - list [ref=e170]:
+            - listitem [ref=e171]: O aviso some na conversa.
+            - listitem [ref=e172]: A dúvida precisa ser respondida de novo.
+            - listitem [ref=e173]: A equipe não sabe o status real do suporte.
+            - listitem [ref=e174]: A comunidade não cria memória coletiva.
+        - generic [ref=e176]:
+          - heading "Quando tudo fica registrado no Discord" [level=3] [ref=e177]
+          - list [ref=e178]:
+            - listitem [ref=e179]: O aluno sabe onde consultar a informação completa.
+            - listitem [ref=e180]: A dúvida vira histórico pesquisável.
+            - listitem [ref=e181]: O ticket tem responsável, prazo e status.
+            - listitem [ref=e182]: A gestão passa a enxergar adesão e gargalos.
+      - generic [ref=e184]:
+        - generic [ref=e185]:
+          - heading "Estado que queremos evitar" [level=3] [ref=e186]
+          - list [ref=e187]:
+            - listitem [ref=e188]: Avisos importantes perdidos no WhatsApp.
+            - listitem [ref=e189]: Dúvidas repetidas sem histórico pesquisável.
+            - listitem [ref=e190]: Suporte sem status, dono ou prazo claro.
+            - listitem [ref=e191]: Comunidade fragmentada e pouco ativa.
+            - listitem [ref=e192]: Equipe sem indicadores confiáveis da operação.
+        - generic [ref=e193]:
+          - heading "Estado proposto" [level=3] [ref=e194]
+          - list [ref=e195]:
+            - listitem [ref=e196]: Discord como fonte principal da verdade.
+            - listitem [ref=e197]: Tickets, fóruns e base de conhecimento.
+            - listitem [ref=e198]: Monitores com rotina clara de atendimento.
+            - listitem [ref=e199]: Plantões, desafios, vagas e projetos como motivos de retorno.
+            - listitem [ref=e200]: Dados operacionais prontos para relatórios e dashboard futuro.
+    - generic [ref=e202]:
+      - generic [ref=e204]:
+        - generic [ref=e205]: Modelo operacional
+        - heading "O servidor é desenhado por fluxos, não por uma lista de canais." [level=2] [ref=e206]
+        - paragraph [ref=e207]: "Cada categoria, cargo e bot existe para sustentar uma jornada real: entrada, avisos, dúvidas, suporte, plantões, comunidade, vagas, desafios, equipe interna e observabilidade."
+      - generic [ref=e208]:
+        - tablist "Perspectivas do modelo operacional" [ref=e209]:
+          - tab "Aluno" [selected] [ref=e210] [cursor=pointer]
+          - tab "Monitor" [ref=e211] [cursor=pointer]
+          - tab "Coordenação" [ref=e212] [cursor=pointer]
+          - tab "Sistema" [ref=e213] [cursor=pointer]
+        - generic [ref=e215]:
+          - generic "Tela simplificada da experiência do aluno" [ref=e216]
+          - generic [ref=e229]:
+            - generic [ref=e230]:
+              - heading "O que encontra" [level=3] [ref=e231]
+              - paragraph [ref=e232]: Avisos, links importantes, materiais, agenda, canais acadêmicos, plantões, suporte, comunidade, desafios e vagas.
+            - generic [ref=e233]:
+              - heading "O que faz" [level=3] [ref=e234]
+              - paragraph [ref=e235]: Acompanha a rotina, tira dúvidas, abre tickets, participa de calls, envia projetos e consulta oportunidades.
+            - generic [ref=e236]:
+              - heading "O que muda" [level=3] [ref=e237]
+              - paragraph [ref=e238]: O aluno deixa de depender do WhatsApp para informação completa e passa a ter um lugar único para se orientar.
+      - generic "Princípios do modelo operacional" [ref=e240]:
+        - generic [ref=e241]:
+          - heading "Fonte da verdade" [level=3] [ref=e242]
+          - paragraph [ref=e243]: Avisos, links, prazos, suporte, plantões, desafios e vagas devem ficar completos no Discord.
+        - generic [ref=e244]:
+          - heading "Uso obrigatório" [level=3] [ref=e245]
+          - paragraph [ref=e246]: O aluno precisa usar o Discord para acompanhar a rotina acadêmica, abrir tickets e participar das frentes centrais.
+        - generic [ref=e247]:
+          - heading "Flexibilidade acadêmica" [level=3] [ref=e248]
+          - paragraph [ref=e249]: A estrutura permite separar por turma, curso, módulo, trilha, cidade, stack ou nível quando o modelo final estiver definido.
+        - generic [ref=e250]:
+          - heading "Monitores no centro" [level=3] [ref=e251]
+          - paragraph [ref=e252]: Monitores respondem tickets, conduzem plantões, registram recorrências, criam base de conhecimento e apoiam moderação.
+        - generic [ref=e253]:
+          - heading "Segurança por padrão" [level=3] [ref=e254]
+          - paragraph [ref=e255]: Aluno não verificado fica restrito. Links, arquivos, spam, permissões e logs sensíveis precisam de controle.
+        - generic [ref=e256]:
+          - heading "Dados reutilizáveis" [level=3] [ref=e257]
+          - paragraph [ref=e258]: Onboarding, tickets, pendências, vagas, ranking e eventos devem alimentar métricas e um sistema web futuro.
+      - generic [ref=e259]:
+        - generic [ref=e260]:
+          - strong [ref=e261]: 12h
+          - generic [ref=e262]: primeira resposta ideal em tickets
+        - generic [ref=e263]:
+          - strong [ref=e264]: 15h
+          - generic [ref=e265]: primeira resposta máxima no horário operacional
+        - generic [ref=e266]:
+          - strong [ref=e267]: "12"
+          - generic [ref=e268]: categorias principais de canais previstas
+        - generic [ref=e269]:
+          - strong [ref=e270]: "4"
+          - generic [ref=e271]: "frentes de engajamento: desafios, projetos, ranking e vagas"
+    - generic [ref=e273]:
+      - generic [ref=e275]:
+        - generic [ref=e276]: Jornada do aluno
+        - heading "Entrada guiada, validação e primeiros hábitos dentro do servidor." [level=2] [ref=e277]
+        - paragraph [ref=e278]: O onboarding precisa ser simples, obrigatório e seguro. O aluno entra, valida identidade, recebe cargos e entende rapidamente onde acompanhar avisos, pedir suporte e participar da comunidade.
+      - generic [ref=e279]:
+        - generic [ref=e280]:
+          - strong [ref=e281]: Convite oficial
+          - text: Aluno recebe o link correto e entra no servidor do Conecta.
+        - generic [ref=e282]:
+          - strong [ref=e283]: Regras e verificação
+          - text: Aceita regras, informa dados e fica temporariamente como Aguardando Verificação.
+        - generic [ref=e284]:
+          - strong [ref=e285]: Liberação de cargos
+          - text: Bot valida o cadastro e atribui Aluno Verificado e segmentações acadêmicas.
+        - generic [ref=e286]:
+          - strong [ref=e287]: Orientação inicial
+          - text: Aluno vê boas-vindas, como usar o Discord, avisos e canais essenciais.
+        - generic [ref=e288]:
+          - strong [ref=e289]: Rotina ativa
+          - text: Acompanha aulas, plantões, suporte, desafios, vagas, projetos e comunidade.
+      - generic "Fluxo por raias da entrada do aluno" [ref=e290]:
+        - generic [ref=e291]:
+          - generic [ref=e292]: Aluno
+          - generic [ref=e293]:
+            - generic [ref=e294]:
+              - strong [ref=e295]: Entra
+              - text: Usa convite oficial.
+            - generic [ref=e296]:
+              - strong [ref=e297]: Aceita
+              - text: Lê e aceita regras.
+            - generic [ref=e298]:
+              - strong [ref=e299]: Informa
+              - text: Dados de validação em privado.
+            - generic [ref=e300]:
+              - strong [ref=e301]: Aprende
+              - text: Vê primeiros canais e orientação.
+            - generic [ref=e302]:
+              - strong [ref=e303]: Usa
+              - text: Passa a acompanhar a rotina.
+        - generic [ref=e304]:
+          - generic [ref=e305]: Bot
+          - generic [ref=e306]:
+            - generic [ref=e307]:
+              - strong [ref=e308]: Aplica cargo
+              - text: Aguardando Verificação.
+            - generic [ref=e309]:
+              - strong [ref=e310]: Coleta
+              - text: Matrícula, e-mail, telefone ou campos definidos.
+            - generic [ref=e311]:
+              - strong [ref=e312]: Valida
+              - text: Consulta base oficial quando existir integração.
+            - generic [ref=e313]:
+              - strong [ref=e314]: Libera
+              - text: Aluno Verificado e segmentações.
+            - generic [ref=e315]:
+              - strong [ref=e316]: Registra
+              - text: Entrada, falhas, tentativas e cargos.
+        - generic [ref=e317]:
+          - generic [ref=e318]: Operação
+          - generic [ref=e319]:
+            - generic [ref=e320]:
+              - strong [ref=e321]: Protege
+              - text: Não verificado vê só entrada.
+            - generic [ref=e322]:
+              - strong [ref=e323]: Segmenta
+              - text: Curso, turma, módulo, cidade, stack ou nível.
+            - generic [ref=e324]:
+              - strong [ref=e325]: Resolve exceções
+              - text: Falhas de validação viram caso operacional.
+            - generic [ref=e326]:
+              - strong [ref=e327]: Mede adesão
+              - text: Quem entrou, quem validou e quem ainda falta.
+            - generic [ref=e328]:
+              - strong [ref=e329]: Ajusta
+              - text: Onboarding melhora com dados reais.
+    - generic [ref=e331]:
+      - generic [ref=e333]:
+        - generic [ref=e334]: Estrutura final de canais
+        - heading "Um mapa completo, mas modular, para iniciar sem engessar o futuro." [level=2] [ref=e335]
+        - paragraph [ref=e336]: A estrutura separa entrada, anúncios, suporte, área acadêmica, eventos, grupos, comunidade, talentos, vagas, desafios, equipe interna e logs.
+      - generic [ref=e337]:
+        - generic [ref=e338]:
+          - strong [ref=e339]: Entrada restrita
+          - text: Quem não validou só vê boas-vindas, regras, instruções e verificação.
+        - generic [ref=e340]:
+          - strong [ref=e341]: Aluno liberado
+          - text: Aluno Verificado acessa avisos, suporte, acadêmico, eventos, comunidade, vagas e desafios.
+        - generic [ref=e342]:
+          - strong [ref=e343]: Equipe privada
+          - text: Monitor e Admin acessam triagem, planejamento, logs necessários e canais internos.
+        - generic [ref=e344]:
+          - strong [ref=e345]: Admin protegido
+          - text: Permissões críticas, bots, cargos e logs sensíveis ficam restritos a poucas pessoas.
+      - generic [ref=e346]:
+        - tablist "Categorias do servidor" [ref=e347]:
+          - tab "Aluno" [selected] [ref=e348] [cursor=pointer]
+          - tab "Operação" [ref=e349] [cursor=pointer]
+          - tab "Comunidade e carreira" [ref=e350] [cursor=pointer]
+        - generic [ref=e352]:
+          - generic [ref=e353]:
+            - heading "Início" [level=3] [ref=e354]
+            - generic [ref=e355]:
+              - generic [ref=e356]: boas-vindas
+              - generic [ref=e357]: regras
+              - generic [ref=e358]: como-usar
+              - generic [ref=e359]: verificação
+          - generic [ref=e360]:
+            - heading "Anúncios" [level=3] [ref=e361]
+            - generic [ref=e362]:
+              - generic [ref=e363]: fórum-anúncios
+              - generic [ref=e364]: calendário
+              - generic [ref=e365]: novidades
+              - generic [ref=e366]: materiais
+          - generic [ref=e367]:
+            - heading "Área acadêmica" [level=3] [ref=e368]
+            - generic [ref=e369]:
+              - generic [ref=e370]: avisos-acadêmicos
+              - generic [ref=e371]: materiais
+              - generic [ref=e372]: entregas
+              - generic [ref=e373]: sala-da-trilha
+          - generic [ref=e374]:
+            - heading "Aulas e eventos" [level=3] [ref=e375]
+            - generic [ref=e376]:
+              - generic [ref=e377]: palco-aulões
+              - generic [ref=e378]: plantão
+              - generic [ref=e379]: mentoria
+              - generic [ref=e380]: agenda
+          - generic [ref=e381]:
+            - heading "Suporte" [level=3] [ref=e382]
+            - generic [ref=e383]:
+              - generic [ref=e384]: abrir-ticket
+              - generic [ref=e385]: base
+              - generic [ref=e386]: dúvidas técnicas
+              - generic [ref=e387]: acesso
+          - generic [ref=e388]:
+            - heading "Desenvolvimento" [level=3] [ref=e389]
+            - generic [ref=e390]:
+              - generic [ref=e391]: formar-grupos
+              - generic [ref=e392]: procurando-grupo
+              - generic [ref=e393]: dev-room
+    - generic [ref=e395]:
+      - generic [ref=e397]:
+        - generic [ref=e398]: Suporte e conhecimento
+        - heading "Tickets resolvem o individual. Base de conhecimento resolve o recorrente." [level=2] [ref=e399]
+        - paragraph [ref=e400]: A operação evita mensagens perdidas e transforma dúvidas reais em documentação pesquisável, sem permitir que alunos criem tópicos livres na base.
+      - generic [ref=e401]:
+        - generic [ref=e402]:
+          - strong [ref=e403]: Abrir ticket
+          - text: Aluno escolhe categoria no canal de suporte.
+        - generic [ref=e404]:
+          - strong [ref=e405]: Registrar
+          - text: Bot salva dados, horário, categoria e status.
+        - generic [ref=e406]:
+          - strong [ref=e407]: Assumir
+          - text: Monitor assume e evita ticket sem dono.
+        - generic [ref=e408]:
+          - strong [ref=e409]: Responder
+          - text: Primeira resposta ideal em até 12h.
+        - generic [ref=e410]:
+          - strong [ref=e411]: Escalar
+          - text: Admin entra em casos sensíveis ou dependentes de decisão.
+        - generic [ref=e412]:
+          - strong [ref=e413]: Documentar
+          - text: Dúvida recorrente vira tópico da base.
+        - generic [ref=e414]:
+          - strong [ref=e415]: Medir
+          - text: Dados alimentam métricas e relatórios.
+      - generic "Blueprint operacional de suporte" [ref=e416]:
+        - generic [ref=e417]:
+          - generic [ref=e418]: Aluno
+          - generic [ref=e419]:
+            - generic [ref=e420]:
+              - strong [ref=e421]: Procura
+              - text: Confere se já existe resposta.
+            - generic [ref=e422]:
+              - strong [ref=e423]: Abre ticket
+              - text: Escolhe categoria adequada.
+            - generic [ref=e424]:
+              - strong [ref=e425]: Responde
+              - text: Envia contexto e evidências.
+            - generic [ref=e426]:
+              - strong [ref=e427]: Recebe solução
+              - text: Problema individual é resolvido.
+            - generic [ref=e428]:
+              - strong [ref=e429]: Consulta depois
+              - text: Base ajuda futuros alunos.
+        - generic [ref=e430]:
+          - generic [ref=e431]: Monitor
+          - generic [ref=e432]:
+            - generic [ref=e433]:
+              - strong [ref=e434]: Triagem
+              - text: Categoria, urgência, risco e resposta existente.
+            - generic [ref=e435]:
+              - strong [ref=e436]: Assume
+              - text: Ticket deixa de ficar sem responsável.
+            - generic [ref=e437]:
+              - strong [ref=e438]: Atende
+              - text: Responde dentro do prazo ideal.
+            - generic [ref=e439]:
+              - strong [ref=e440]: Escala
+              - text: Admin entra quando há decisão ou caso sensível.
+            - generic [ref=e441]:
+              - strong [ref=e442]: Documenta
+              - text: Recorrência vira tópico objetivo.
+        - generic [ref=e443]:
+          - generic [ref=e444]: Sistema
+          - generic [ref=e445]:
+            - generic [ref=e446]:
+              - strong [ref=e447]: Eventos
+              - text: Abertura, status, dono, prazos e fechamento.
+            - generic [ref=e448]:
+              - strong [ref=e449]: SLA
+              - text: Alertas de 12h, 15h e tickets parados.
+            - generic [ref=e450]:
+              - strong [ref=e451]: Pendências
+              - text: Resumo por status, responsável e prioridade.
+            - generic [ref=e452]:
+              - strong [ref=e453]: Base
+              - text: Marca o que pode virar conhecimento.
+            - generic [ref=e454]:
+              - strong [ref=e455]: Relatório
+              - text: Gargalos e principais dúvidas da semana.
+    - generic [ref=e457]:
+      - generic [ref=e459]:
+        - generic [ref=e460]: Bots e automações
+        - heading "Automação reduz trabalho manual, mas regra de negócio fica sob controle do Conecta." [level=2] [ref=e461]
+        - paragraph [ref=e462]: A recomendação é usar Discord nativo e bots públicos para funções genéricas, reservando bots próprios para verificação, pendências, vagas, ranking e métricas operacionais.
+      - generic [ref=e463]:
+        - generic [ref=e464]:
+          - heading "Discord nativo" [level=3] [ref=e465]
+          - list [ref=e466]:
+            - listitem [ref=e467]: Community Onboarding
+            - listitem [ref=e468]: Server Guide
+            - listitem [ref=e469]: AutoMod
+            - listitem [ref=e470]: Fóruns
+            - listitem [ref=e471]: Stage Channels
+            - listitem [ref=e472]: Scheduled Events
+        - generic [ref=e473]:
+          - heading "Bots públicos" [level=3] [ref=e474]
+          - list [ref=e475]:
+            - listitem [ref=e476]: "Tickets: Ticket Tool ou Discord Tickets"
+            - listitem [ref=e477]: "Moderação: Sapphire, Dyno ou Carl-bot"
+            - listitem [ref=e478]: "Analytics: Statbot"
+            - listitem [ref=e479]: "Eventos: Sesh ou Apollo"
+            - listitem [ref=e480]: Voz temporária e enquetes
+        - generic [ref=e481]:
+          - heading "Bots próprios" [level=3] [ref=e482]
+          - list [ref=e483]:
+            - listitem [ref=e484]: Onboarding e Verificação
+            - listitem [ref=e485]: Vagas
+            - listitem [ref=e486]: Ranking
+            - listitem [ref=e487]: Automação de Pendências
+            - listitem [ref=e488]: Métricas Operacionais
+      - generic "Arquitetura visual de automações" [ref=e489]:
+        - generic [ref=e497]:
+          - heading "Base nativa" [level=3] [ref=e498]
+          - list [ref=e499]:
+            - listitem [ref=e500]: Organiza a casa antes de adicionar complexidade.
+            - listitem [ref=e501]: Reduz custo e dependência de bots.
+            - listitem [ref=e502]: Resolve onboarding, fóruns, eventos e AutoMod inicial.
+        - generic [ref=e510]:
+          - heading "Operação genérica" [level=3] [ref=e511]
+          - list [ref=e512]:
+            - listitem [ref=e513]: Tickets, moderação, logs, enquetes, eventos e analytics.
+            - listitem [ref=e514]: Escolha depende de plano gratuito, exportação e botões.
+            - listitem [ref=e515]: Bom para começar rápido com baixo esforço técnico.
+        - generic [ref=e523]:
+          - heading "Regra Conecta" [level=3] [ref=e524]
+          - list [ref=e525]:
+            - listitem [ref=e526]: Verificação, vagas, ranking, pendências e métricas.
+            - listitem [ref=e527]: Integra com banco oficial e dashboard futuro.
+            - listitem [ref=e528]: Evita improviso manual onde há regra de negócio.
+      - generic "Prioridade de implementação dos bots" [ref=e529]:
+        - generic [ref=e530]:
+          - generic [ref=e531]: "01"
+          - strong [ref=e532]: Onboarding e Verificação
+        - generic [ref=e533]:
+          - generic [ref=e534]: "02"
+          - strong [ref=e535]: Tickets
+        - generic [ref=e536]:
+          - generic [ref=e537]: "03"
+          - strong [ref=e538]: Pendências
+        - generic [ref=e539]:
+          - generic [ref=e540]: "04"
+          - strong [ref=e541]: Moderação e logs
+        - generic [ref=e542]:
+          - generic [ref=e543]: "05"
+          - strong [ref=e544]: Vagas
+        - generic [ref=e545]:
+          - generic [ref=e546]: "06"
+          - strong [ref=e547]: Ranking
+        - generic [ref=e548]:
+          - generic [ref=e549]: "07"
+          - strong [ref=e550]: Métricas operacionais
+    - generic [ref=e552]:
+      - generic [ref=e554]:
+        - generic [ref=e555]: Comunidade e carreira
+        - heading "O aluno volta ao Discord porque a rotina dele acontece ali." [level=2] [ref=e556]
+        - paragraph [ref=e557]: "Além de ser obrigatório, o servidor precisa oferecer valor contínuo: plantões, networking, projetos, desafios, ranking, vagas e oportunidades reais."
+      - generic [ref=e558]:
+        - generic "Ciclo visual de engajamento" [ref=e559]:
+          - generic [ref=e560]:
+            - generic [ref=e561]:
+              - strong [ref=e562]: Plantão
+              - generic [ref=e563]: Dúvida ao vivo e raciocínio compartilhado.
+            - generic [ref=e564]: →
+            - generic [ref=e565]:
+              - strong [ref=e566]: Aprendizado
+              - generic [ref=e567]: Aluno entende com dúvidas de colegas.
+          - generic [ref=e568]:
+            - generic [ref=e569]:
+              - strong [ref=e570]: Projeto
+              - generic [ref=e571]: Entrega concreta para portfólio.
+            - generic [ref=e572]: →
+            - generic [ref=e573]:
+              - strong [ref=e574]: Reconhecimento
+              - generic [ref=e575]: Ranking, destaque, certificado ou prêmio.
+          - generic [ref=e576]:
+            - generic [ref=e577]:
+              - strong [ref=e578]: Vaga
+              - generic [ref=e579]: Oportunidade, parceria ou projeto real.
+            - generic [ref=e580]: →
+            - generic [ref=e581]:
+              - strong [ref=e582]: Carreira
+              - generic [ref=e583]: Mais motivo para voltar ao Discord.
+        - generic [ref=e584]:
+          - generic [ref=e585]:
+            - heading "Plantões de dúvidas" [level=3] [ref=e586]
+            - paragraph [ref=e587]: Horários semanais com monitor técnico em call, resolução ao vivo e possibilidade de alunos solicitarem temas por tópicos ou votação.
+          - generic [ref=e590]:
+            - heading "Desafios mensais" [level=3] [ref=e591]
+            - paragraph [ref=e592]: Atividades opcionais com briefing, prazo, avaliação, prêmios, certificados, pontos e projetos para portfólio.
+          - generic [ref=e595]:
+            - heading "Ranking saudável" [level=3] [ref=e596]
+            - paragraph [ref=e597]: Pontuação prioriza projeto, ajuda validada, participação útil e evolução acadêmica, com limites contra abuso.
+          - generic [ref=e600]:
+            - heading "Projetos de portfólio" [level=3] [ref=e601]
+            - paragraph [ref=e602]: Briefings simulados e mural de talentos para dar visibilidade às entregas dos alunos e inspirar outros colegas.
+          - generic [ref=e605]:
+            - heading "Vagas e oportunidades" [level=3] [ref=e606]
+            - paragraph [ref=e607]: Bot de vagas, vagas parceiras, eventos externos, dicas de carreira, estágio, júnior, remoto, stacks e cidades.
+          - generic [ref=e610]:
+            - heading "Projetos reais" [level=3] [ref=e611]
+            - paragraph [ref=e612]: "Podem ser divulgados com política clara: Conecta divulga, mas negociação, escopo, pagamento e entrega são do aluno e cliente."
+    - generic [ref=e616]:
+      - generic [ref=e618]:
+        - generic [ref=e619]: Observabilidade
+        - heading "O Discord precisa mostrar se a operação está funcionando." [level=2] [ref=e620]
+        - paragraph [ref=e621]: As métricas não servem só para contar mensagens. Elas indicam adesão, gargalos de suporte, carga dos monitores, engajamento real e oportunidades de melhoria.
+      - generic "Pipeline de dados e observabilidade" [ref=e622]:
+        - generic [ref=e623]:
+          - strong [ref=e624]: Evento
+          - text: Aluno entra, ticket abre, status muda, desafio recebe entrega.
+        - generic [ref=e625]:
+          - strong [ref=e626]: Registro
+          - text: Bot, log, ticket, base ou integração salva o acontecimento.
+        - generic [ref=e627]:
+          - strong [ref=e628]: Indicador
+          - text: Tempo, volume, responsável, categoria, recorrência e participação.
+        - generic [ref=e629]:
+          - strong [ref=e630]: Relatório
+          - text: Resumo semanal ou mensal para coordenação e monitores.
+        - generic [ref=e631]:
+          - strong [ref=e632]: Decisão
+          - text: Ajuste de suporte, plantões, comunicação, regras e experiência.
+      - generic "Filtros de métricas" [ref=e633]:
+        - button "Todas" [ref=e634] [cursor=pointer]
+        - button "Suporte" [ref=e635] [cursor=pointer]
+        - button "Onboarding" [ref=e636] [cursor=pointer]
+        - button "Engajamento" [ref=e637] [cursor=pointer]
+        - button "Operação" [ref=e638] [cursor=pointer]
+      - generic [ref=e639]:
+        - generic [ref=e640]:
+          - strong [ref=e641]: Alunos verificados
+          - text: Entrada, validação, falhas e alunos que ainda não entraram.
+        - generic [ref=e642]:
+          - strong [ref=e643]: Tempo de primeira resposta
+          - text: Percentual em até 12h e em até 15h.
+        - generic [ref=e644]:
+          - strong [ref=e645]: Tickets por categoria
+          - text: Dúvida técnica, acesso, aula, plataforma, certificado e outros.
+        - generic [ref=e646]:
+          - strong [ref=e647]: Pendências por status
+          - text: Aberto, aguardando aluno, aguardando Admin, resolvido e fechado.
+        - generic [ref=e648]:
+          - strong [ref=e649]: Atuação dos monitores
+          - text: Tickets respondidos, escalados, plantões e tópicos criados.
+        - generic [ref=e650]:
+          - strong [ref=e651]: Participação em plantões
+          - text: Presença em calls, temas solicitados e horários de maior demanda.
+        - generic [ref=e652]:
+          - strong [ref=e653]: Desafios e ranking
+          - text: Participantes, entregas, taxa de conclusão, pontos e vitórias.
+        - generic [ref=e654]:
+          - strong [ref=e655]: Vagas publicadas
+          - text: Vagas automáticas, parceiras, stack, cidade, nível e modalidade.
+    - generic [ref=e657]:
+      - generic [ref=e659]:
+        - generic [ref=e660]: Decisões pendentes
+        - heading "A proposta já é apresentável, mas algumas decisões definem a primeira versão." [level=2] [ref=e661]
+        - paragraph [ref=e662]: Esses pontos devem ser discutidos pela equipe antes da implementação final ou deixados marcados como evolução planejada.
+      - generic "Matriz visual de decisões" [ref=e663]:
+        - generic [ref=e664]:
+          - heading "Fechar antes do servidor" [level=3] [ref=e665]
+          - generic [ref=e666]: Cargos
+          - generic [ref=e667]: Permissões
+          - generic [ref=e668]: Regras
+          - generic [ref=e669]: Verificação
+          - generic [ref=e670]: Primeiros canais
+        - generic [ref=e671]:
+          - heading "Definir para versão 1" [level=3] [ref=e672]
+          - generic [ref=e673]: Bot de tickets
+          - generic [ref=e674]: SLA
+          - generic [ref=e675]: Base
+          - generic [ref=e676]: Plantões
+          - generic [ref=e677]: Moderação
+        - generic [ref=e678]:
+          - heading "Evoluir com dados reais" [level=3] [ref=e679]
+          - generic [ref=e680]: Ranking
+          - generic [ref=e681]: Projetos reais
+          - generic [ref=e682]: Dashboard
+          - generic [ref=e683]: Bot próprio
+          - generic [ref=e684]: Relatórios
+      - generic [ref=e685]:
+        - generic [ref=e686]:
+          - strong [ref=e687]: Estrutura acadêmica
+          - text: Turma, curso, módulo, trilha, cidade, stack ou combinação.
+        - generic [ref=e688]:
+          - strong [ref=e689]: Cargos e permissões
+          - text: Nomes finais, acesso de ex-alunos, convidados e poder real dos monitores.
+        - generic [ref=e690]:
+          - strong [ref=e691]: Verificação
+          - text: Dados obrigatórios, integração com base oficial, privacidade e retenção.
+        - generic [ref=e692]:
+          - strong [ref=e693]: Tickets
+          - text: Bot público, bot próprio ou integração híbrida, status customizados e logs exportáveis.
+        - generic [ref=e694]:
+          - strong [ref=e695]: Moderação
+          - text: Allowlist de links, anexos liberados, timeout, punições e escalonamento para Admin.
+        - generic [ref=e696]:
+          - strong [ref=e697]: Desafios e ranking
+          - text: Frequência, critérios, prêmios, banca, pontuação e limites contra abuso.
+        - generic [ref=e698]:
+          - strong [ref=e699]: Bots próprios
+          - text: Tecnologia, hospedagem, manutenção, nomes e integração com banco.
+        - generic [ref=e700]:
+          - strong [ref=e701]: Dados e dashboard
+          - text: Quais métricas vão para banco, quem acessa e quando o sistema web entra.
+        - generic [ref=e702]:
+          - strong [ref=e703]: Projetos reais
+          - text: Política de responsabilidade, publicação, revisão e relação com ranking.
+      - generic [ref=e705]:
+        - group [ref=e706]:
+          - generic "Próximo passo recomendado" [ref=e707] [cursor=pointer]
+          - paragraph [ref=e708]: "Fechar a jornada detalhada do aluno: convite, verificação, primeira mensagem, primeiros canais, suporte, dúvidas, comunidade, desafios e vagas."
+        - group [ref=e709]:
+          - generic "Mensagem central para a equipe" [ref=e710] [cursor=pointer]
+    - generic [ref=e713]:
+      - generic [ref=e714]:
+        - heading "Proposta pronta para discussão interna" [level=2] [ref=e715]
+        - paragraph [ref=e716]: O HTML consolida as notas do cofre em uma apresentação visual e navegável para alinhar tese, operação e pendências antes da montagem do servidor.
+      - generic [ref=e717]: Discord = operação
+    - generic [ref=e719]: "Fonte: notas do cofre Obsidian Conecta. Arquivo gerado como apresentação estática autocontida."

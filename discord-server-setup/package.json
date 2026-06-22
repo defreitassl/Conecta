@@ -1,0 +1,16 @@
+{
+  "name": "conecta-discord-server-setup",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check src/setup-server.js && node --check src/verification-bot.js && node --check src/support/discord-flow.js",
+    "plan": "node src/setup-server.js",
+    "apply": "node src/setup-server.js --apply",
+    "bot": "node src/verification-bot.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.25.1",
+    "dotenv": "^16.4.7"
+  }
+}

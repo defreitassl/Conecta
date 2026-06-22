@@ -1,0 +1,2617 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discord Conecta | Guia de Uso</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23315fdc'/%3E%3Cpath d='M19 33c0-9 6-16 15-16 5 0 9 2 12 5l-6 6c-2-2-4-3-7-3-4 0-7 3-7 8s3 8 8 8c3 0 5-1 7-3l6 6c-3 4-8 6-13 6-9 0-15-7-15-17Z' fill='white'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --surface: #ffffff;
+      --surface-2: #edf2f8;
+      --ink: #101826;
+      --muted: #4f5e72;
+      --line: #ccd6e3;
+      --blue: #2f5fe0;
+      --green: #15795c;
+      --red: #c24545;
+      --amber: #b97514;
+      --violet: #6550bf;
+      --cyan: #127386;
+      --shadow: 0 20px 55px rgba(18, 33, 63, .10);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(47, 95, 224, .06), transparent 32%),
+        linear-gradient(315deg, rgba(21, 121, 92, .07), transparent 28%),
+        var(--bg);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .app {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 24px 18px;
+      background: #121925;
+      color: #edf3ff;
+      border-right: 1px solid rgba(255, 255, 255, .08);
+      overflow-y: auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 6px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      margin-bottom: 18px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, #6ee7b7, transparent 48%),
+        linear-gradient(315deg, #7aa2ff, #315fdc);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .brand strong { display: block; font-size: 15px; }
+    .brand span { display: block; color: #aeb9c9; font-size: 12px; margin-top: 2px; }
+
+    .nav {
+      display: grid;
+      gap: 5px;
+    }
+
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #c7d1e2;
+      padding: 10px 11px;
+      border-radius: var(--radius);
+      font-size: 14px;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: rgba(255, 255, 255, .1);
+      color: #fff;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: currentColor;
+      flex: 0 0 auto;
+      opacity: .75;
+    }
+
+    main { min-width: 0; }
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      align-items: center;
+      padding: 72px clamp(22px, 5vw, 72px) 44px;
+      background:
+        linear-gradient(90deg, rgba(18, 25, 37, .9), rgba(18, 25, 37, .68)),
+        radial-gradient(circle at 70% 28%, rgba(110, 231, 183, .32), transparent 22%),
+        linear-gradient(135deg, #18212f, #273552 55%, #203f3c);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 118px;
+      background: linear-gradient(180deg, transparent, rgba(245, 247, 251, .18));
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+      max-width: 1240px;
+      width: 100%;
+    }
+
+    .eyebrow {
+      color: #aee8d7;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 { line-height: 1.05; margin: 0; letter-spacing: 0; }
+    h1 {
+      font-size: clamp(42px, 7vw, 92px);
+      max-width: 880px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: #d7e0ed;
+      font-size: clamp(17px, 2vw, 21px);
+      margin: 24px 0 0;
+    }
+
+    .hero-panel {
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: var(--radius);
+      padding: 18px;
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .server-visual {
+      background: #0d1320;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .server-top {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 7px;
+      background: #192234;
+      color: #cfd8e8;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .window-dot { width: 9px; height: 9px; border-radius: 999px; background: #6ee7b7; }
+    .window-dot:nth-child(2) { background: #ffca67; }
+    .window-dot:nth-child(3) { background: #ff7b7b; margin-right: 8px; }
+
+    .server-body {
+      display: grid;
+      grid-template-columns: 124px 1fr;
+      min-height: 420px;
+    }
+
+    .channel-list {
+      background: #151d2b;
+      padding: 14px 10px;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+    }
+
+    .channel-list span {
+      height: 26px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .chat-preview {
+      padding: 18px;
+      display: grid;
+      align-content: start;
+      gap: 14px;
+    }
+
+    .message {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: #315fdc;
+    }
+
+    .message:nth-child(2) .avatar { background: #168764; }
+    .message:nth-child(3) .avatar { background: #bd7a18; }
+    .message-lines {
+      display: grid;
+      gap: 7px;
+      padding-top: 3px;
+    }
+    .message-lines i {
+      display: block;
+      height: 10px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, .16);
+    }
+    .message-lines i:nth-child(1) { width: 42%; background: rgba(255, 255, 255, .28); }
+    .message-lines i:nth-child(2) { width: 92%; }
+    .message-lines i:nth-child(3) { width: 68%; }
+
+    section {
+      padding: 74px clamp(22px, 5vw, 72px);
+    }
+
+    .section-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(260px, .45fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 52px);
+      color: var(--ink);
+    }
+
+    .section-head .kicker {
+      color: var(--ink);
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.05;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-bottom: 10px;
+    }
+
+    .section-head h2 {
+      color: var(--blue);
+      font-size: 12px;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 900;
+      max-width: 760px;
+    }
+
+    .lead {
+      color: #445468;
+      font-size: 17px;
+      margin: 12px 0 0;
+      max-width: 760px;
+    }
+
+    .kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: var(--blue);
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .tile,
+    .metric,
+    .decision,
+    .flow-step,
+    .channel-group {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 28px rgba(18, 33, 63, .06);
+    }
+
+    .tile { padding: 22px; }
+    .tile h3 {
+      font-size: 20px;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .tile p,
+    .tile li {
+      color: var(--muted);
+      margin: 0;
+    }
+    .tile ul {
+      padding-left: 18px;
+      margin: 8px 0 0;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .stat {
+      background: #111927;
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 18px;
+      min-height: 112px;
+    }
+    .stat strong { display: block; font-size: 30px; line-height: 1; }
+    .stat span { display: block; color: #b9c4d4; margin-top: 9px; font-size: 13px; }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      border-radius: 999px;
+      padding: 8px 13px;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .16);
+      color: #edf5ff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .hero-pill:before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #6ee7b7;
+      box-shadow: 0 0 0 5px rgba(110, 231, 183, .13);
+    }
+
+    .visual-tabs {
+      display: grid;
+      gap: 18px;
+    }
+
+    .map-band {
+      background: #111927;
+      color: #fff;
+    }
+
+    .map-band .section-head .kicker { color: #fff; }
+    .map-band .section-head h2 { color: #8fe3ca; }
+    .map-band .lead { color: #c8d3e4; }
+
+    .operating-map {
+      display: grid;
+      grid-template-columns: 1fr minmax(280px, 380px) 1fr;
+      gap: 18px;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .map-column {
+      display: grid;
+      gap: 12px;
+    }
+
+    .map-node,
+    .hub-node {
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--radius);
+      padding: 15px;
+      min-height: 98px;
+    }
+
+    .map-node strong,
+    .hub-node strong {
+      display: block;
+      color: #fff;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .map-node span,
+    .hub-node span {
+      display: block;
+      color: #c8d3e4;
+      font-size: 13px;
+    }
+
+    .hub-center {
+      min-height: 360px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, .14);
+      background:
+        linear-gradient(145deg, rgba(49, 95, 220, .44), rgba(22, 135, 100, .38)),
+        #182235;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, .22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hub-center:before,
+    .hub-center:after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 999px;
+      width: 280px;
+      height: 280px;
+    }
+
+    .hub-center:after {
+      width: 180px;
+      height: 180px;
+      border-color: rgba(110, 231, 183, .24);
+    }
+
+    .hub-copy {
+      position: relative;
+      text-align: center;
+      max-width: 260px;
+    }
+
+    .hub-copy strong {
+      display: block;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .hub-copy span {
+      color: #dfe9f7;
+      font-size: 15px;
+    }
+
+    .visual-summary {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .summary-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      min-height: 164px;
+      display: grid;
+      align-content: space-between;
+      box-shadow: 0 12px 28px rgba(18, 33, 63, .06);
+    }
+
+    .summary-art {
+      height: 58px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(90deg, rgba(49, 95, 220, .16), transparent),
+        var(--surface-2);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      padding: 10px;
+      margin-bottom: 14px;
+    }
+
+    .summary-art i {
+      display: block;
+      border-radius: 5px;
+      background: #315fdc;
+      opacity: .78;
+    }
+
+    .summary-card:nth-child(2) .summary-art i { background: #168764; }
+    .summary-card:nth-child(3) .summary-art i { background: #bd7a18; }
+    .summary-card:nth-child(4) .summary-art i { background: #6950c9; }
+    .summary-card:nth-child(5) .summary-art i { background: #147c91; }
+    .summary-card strong { display: block; font-size: 16px; margin-bottom: 7px; }
+    .summary-card span { color: #4a596d; font-size: 13px; }
+
+    .storyboard {
+      display: grid;
+      grid-template-columns: 1fr 72px 1fr;
+      gap: 16px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+
+    .story-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 12px 28px rgba(18, 33, 63, .06);
+    }
+
+    .story-card h3 { font-size: 22px; margin-bottom: 12px; }
+    .story-card ul { margin: 0; padding-left: 18px; color: #4a596d; }
+
+    .story-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      font-weight: 900;
+      position: relative;
+    }
+
+    .story-arrow:before {
+      content: "";
+      width: 100%;
+      height: 3px;
+      background: var(--blue);
+      border-radius: 99px;
+    }
+
+    .story-arrow:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      width: 14px;
+      height: 14px;
+      border-top: 3px solid var(--blue);
+      border-right: 3px solid var(--blue);
+      transform: rotate(45deg);
+    }
+
+    .role-panel {
+      display: grid;
+      grid-template-columns: minmax(260px, .72fr) 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .role-visual,
+    .blueprint-visual,
+    .dashboard-visual,
+    .engagement-visual {
+      background:
+        linear-gradient(145deg, rgba(49, 95, 220, .1), rgba(22, 135, 100, .09)),
+        #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      min-height: 280px;
+      box-shadow: 0 12px 28px rgba(18, 33, 63, .06);
+    }
+
+    .role-screen {
+      height: 100%;
+      min-height: 250px;
+      border-radius: var(--radius);
+      background: #111927;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 12px;
+    }
+
+    .role-sidebar,
+    .role-main {
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .role-sidebar i,
+    .role-main i {
+      display: block;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, .12);
+      height: 24px;
+    }
+
+    .role-main i:nth-child(1) { height: 54px; background: rgba(110, 231, 183, .22); }
+    .role-main i:nth-child(2) { width: 78%; }
+    .role-main i:nth-child(3) { width: 92%; }
+    .role-main i:nth-child(4) { width: 66%; }
+
+    .role-copy {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .role-copy .tile { min-height: 190px; }
+
+    .lane-flow {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .lane {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .lane-label {
+      background: #111927;
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 12px;
+      display: grid;
+      align-content: center;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .lane-items {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .lane-item {
+      min-height: 84px;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 12px;
+      font-size: 13px;
+      color: #4a596d;
+      display: grid;
+      align-content: center;
+      box-shadow: 0 8px 20px rgba(18, 33, 63, .05);
+    }
+
+    .lane-item strong {
+      color: var(--ink);
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .server-map-note {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .mini-note {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 14px;
+      color: #4a596d;
+      font-size: 13px;
+    }
+
+    .mini-note strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .architecture {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .architecture-card {
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 28px rgba(18, 33, 63, .06);
+      overflow: hidden;
+    }
+
+    .architecture-head {
+      min-height: 118px;
+      background:
+        linear-gradient(135deg, rgba(49, 95, 220, .16), transparent),
+        var(--surface-2);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      padding: 16px;
+      align-items: end;
+    }
+
+    .architecture-head i {
+      display: block;
+      min-height: 24px;
+      border-radius: 6px 6px 0 0;
+      background: var(--blue);
+    }
+
+    .architecture-card:nth-child(2) .architecture-head i { background: var(--amber); }
+    .architecture-card:nth-child(3) .architecture-head i { background: var(--green); }
+    .architecture-card .stack-layer {
+      box-shadow: none;
+      border: 0;
+      border-radius: 0;
+    }
+
+    .bot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .bot-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 12px 28px rgba(18, 33, 63, .06);
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      min-height: 300px;
+    }
+
+    .bot-head {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .bot-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius);
+      background: #111927;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .bot-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bot-head h3 {
+      font-size: 19px;
+      margin: 0 0 5px;
+    }
+
+    .bot-link {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .bot-card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .bot-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .bot-tag {
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: #415066;
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .bot-use {
+      border-left: 4px solid var(--blue);
+      padding-left: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .bot-use strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .priority-ladder {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .priority-step {
+      background: #111927;
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 12px;
+      min-height: 92px;
+      display: grid;
+      align-content: space-between;
+    }
+
+    .priority-step small {
+      color: #9fb0c8;
+      font-weight: 900;
+    }
+
+    .priority-step strong {
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .engagement-board {
+      display: grid;
+      grid-template-columns: minmax(260px, .7fr) 1fr;
+      gap: 16px;
+    }
+
+    .engagement-visual {
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .loop-line {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .loop-card {
+      min-height: 76px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      background: #fff;
+      display: grid;
+      align-content: center;
+    }
+
+    .loop-card strong { display: block; font-size: 14px; }
+    .loop-card span { color: #4a596d; font-size: 12px; }
+    .loop-arrow {
+      color: var(--blue);
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .program-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 12px 28px rgba(18, 33, 63, .06);
+    }
+
+    .program-card h3 { font-size: 18px; margin-bottom: 8px; }
+    .program-card p { color: #4a596d; margin: 0 0 12px; font-size: 14px; }
+    .progress {
+      height: 8px;
+      border-radius: 99px;
+      background: var(--surface-2);
+      overflow: hidden;
+    }
+    .progress i {
+      display: block;
+      height: 100%;
+      width: var(--w, 50%);
+      background: var(--blue);
+      border-radius: inherit;
+    }
+
+    .challenge-roadmaps {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .roadmap-divider {
+      width: 1px;
+      min-height: 100%;
+      background: var(--line);
+    }
+
+    .roadmap-column {
+      display: grid;
+      gap: 14px;
+    }
+
+    .roadmap-head {
+      background: #111927;
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 20px;
+      min-height: 142px;
+    }
+
+    .roadmap-head h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .roadmap-head p {
+      color: #c8d3e4;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .roadmap-list {
+      display: grid;
+      gap: 12px;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .roadmap-list:before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: var(--line);
+      border-radius: 99px;
+    }
+
+    .roadmap-item {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 15px;
+      box-shadow: 0 8px 20px rgba(18, 33, 63, .05);
+    }
+
+    .roadmap-item:before {
+      content: "";
+      position: absolute;
+      left: -18px;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px #fff;
+    }
+
+    .roadmap-column.monthly .roadmap-item:before { background: var(--amber); }
+    .roadmap-column.projects .roadmap-item:before { background: var(--green); }
+
+    .roadmap-item strong {
+      display: block;
+      color: var(--ink);
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .roadmap-item span {
+      display: block;
+      color: #4a596d;
+      font-size: 13px;
+    }
+
+    .office-hours-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, .75fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .office-hours-panel {
+      background: #111927;
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 20px;
+      min-height: 100%;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .office-hours-panel h3 {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .office-hours-panel p {
+      color: #c8d3e4;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .office-hours-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .office-hours-note {
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--radius);
+      padding: 13px;
+    }
+
+    .office-hours-note strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .office-hours-note span {
+      display: block;
+      color: #c8d3e4;
+      font-size: 13px;
+    }
+
+    .metric-pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .pipe-step {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      min-height: 94px;
+      box-shadow: 0 8px 20px rgba(18, 33, 63, .05);
+    }
+
+    .pipe-step strong { display: block; font-size: 14px; margin-bottom: 5px; }
+    .pipe-step span { color: #4a596d; font-size: 13px; }
+
+    .decision-lanes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .decision-lane {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 12px 28px rgba(18, 33, 63, .06);
+    }
+
+    .decision-lane h3 { font-size: 18px; margin-bottom: 10px; }
+    .decision-lane .chip { margin: 0 5px 7px 0; }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .compare-col {
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .compare-col.bad { border-top: 6px solid var(--red); }
+    .compare-col.good { border-top: 6px solid var(--green); }
+    .compare-col h3 { font-size: 24px; margin-bottom: 14px; }
+    .compare-col ul { margin: 0; padding-left: 20px; color: #4a596d; }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(150px, 1fr));
+      gap: 12px;
+      counter-reset: step;
+    }
+    .flow-step {
+      padding: 18px;
+      min-height: 162px;
+      position: relative;
+      overflow: hidden;
+    }
+    .flow-step:before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      right: 14px;
+      top: 10px;
+      color: rgba(49, 95, 220, .14);
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-step strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 9px;
+      position: relative;
+    }
+    .flow-step span {
+      color: #4a596d;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .tab {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 9px 14px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .tab[aria-selected="true"] {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .channel-group { padding: 18px; }
+    .channel-group h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .channels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: #415066;
+      padding: 5px 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .discord-mock {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr) 320px;
+      height: clamp(460px, 68vh, 540px);
+      background: #1e1f22;
+      border: 1px solid #2d3035;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 22px 52px rgba(18, 33, 63, .16);
+    }
+
+    .discord-channels {
+      background: #2b2d31;
+      padding: 14px 10px;
+      overflow-y: auto;
+      min-height: 0;
+      scrollbar-width: thin;
+      scrollbar-color: #5b6068 #2b2d31;
+    }
+
+    .discord-channels::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .discord-channels::-webkit-scrollbar-track {
+      background: #2b2d31;
+    }
+
+    .discord-channels::-webkit-scrollbar-thumb {
+      background: #5b6068;
+      border: 2px solid #2b2d31;
+      border-radius: 999px;
+    }
+
+    .discord-server-name {
+      color: #f2f3f5;
+      font-weight: 900;
+      padding: 8px 8px 14px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .discord-category {
+      margin-top: 14px;
+    }
+
+    .discord-category h3 {
+      color: #949ba4;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin: 0 0 6px;
+      padding: 0 8px;
+    }
+
+    .discord-channel {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #b5bac1;
+      border-radius: 6px;
+      min-height: 34px;
+      padding: 7px 8px;
+      display: grid;
+      grid-template-columns: 26px 1fr auto;
+      gap: 7px;
+      align-items: center;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .discord-channel:hover,
+    .discord-channel.active {
+      background: #404249;
+      color: #fff;
+    }
+
+    .discord-channel span:nth-child(2) {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .discord-icon {
+      color: #949ba4;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .discord-type {
+      color: #949ba4;
+      font-size: 10px;
+      text-transform: uppercase;
+      font-weight: 900;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 999px;
+      padding: 2px 6px;
+    }
+
+    .discord-main {
+      background: #313338;
+      display: grid;
+      grid-template-rows: 48px 1fr;
+      min-width: 0;
+      min-height: 0;
+    }
+
+    .discord-topbar {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 16px;
+      color: #f2f3f5;
+      border-bottom: 1px solid rgba(0, 0, 0, .28);
+      font-weight: 900;
+    }
+
+    .discord-preview {
+      padding: 22px;
+      display: grid;
+      align-content: start;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    .discord-message {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .discord-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: #5865f2;
+    }
+
+    .discord-message:nth-child(2) .discord-avatar { background: #23a559; }
+    .discord-message:nth-child(3) .discord-avatar { background: #f0b232; }
+    .discord-message.student .discord-avatar { background: #f0b232; }
+    .discord-message.bot .discord-avatar { background: #5865f2; }
+
+    .discord-bubble {
+      display: grid;
+      gap: 5px;
+      padding-top: 2px;
+    }
+
+    .discord-bubble strong {
+      color: #f2f3f5;
+      font-size: 14px;
+    }
+
+    .discord-bubble p {
+      color: #dbdee1;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .discord-bubble span {
+      color: #949ba4;
+      font-size: 12px;
+    }
+
+    .discord-details {
+      background: #232428;
+      border-left: 1px solid rgba(255, 255, 255, .06);
+      padding: 18px;
+      color: #dbdee1;
+      display: grid;
+      align-content: start;
+      gap: 14px;
+      min-height: 0;
+      overflow-y: auto;
+    }
+
+    .discord-details small {
+      color: #949ba4;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+
+    .discord-details h3 {
+      font-size: 24px;
+      color: #fff;
+      margin: 0;
+    }
+
+    .discord-details p {
+      color: #b5bac1;
+      margin: 0;
+    }
+
+    .discord-detail-badge {
+      display: inline-flex;
+      width: fit-content;
+      border-radius: 999px;
+      background: rgba(88, 101, 242, .18);
+      color: #c9d0ff;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .ticket-sim {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr) 300px;
+      min-height: 520px;
+      background: #1e1f22;
+      border: 1px solid #2d3035;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 22px 52px rgba(18, 33, 63, .16);
+    }
+
+    .ticket-categories {
+      background: #2b2d31;
+      padding: 16px 12px;
+      display: grid;
+      align-content: start;
+      gap: 9px;
+    }
+
+    .ticket-categories h3 {
+      color: #f2f3f5;
+      font-size: 15px;
+      margin: 0 0 6px;
+    }
+
+    .ticket-category {
+      border: 1px solid transparent;
+      background: transparent;
+      color: #b5bac1;
+      border-radius: 6px;
+      padding: 11px;
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 8px;
+      align-items: center;
+      text-align: left;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .ticket-category:hover,
+    .ticket-category.active {
+      background: #404249;
+      color: #fff;
+      border-color: rgba(255, 255, 255, .08);
+    }
+
+    .ticket-workspace {
+      background: #313338;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-width: 0;
+      min-height: 0;
+    }
+
+    .ticket-card {
+      border-bottom: 1px solid rgba(0, 0, 0, .28);
+      padding: 16px 18px;
+      color: #f2f3f5;
+      display: grid;
+      gap: 12px;
+    }
+
+    .ticket-title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .ticket-title-row h3 {
+      font-size: 21px;
+      margin: 0;
+    }
+
+    .ticket-status {
+      border-radius: 999px;
+      background: rgba(35, 165, 89, .18);
+      color: #9ff0bc;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .ticket-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .ticket-meta span {
+      background: #232428;
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 6px;
+      padding: 9px;
+      color: #b5bac1;
+      font-size: 12px;
+    }
+
+    .ticket-meta strong {
+      display: block;
+      color: #f2f3f5;
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    .ticket-chat {
+      padding: 20px;
+      display: grid;
+      align-content: start;
+      gap: 14px;
+      overflow-y: auto;
+      min-height: 0;
+      scrollbar-width: thin;
+      scrollbar-color: #5b6068 #313338;
+    }
+
+    .ticket-chat::-webkit-scrollbar { width: 10px; }
+    .ticket-chat::-webkit-scrollbar-track { background: #313338; }
+    .ticket-chat::-webkit-scrollbar-thumb {
+      background: #5b6068;
+      border: 2px solid #313338;
+      border-radius: 999px;
+    }
+
+    .ticket-details {
+      background: #232428;
+      border-left: 1px solid rgba(255, 255, 255, .06);
+      padding: 18px;
+      color: #dbdee1;
+      display: grid;
+      align-content: start;
+      gap: 14px;
+    }
+
+    .ticket-details small {
+      color: #949ba4;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+
+    .ticket-details h3 {
+      color: #fff;
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .ticket-details p {
+      color: #b5bac1;
+      margin: 0;
+    }
+
+    .ticket-steps {
+      display: grid;
+      gap: 8px;
+    }
+
+    .ticket-step {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 8px;
+      align-items: center;
+      color: #b5bac1;
+      font-size: 13px;
+    }
+
+    .ticket-step i {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #3d4148;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-style: normal;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .ticket-step.active i {
+      background: #23a559;
+    }
+
+    .ticket-log {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .ticket-log strong {
+      color: #fff;
+      font-size: 13px;
+    }
+
+    .ticket-log span {
+      color: #b5bac1;
+      font-size: 12px;
+      display: block;
+    }
+
+    .support-flow {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(108px, 1fr));
+      gap: 10px;
+    }
+    .support-flow .flow-step {
+      min-height: 136px;
+      padding: 14px;
+    }
+    .support-flow .flow-step strong { font-size: 15px; }
+    .support-flow .flow-step span { font-size: 13px; }
+
+    .stack {
+      display: grid;
+      grid-template-columns: .75fr 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .stack-layer {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .stack-layer h3 { font-size: 20px; margin-bottom: 12px; }
+    .stack-layer ul { margin: 0; padding-left: 18px; color: #4a596d; }
+    .stack-layer.native { border-top: 6px solid var(--cyan); }
+    .stack-layer.public { border-top: 6px solid var(--amber); }
+    .stack-layer.own { border-top: 6px solid var(--green); }
+
+    .metrics-toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .filter {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .filter.active { background: #111927; color: #fff; border-color: #111927; }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .metric {
+      padding: 18px;
+      min-height: 124px;
+    }
+    .metric strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .decision {
+      padding: 18px;
+      border-left: 6px solid var(--violet);
+      min-height: 120px;
+    }
+    .decision strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+    .decision span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .callout {
+      background: #111927;
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+    }
+    .callout p { margin: 6px 0 0; color: #c8d3e4; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(110, 231, 183, .16);
+      color: #b8f3e2;
+      padding: 9px 14px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .accordion {
+      display: grid;
+      gap: 10px;
+    }
+    details {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+    summary {
+      cursor: pointer;
+      color: var(--ink);
+      font-weight: 900;
+    }
+    details p,
+    details ul {
+      color: #4a596d;
+      margin-bottom: 0;
+    }
+
+    .footer {
+      padding: 34px clamp(22px, 5vw, 72px);
+      color: #657187;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 1080px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar {
+        position: static;
+        height: auto;
+        display: block;
+      }
+      .nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .hero-grid,
+      .section-head,
+      .stack,
+      .compare,
+      .callout,
+      .operating-map,
+      .storyboard,
+      .role-panel,
+      .engagement-board,
+      .challenge-roadmaps,
+      .office-hours-layout,
+      .ticket-sim,
+      .discord-mock {
+        grid-template-columns: 1fr;
+      }
+      .roadmap-divider {
+        width: 100%;
+        min-height: 1px;
+      }
+      .discord-mock {
+        height: auto;
+      }
+      .discord-channels {
+        max-height: 360px;
+      }
+      .discord-main {
+        min-height: 240px;
+      }
+      .discord-details {
+        border-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, .06);
+        max-height: 260px;
+      }
+      .ticket-sim {
+        min-height: auto;
+      }
+      .ticket-meta {
+        grid-template-columns: 1fr;
+      }
+      .ticket-details {
+        border-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, .06);
+      }
+      .story-arrow {
+        display: none;
+      }
+      .grid-3,
+      .channel-grid,
+      .decision-grid,
+      .metric-grid,
+      .visual-summary,
+      .server-map-note,
+      .architecture,
+      .bot-grid,
+      .program-grid,
+      .metric-pipeline,
+      .decision-lanes,
+      .role-copy,
+      .priority-ladder {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .journey,
+      .support-flow,
+      .lane-items {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .lane {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav,
+      .grid-3,
+      .grid-2,
+      .stat-row,
+      .channel-grid,
+      .journey,
+      .support-flow,
+      .decision-grid,
+      .metric-grid,
+      .visual-summary,
+      .server-map-note,
+      .architecture,
+      .bot-grid,
+      .program-grid,
+      .metric-pipeline,
+      .decision-lanes,
+      .role-copy,
+      .priority-ladder,
+      .lane-items {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        min-height: auto;
+        padding-top: 48px;
+      }
+      .server-body { grid-template-columns: 92px 1fr; }
+      section { padding-top: 54px; padding-bottom: 54px; }
+      .callout { padding: 22px; }
+      .hub-center { min-height: 260px; }
+      .lane-label { min-height: 52px; }
+      .role-screen { grid-template-columns: 72px 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">C</div>
+        <div>
+          <strong>Discord Conecta</strong>
+          <span>Guia de uso</span>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Navegação do guia">
+        <a href="#visao" class="active"><span class="dot"></span> Resumo</a>
+        <a href="#onboarding"><span class="dot"></span> Onboarding</a>
+        <a href="#tickets"><span class="dot"></span> Tickets</a>
+        <a href="#automacoes"><span class="dot"></span> Bots</a>
+        <a href="#servidor"><span class="dot"></span> Canais</a>
+        <a href="#cargos"><span class="dot"></span> Cargos</a>
+        <a href="#ranking"><span class="dot"></span> Ranking</a>
+        <a href="#desafios"><span class="dot"></span> Desafios</a>
+        <a href="#plantoes"><span class="dot"></span> Plantões</a>
+        <a href="#supermodulos"><span class="dot"></span> Super Módulos</a>
+      </nav>
+    </aside>
+
+    <main>
+      <header class="hero" id="visao">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Guia do servidor</div>
+            <h1>Discord Conecta</h1>
+            <p>Como os alunos entram no servidor, pedem suporte, usam os canais e participam de rankings, desafios, plantões e Super Módulos.</p>
+            <div class="hero-actions" aria-label="Assuntos do guia">
+              <span class="hero-pill">Onboarding</span>
+              <span class="hero-pill">Tickets</span>
+              <span class="hero-pill">Bots</span>
+              <span class="hero-pill">Canais</span>
+            </div>
+          </div>
+          <div class="hero-panel" aria-label="Visual do servidor Discord Conecta">
+            <div class="server-visual">
+              <div class="server-top"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span> Conecta Server</div>
+              <div class="server-body">
+                <div class="channel-list">
+                  <span style="width: 88%"></span><span style="width: 74%"></span><span style="width: 92%"></span><span style="width: 68%"></span>
+                  <span style="width: 86%"></span><span style="width: 72%"></span><span style="width: 80%"></span><span style="width: 63%"></span>
+                </div>
+                <div class="chat-preview">
+                  <div class="message"><div class="avatar"></div><div class="message-lines"><i></i><i></i><i></i></div></div>
+                  <div class="message"><div class="avatar"></div><div class="message-lines"><i></i><i></i><i></i></div></div>
+                  <div class="message"><div class="avatar"></div><div class="message-lines"><i></i><i></i><i></i></div></div>
+                  <div class="message"><div class="avatar"></div><div class="message-lines"><i></i><i></i><i></i></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="map-band" id="onboarding">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="kicker">Onboarding e verificação</div>
+              <h2>Entrada controlada por dados, cargos e convites.</h2>
+              <p class="lead">Ninguém acessa os canais internos sem concluir a etapa correta de validação.</p>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="tile"><h3>Acesso bloqueado</h3><p>Ao entrar no servidor, o aluno não consegue ver canais internos até completar o onboarding.</p></div>
+            <div class="tile"><h3>Validação de aluno</h3><p>O aluno precisa verificar seus dados para provar vínculo com o Conecta e liberar o cargo correto.</p></div>
+            <div class="tile"><h3>Liberação por cargos</h3><p>Depois da validação, cargos de aluno liberam os canais de avisos, suporte, aulas, comunidade e atividades.</p></div>
+          </div>
+
+          <div style="height: 16px"></div>
+
+          <div class="challenge-roadmaps" aria-label="Fluxos de onboarding para alunos e convidados">
+            <div class="roadmap-column projects">
+              <div class="roadmap-head">
+                <h3>Aluno</h3>
+                <p>Fluxo para quem faz parte do curso e precisa acessar a rotina completa do servidor.</p>
+              </div>
+              <div class="roadmap-list">
+                <div class="roadmap-item"><strong>Entrada no servidor</strong><span>Aluno entra pelo convite oficial e vê apenas a área inicial.</span></div>
+                <div class="roadmap-item"><strong>Onboarding obrigatório</strong><span>Lê orientações, entende as regras e segue o processo de verificação.</span></div>
+                <div class="roadmap-item"><strong>Verificação de dados</strong><span>Informa os dados necessários para confirmar que é aluno do Conecta.</span></div>
+                <div class="roadmap-item"><strong>Cargo de aluno</strong><span>Após validação, recebe o cargo de aluno e possíveis cargos de turma, trilha ou módulo.</span></div>
+                <div class="roadmap-item"><strong>Acesso liberado</strong><span>Passa a visualizar canais internos, suporte, avisos, aulas, comunidade, ranking e atividades.</span></div>
+              </div>
+            </div>
+
+            <div class="roadmap-divider" aria-hidden="true"></div>
+
+            <div class="roadmap-column monthly">
+              <div class="roadmap-head">
+                <h3>Convidado</h3>
+                <p>Fluxo para professores, palestrantes ou ministradores de Super Módulos.</p>
+              </div>
+              <div class="roadmap-list">
+                <div class="roadmap-item"><strong>Código de convite</strong><span>Funcionários geram um código no sistema interno do Conecta.</span></div>
+                <div class="roadmap-item"><strong>Entrada identificada</strong><span>O convidado informa o código ao entrar ou durante a verificação.</span></div>
+                <div class="roadmap-item"><strong>Cargo de convidado</strong><span>O sistema libera um cargo específico para aquele professor, palestrante ou ministrador.</span></div>
+                <div class="roadmap-item"><strong>Acesso limitado</strong><span>O convidado vê apenas os canais necessários para realizar sua aula, palestra ou Super Módulo.</span></div>
+                <div class="roadmap-item"><strong>Controle de segurança</strong><span>O acesso pode ser temporário e restrito ao período ou atividade combinada.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tickets">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="kicker">Sistema de tickets</div>
+              <h2>Suporte individual com status, responsável e histórico.</h2>
+              <p class="lead">Tickets serão usados para dúvidas ou problemas que precisam de atendimento privado, acompanhamento ou decisão da equipe.</p>
+            </div>
+          </div>
+
+          <div class="ticket-sim" aria-label="Simulação de abertura e atendimento de ticket">
+            <div class="ticket-categories">
+              <h3>Abrir ticket</h3>
+              <button class="ticket-category active" data-category="Acesso" data-ticket="#ticket-acesso-024" data-purpose="Problemas de login, matrícula, liberação de canais ou acesso ao sistema." data-owner="Monitor de suporte" data-question="Não estou conseguindo acessar o sistema do aluno." data-answer="Vou verificar seu cadastro. Pode enviar o e-mail usado na matrícula?" data-base="Se for recorrente, vira tutorial de acesso na base de dúvidas."><span>🔐</span><span>Acesso</span></button>
+              <button class="ticket-category" data-category="Aula" data-ticket="#ticket-aula-031" data-purpose="Dúvidas sobre aula, calendário, gravação, presença ou material de uma aula específica." data-owner="Monitor acadêmico" data-question="Não encontrei o material da última aula." data-answer="Me diga qual aula e turma. Vou te enviar o caminho correto e registrar a dúvida." data-base="Se muitos alunos perguntarem, o link fica fixado no canal de materiais."><span>🎓</span><span>Aula</span></button>
+              <button class="ticket-category" data-category="Dúvida técnica" data-ticket="#ticket-tecnico-046" data-purpose="Problemas com código, ferramenta, instalação, erro ou exercício técnico." data-owner="Monitor técnico" data-question="Meu projeto está dando erro ao rodar localmente." data-answer="Envie o erro, o print e o que você já tentou. Vou ajudar a isolar o problema." data-base="Erros comuns podem virar tutorial no fórum de dúvidas."><span>🛠</span><span>Dúvida técnica</span></button>
+              <button class="ticket-category" data-category="Certificado" data-ticket="#ticket-certificado-012" data-purpose="Dúvidas sobre certificado, conclusão, presença, critérios ou emissão." data-owner="Equipe acadêmica" data-question="Quero entender por que meu certificado ainda não apareceu." data-answer="Vou conferir seus critérios de conclusão e retorno com o status." data-base="Regras frequentes podem virar resposta fixa no canal de certificados."><span>📄</span><span>Certificado</span></button>
+              <button class="ticket-category" data-category="Projeto" data-ticket="#ticket-projeto-018" data-purpose="Dúvidas sobre briefing, entrega, prazo, correção ou nota de projetos opcionais." data-owner="Monitor de projetos" data-question="Tenho dúvida sobre uma regra do briefing do projeto." data-answer="Me envie o trecho do briefing e sua interpretação. Vou orientar o próximo passo." data-base="Dúvidas recorrentes entram no fórum do projeto."><span>📦</span><span>Projeto</span></button>
+              <button class="ticket-category" data-category="Outro" data-ticket="#ticket-outro-007" data-purpose="Casos que não se encaixam nas categorias principais e precisam de triagem." data-owner="Triagem" data-question="Minha dúvida não se encaixa nos outros tipos." data-answer="Sem problema. Vou entender o caso e encaminhar para a pessoa certa." data-base="Se virar padrão, pode gerar uma nova categoria de ticket."><span>💬</span><span>Outro</span></button>
+            </div>
+
+            <div class="ticket-workspace">
+              <div class="ticket-card">
+                <div class="ticket-title-row">
+                  <h3 id="ticket-id">#ticket-acesso-024</h3>
+                  <span class="ticket-status" id="ticket-status">Em atendimento</span>
+                </div>
+                <div class="ticket-meta">
+                  <span>Categoria<strong id="ticket-category">Acesso</strong></span>
+                  <span>Responsável<strong id="ticket-owner">Monitor de suporte</strong></span>
+                  <span>Prioridade<strong>Normal</strong></span>
+                </div>
+              </div>
+              <div class="ticket-chat" id="ticket-chat" aria-live="polite">
+                <div class="discord-message student"><div class="discord-avatar"></div><div class="discord-bubble"><strong>Aluno</strong><p>Não estou conseguindo acessar o sistema do aluno.</p><span>1. dúvida enviada</span></div></div>
+                <div class="discord-message bot"><div class="discord-avatar"></div><div class="discord-bubble"><strong>Conecta Bot</strong><p>Ticket criado em #ticket-acesso-024. Categoria: Acesso.</p><span>2. registro automático</span></div></div>
+                <div class="discord-message bot"><div class="discord-avatar"></div><div class="discord-bubble"><strong>Conecta Bot</strong><p>Status atualizado para "Aberto" e encaminhado para Monitor de suporte.</p><span>3. status aberto</span></div></div>
+                <div class="discord-message student"><div class="discord-avatar"></div><div class="discord-bubble"><strong>Monitor</strong><p>Assumi este ticket. Vou verificar seu cadastro. Pode enviar o e-mail usado na matrícula?</p><span>4. monitor assumiu</span></div></div>
+                <div class="discord-message bot"><div class="discord-avatar"></div><div class="discord-bubble"><strong>Conecta Bot</strong><p>Status atualizado para "Em atendimento".</p><span>5. em atendimento</span></div></div>
+                <div class="discord-message student"><div class="discord-avatar"></div><div class="discord-bubble"><strong>Monitor</strong><p>Caso resolvido. Vou fechar o ticket com um resumo do atendimento.</p><span>6. resolvido</span></div></div>
+                <div class="discord-message bot"><div class="discord-avatar"></div><div class="discord-bubble"><strong>Conecta Bot</strong><p>#ticket-acesso-024 fechado e registrado em logs. Se for recorrente, vira tutorial de acesso na base de dúvidas.</p><span>7. log final</span></div></div>
+              </div>
+            </div>
+
+            <aside class="ticket-details">
+              <small>Detalhes do ticket</small>
+              <h3 id="ticket-detail-title">Acesso</h3>
+              <p id="ticket-purpose">Problemas de login, matrícula, liberação de canais ou acesso ao sistema.</p>
+              <div class="ticket-steps">
+                <div class="ticket-step active"><i>1</i><span>Aluno abre o ticket</span></div>
+                <div class="ticket-step active"><i>2</i><span>Escolhe categoria</span></div>
+                <div class="ticket-step active"><i>3</i><span>Envia a dúvida</span></div>
+                <div class="ticket-step active"><i>4</i><span>Monitor assume</span></div>
+                <div class="ticket-step active"><i>5</i><span>Status é atualizado</span></div>
+                <div class="ticket-step active"><i>6</i><span>Ticket é resolvido</span></div>
+                <div class="ticket-step active"><i>7</i><span>Fechado e registrado em logs</span></div>
+              </div>
+              <div class="ticket-log">
+                <strong>Registro de log</strong>
+                <span id="ticket-log-line">#ticket-acesso-024 fechado como resolvido. Categoria: Acesso. Responsável: Monitor de suporte.</span>
+              </div>
+              <p id="ticket-base-note">Se for recorrente, vira tutorial de acesso na base de dúvidas.</p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="automacoes">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="kicker">Bots e automações</div>
+              <h2>Automações para manter o servidor organizado e fácil de operar.</h2>
+              <p class="lead">Os bots entram para reduzir trabalho manual, orientar alunos, apoiar a moderação e manter a rotina do servidor mais clara.</p>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="tile"><h3>Moderação</h3><p>Ajudar a reduzir spam, registrar ações importantes e manter regras básicas funcionando.</p></div>
+            <div class="tile"><h3>Organização</h3><p>Direcionar alunos para o canal certo, lembrar eventos e evitar que informações se percam.</p></div>
+            <div class="tile"><h3>Rotina</h3><p>Automatizar tarefas repetitivas para monitores e equipe gastarem menos tempo com operação manual.</p></div>
+          </div>
+
+          <div style="height: 16px"></div>
+
+          <div class="roadmap-column projects">
+            <div class="roadmap-head">
+              <h3>Como podem ajudar</h3>
+              <p>Funções esperadas das automações dentro do servidor.</p>
+            </div>
+            <div class="roadmap-list">
+              <div class="roadmap-item"><strong>Organizar suporte</strong><span>Separar pedidos de ajuda por assunto e evitar que dúvidas importantes se percam no chat.</span></div>
+              <div class="roadmap-item"><strong>Moderar o servidor</strong><span>Apoiar a equipe na aplicação de regras, controle de spam e registros de ações relevantes.</span></div>
+              <div class="roadmap-item"><strong>Lembrar eventos</strong><span>Avisar alunos sobre plantões, aulas ao vivo, Super Módulos e prazos importantes.</span></div>
+              <div class="roadmap-item"><strong>Acompanhar participação</strong><span>Mostrar sinais de uso do servidor e ajudar a identificar canais com pouca movimentação.</span></div>
+              <div class="roadmap-item"><strong>Automatizar cargos</strong><span>Ajudar na liberação de acessos, cargos de turma, cargos temporários e possíveis conquistas.</span></div>
+              <div class="roadmap-item"><strong>Conectar com o Conecta</strong><span>No futuro, um bot próprio pode conversar com o sistema web para ranking, desafios e Super Módulos.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servidor">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="kicker">Estrutura de canais</div>
+              <h2>Mapa do servidor em formato de Discord.</h2>
+              <p class="lead">Categorias, canais de texto, voz, palco e fóruns organizados por função. Clique em um canal para ver a descrição.</p>
+            </div>
+          </div>
+
+          <div class="discord-mock" aria-label="Simulação da estrutura de canais do Discord Conecta">
+            <div class="discord-channels">
+              <div class="discord-server-name">Conecta Server</div>
+
+              <div class="discord-category">
+                <h3>Entrada</h3>
+                <button class="discord-channel active" title="Primeira orientação para novos alunos." data-title="boas-vindas" data-type="Texto" data-desc="Primeira mensagem do servidor, com orientação inicial, próximos passos e links principais."><span class="discord-icon">#</span><span>boas-vindas</span><span class="discord-type">txt</span></button>
+                <button class="discord-channel" title="Regras básicas de uso do servidor." data-title="regras" data-type="Texto" data-desc="Canal com regras de convivência, uso correto dos canais, condutas proibidas e critérios de moderação."><span class="discord-icon">#</span><span>regras</span><span class="discord-type">txt</span></button>
+                <button class="discord-channel" title="Guia rápido para usar o Discord." data-title="como-usar" data-type="Texto" data-desc="Explica como navegar no servidor, abrir tickets, entrar em plantões, acompanhar avisos e encontrar materiais."><span class="discord-icon">#</span><span>como-usar</span><span class="discord-type">txt</span></button>
+                <button class="discord-channel" title="Validação do aluno e liberação de acesso." data-title="verificação" data-type="Texto" data-desc="Canal usado para iniciar ou orientar a verificação do aluno antes da liberação dos cargos e canais internos."><span class="discord-icon">#</span><span>verificação</span><span class="discord-type">txt</span></button>
+              </div>
+
+              <div class="discord-category">
+                <h3>Avisos</h3>
+                <button class="discord-channel" title="Comunicados oficiais do Conecta." data-title="anúncios" data-type="Fórum" data-desc="Canal de comunicados oficiais, organizado por publicações para facilitar consulta posterior."><span class="discord-icon">#</span><span>anúncios</span><span class="discord-type">forum</span></button>
+                <button class="discord-channel" title="Agenda de aulas, plantões e eventos." data-title="calendário" data-type="Texto" data-desc="Concentra datas importantes: aulas, plantões, eventos, prazos, desafios e Super Módulos."><span class="discord-icon">#</span><span>calendário</span><span class="discord-type">txt</span></button>
+                <button class="discord-channel" title="Links e materiais importantes." data-title="materiais" data-type="Fórum" data-desc="Organiza materiais, links, documentos e conteúdos de apoio que precisam ficar fáceis de encontrar."><span class="discord-icon">#</span><span>materiais</span><span class="discord-type">forum</span></button>
+              </div>
+
+              <div class="discord-category">
+                <h3>Acadêmico</h3>
+                <button class="discord-channel" title="Avisos e conversas por turma." data-title="turmas" data-type="Fórum" data-desc="Espaço separado por turma para avisos acadêmicos, acompanhamento e dúvidas específicas daquele grupo."><span class="discord-icon">#</span><span>turmas</span><span class="discord-type">forum</span></button>
+                <button class="discord-channel" title="Organização de módulos e Super Módulos." data-title="módulos" data-type="Fórum" data-desc="Canal para organizar conteúdos por módulo, trilha ou Super Módulo ativo."><span class="discord-icon">#</span><span>módulos</span><span class="discord-type">forum</span></button>
+                <button class="discord-channel" title="Orientações sobre entregas." data-title="entregas" data-type="Texto" data-desc="Canal com instruções sobre prazos, critérios e links para entregas de atividades e projetos."><span class="discord-icon">#</span><span>entregas</span><span class="discord-type">txt</span></button>
+              </div>
+
+              <div class="discord-category">
+                <h3>Suporte</h3>
+                <button class="discord-channel" title="Abrir atendimento privado." data-title="abrir-ticket" data-type="Texto" data-desc="Canal onde o aluno abre tickets por categoria para receber atendimento individual e rastreável."><span class="discord-icon">#</span><span>abrir-ticket</span><span class="discord-type">txt</span></button>
+                <button class="discord-channel" title="Tutoriais e respostas recorrentes." data-title="base-de-dúvidas" data-type="Fórum" data-desc="Fórum com respostas, tutoriais e dúvidas recorrentes documentadas pela equipe e monitores."><span class="discord-icon">#</span><span>base-de-dúvidas</span><span class="discord-type">forum</span></button>
+                <button class="discord-channel" title="Problemas de acesso e conta." data-title="acesso" data-type="Texto" data-desc="Canal direcionado a orientações sobre login, matrícula, liberação de acesso e problemas de conta."><span class="discord-icon">#</span><span>acesso</span><span class="discord-type">txt</span></button>
+              </div>
+
+              <div class="discord-category">
+                <h3>Aulas e plantões</h3>
+                <button class="discord-channel" title="Palco para aulas ao vivo e plantões." data-title="palco-aulas" data-type="Palco" data-desc="Canal de palco para aulas, aulões, plantões e encontros com alunos em formato organizado."><span class="discord-icon">▶</span><span>palco-aulas</span><span class="discord-type">palco</span></button>
+                <button class="discord-channel" title="Sala de voz para grupos e prática." data-title="sala-de-estudos" data-type="Voz" data-desc="Canal de voz para estudos em grupo, prática orientada, discussões rápidas e encontros menores."><span class="discord-icon">◉</span><span>sala-de-estudos</span><span class="discord-type">voz</span></button>
+                <button class="discord-channel" title="Sugestões de temas para plantões." data-title="temas-plantões" data-type="Fórum" data-desc="Fórum onde alunos sugerem temas e dúvidas que podem ser aprofundados nos plantões semanais."><span class="discord-icon">#</span><span>temas-plantões</span><span class="discord-type">forum</span></button>
+              </div>
+
+              <div class="discord-category">
+                <h3>Comunidade e carreira</h3>
+                <button class="discord-channel" title="Conversa geral da comunidade." data-title="chat-geral" data-type="Texto" data-desc="Espaço de conversa geral, networking, troca de experiências e interação entre alunos."><span class="discord-icon">#</span><span>chat-geral</span><span class="discord-type">txt</span></button>
+                <button class="discord-channel" title="Apresentação de novos alunos." data-title="apresentações" data-type="Texto" data-desc="Canal para alunos se apresentarem, falarem seus objetivos e encontrarem pessoas com interesses parecidos."><span class="discord-icon">#</span><span>apresentações</span><span class="discord-type">txt</span></button>
+                <button class="discord-channel" title="Vagas e oportunidades." data-title="vagas" data-type="Fórum" data-desc="Fórum para vagas, oportunidades, projetos externos, eventos e conteúdos úteis de carreira."><span class="discord-icon">#</span><span>vagas</span><span class="discord-type">forum</span></button>
+                <button class="discord-channel" title="Projetos, desafios e ranking." data-title="projetos-e-ranking" data-type="Fórum" data-desc="Área para divulgar projetos opcionais, desafios, entregas, destaques e informações do ranking."><span class="discord-icon">#</span><span>projetos-e-ranking</span><span class="discord-type">forum</span></button>
+              </div>
+
+              <div class="discord-category">
+                <h3>Equipe interna</h3>
+                <button class="discord-channel" title="Canal privado dos monitores." data-title="monitores" data-type="Privado" data-desc="Canal privado para alinhamento dos monitores, organização de plantões, dúvidas recorrentes e rotina de suporte."><span class="discord-icon">#</span><span>monitores</span><span class="discord-type">priv</span></button>
+                <button class="discord-channel" title="Triagem interna de suporte." data-title="triagem-suporte" data-type="Privado" data-desc="Canal interno para acompanhar tickets, escalonamentos, pendências e atendimentos que exigem atenção da equipe."><span class="discord-icon">#</span><span>triagem-suporte</span><span class="discord-type">priv</span></button>
+                <button class="discord-channel" title="Registros de tickets, bots e cargos." data-title="logs" data-type="Privado" data-desc="Área restrita para logs de tickets, bots, cargos, moderação e ações sensíveis do servidor."><span class="discord-icon">#</span><span>logs</span><span class="discord-type">priv</span></button>
+              </div>
+            </div>
+
+            <div class="discord-main">
+              <div class="discord-topbar"><span id="discord-current-icon">#</span><span id="discord-current-title">boas-vindas</span></div>
+              <div class="discord-preview" id="discord-chat-preview" aria-live="polite">
+                <div class="discord-message bot"><div class="discord-avatar"></div><div class="discord-bubble"><strong>Conecta Bot</strong><p>Bem-vindo ao canal boas-vindas. Aqui você encontra os primeiros passos para usar o servidor.</p><span>tutorial rápido</span></div></div>
+                <div class="discord-message student"><div class="discord-avatar"></div><div class="discord-bubble"><strong>Aluno</strong><p>O que eu preciso fazer primeiro?</p><span>pergunta do aluno</span></div></div>
+                <div class="discord-message bot"><div class="discord-avatar"></div><div class="discord-bubble"><strong>Conecta Bot</strong><p>Leia as regras, passe pela verificação e depois acesse os canais liberados para sua turma.</p><span>resposta do bot</span></div></div>
+              </div>
+            </div>
+
+            <aside class="discord-details" aria-live="polite">
+              <small id="discord-detail-type">Texto</small>
+              <h3 id="discord-detail-title">boas-vindas</h3>
+              <p id="discord-detail-desc">Primeira mensagem do servidor, com orientação inicial, próximos passos e links principais.</p>
+              <span class="discord-detail-badge" id="discord-detail-badge">Canal de texto</span>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="cargos">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="kicker">Cargos e hierarquia</div>
+              <h2>Cargos organizam acesso, progresso e reconhecimento.</h2>
+              <p class="lead">A hierarquia organiza permissões, acessos acadêmicos e formas de reconhecimento. Os nomes dos cargos serão definidos na configuração final do servidor.</p>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="tile"><h3>Acesso</h3><p>Cargos liberam canais, áreas de turma, Super Módulos, equipe interna e conteúdos específicos.</p></div>
+            <div class="tile"><h3>Organização</h3><p>A hierarquia deixa claro quem é aluno, monitor, equipe, convidado, participante de módulo e aluno em destaque.</p></div>
+            <div class="tile"><h3>Engajamento</h3><p>Cargos valiosos funcionam como reconhecimento público e incentivo para participação contínua.</p></div>
+          </div>
+
+          <div style="height: 16px"></div>
+
+          <div class="office-hours-layout">
+            <div class="roadmap-column projects">
+              <div class="roadmap-head">
+                <h3>Camadas de cargos</h3>
+                <p>Os cargos devem separar as permissões da equipe, o acesso acadêmico e o reconhecimento dos alunos.</p>
+              </div>
+              <div class="roadmap-list">
+                <div class="roadmap-item"><strong>Base de entrada</strong><span>Cargos para visitantes, alunos aguardando verificação e alunos verificados.</span></div>
+                <div class="roadmap-item"><strong>Segmentação acadêmica</strong><span>Cargos por turma, trilha, módulo, Super Módulo ou grupo de projeto.</span></div>
+                <div class="roadmap-item"><strong>Equipe e operação</strong><span>Cargos para monitores, coordenação, administração e permissões sensíveis.</span></div>
+                <div class="roadmap-item"><strong>Conquistas</strong><span>Cargos de destaque para certificados, ranking, participação em projetos, desafios e Super Módulos.</span></div>
+                <div class="roadmap-item"><strong>Status temporário</strong><span>Cargos que aparecem apenas durante um evento, módulo, desafio, plantão ou projeto ativo.</span></div>
+                <div class="roadmap-item"><strong>Progressão</strong><span>O aluno percebe evolução quando desbloqueia cargos melhores, mais visíveis ou mais raros.</span></div>
+              </div>
+            </div>
+
+            <div class="office-hours-panel">
+              <h3>Regras rápidas</h3>
+              <p>Direção para manter os cargos úteis, simples e gamificados.</p>
+              <div class="office-hours-list">
+                <div class="office-hours-note"><strong>Nomes objetivos</strong><span>Os cargos devem ter nomes curtos, claros e compatíveis com a função que exercem.</span></div>
+                <div class="office-hours-note"><strong>Evitar excesso</strong><span>Cargos demais confundem. Cada cargo precisa ter uma função ou valor claro.</span></div>
+                <div class="office-hours-note"><strong>Valor visível</strong><span>Cargos importantes devem aparecer como reconhecimento público dentro da comunidade.</span></div>
+                <div class="office-hours-note"><strong>Automação</strong><span>Sempre que possível, cargos devem ser atribuídos pelo sistema ou bot para reduzir trabalho manual.</span></div>
+                <div class="office-hours-note"><strong>Gamificação</strong><span>Cargos raros podem motivar alunos a participar, concluir projetos e buscar posições melhores.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ranking">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="kicker">Ranking</div>
+              <h2>Pontuação por evolução, participação e entregas.</h2>
+              <p class="lead">Os alunos sobem no ranking ao participar de eventos e projetos opcionais, concluir Super Módulos, evoluir no curso e manter atividade útil no Discord.</p>
+            </div>
+          </div>
+          <div class="grid-3">
+            <div class="tile"><h3>100 pontos totais</h3><p>O ranking é formado por 4 categorias, cada uma valendo 25 pontos.</p></div>
+            <div class="tile"><h3>Reconhecimento</h3><p>As faixas e os critérios de reconhecimento serão definidos no regulamento do ranking.</p></div>
+            <div class="tile"><h3>Consulta diária</h3><p>A posição será atualizada diariamente e consultável pelo Discord ou sistema web.</p></div>
+          </div>
+
+          <div style="height: 16px"></div>
+
+          <div class="office-hours-layout">
+            <div class="roadmap-column projects">
+              <div class="roadmap-head">
+                <h3>Como o aluno pontua</h3>
+                <p>O ranking considera evolução real, participação ativa e entregas feitas ao longo do curso.</p>
+              </div>
+              <div class="roadmap-list">
+                <div class="roadmap-item"><strong>Evolução no curso</strong><span>Categoria de 25 pontos ligada ao progresso acadêmico do aluno.</span></div>
+                <div class="roadmap-item"><strong>Participação em Super Módulos</strong><span>Categoria de 25 pontos ligada aos certificados conquistados em Super Módulos.</span></div>
+                <div class="roadmap-item"><strong>Entrega de projetos opcionais</strong><span>Categoria de 25 pontos ligada aos projetos opcionais avaliados pelos monitores.</span></div>
+                <div class="roadmap-item"><strong>Atividade no Discord</strong><span>Categoria de 25 pontos ligada à participação útil e recorrente no servidor.</span></div>
+                <div class="roadmap-item"><strong>Eventos e projetos</strong><span>Participação em eventos, projetos opcionais e ações da comunidade ajudam o aluno a evoluir nas frentes relacionadas.</span></div>
+                <div class="roadmap-item"><strong>Total</strong><span>Se o aluno atingir 100% nas quatro categorias, ficará com 100 pontos totais.</span></div>
+              </div>
+            </div>
+
+            <div class="office-hours-panel">
+              <h3>Regras rápidas</h3>
+              <p>Consulta, reconhecimento e regras do ranking.</p>
+              <div class="office-hours-list">
+                <div class="office-hours-note"><strong>Atualização</strong><span>O ranking será atualizado diariamente.</span></div>
+                <div class="office-hours-note"><strong>Consulta</strong><span>O aluno poderá consultar a posição por bot no Discord ou pelo sistema web do aluno.</span></div>
+                <div class="office-hours-note"><strong>Reconhecimento</strong><span>Faixas e critérios serão publicados no regulamento antes do início do ranking.</span></div>
+                <div class="office-hours-note"><strong>Premiações</strong><span>Não fazem parte do escopo inicial e dependem de decisão específica.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="desafios">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="kicker">Desafios mensais e projetos opcionais</div>
+              <h2>Duas frentes diferentes: prática recorrente e pontuação no ranking.</h2>
+              <p class="lead">Os desafios mensais serão variados e não entram no ranking. Os projetos opcionais serão mais complexos, avaliados por monitores e contarão pontos.</p>
+            </div>
+          </div>
+
+          <div class="challenge-roadmaps" aria-label="Comparativo entre desafios mensais e projetos opcionais">
+            <div class="roadmap-column monthly">
+              <div class="roadmap-head">
+                <h3>Desafios Mensais</h3>
+                <p>Atividades menores, recorrentes e variadas por matéria ou curso. Servem para prática, engajamento e reconhecimento pontual.</p>
+              </div>
+              <div class="roadmap-list">
+                <div class="roadmap-item"><strong>Tema do mês</strong><span>A equipe define um desafio ligado a uma matéria, curso, habilidade ou contexto prático.</span></div>
+                <div class="roadmap-item"><strong>Briefing simples</strong><span>O aluno recebe objetivo, regras, prazo e formato de entrega.</span></div>
+                <div class="roadmap-item"><strong>Entrega curta</strong><span>A atividade deve ser mais rápida que um projeto completo e fácil de participar.</span></div>
+                <div class="roadmap-item"><strong>Reconhecimento</strong><span>O formato será definido antes de cada edição e publicado no regulamento, sem impacto no ranking.</span></div>
+                <div class="roadmap-item"><strong>Sem ranking</strong><span>Não entra nos pontos do ranking. O resultado fica separado da pontuação oficial.</span></div>
+              </div>
+            </div>
+
+            <div class="roadmap-divider" aria-hidden="true"></div>
+
+            <div class="roadmap-column projects">
+              <div class="roadmap-head">
+                <h3>Projetos Opcionais</h3>
+                <p>Projetos mais complexos, disponíveis no Sistema Web Conecta, com inscrição, briefing, prazo, correção e impacto no ranking.</p>
+              </div>
+              <div class="roadmap-list">
+                <div class="roadmap-item"><strong>Disponível no sistema</strong><span>O aluno acessa o Sistema Web Conecta, escolhe um projeto e faz a inscrição.</span></div>
+                <div class="roadmap-item"><strong>Briefing completo</strong><span>Após se inscrever, o aluno recebe escopo, requisitos, critérios e materiais de referência.</span></div>
+                <div class="roadmap-item"><strong>Prazo definido</strong><span>Cada projeto terá um prazo, por exemplo 3 meses. Atrasos impactam a pontuação.</span></div>
+                <div class="roadmap-item"><strong>Correção dos monitores</strong><span>Monitores avaliam a entrega, dão nota e registram o resultado no sistema.</span></div>
+                <div class="roadmap-item"><strong>Pontos no ranking</strong><span>A nota gera pontos e pode fazer o aluno subir posições.</span></div>
+                <div class="roadmap-item"><strong>Meta da categoria</strong><span>Para alcançar 100% nessa categoria do ranking, o aluno deve entregar ao menos 2 projetos e tirar nota total nos dois.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="plantoes">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="kicker">Plantões de dúvidas</div>
+              <h2>Encontros semanais com temas sugeridos e dúvidas da comunidade.</h2>
+              <p class="lead">Os plantões coletivos podem ocorrer semanalmente pelo Discord e complementam a monitoria individual obrigatória a cada 15 dias.</p>
+            </div>
+          </div>
+
+          <div class="office-hours-layout">
+            <div class="roadmap-column">
+              <div class="roadmap-head">
+                <h3>Rotina do plantão</h3>
+                <p>O plantão transforma dúvidas da semana em explicações ao vivo e, quando necessário, em respostas permanentes no fórum.</p>
+              </div>
+              <div class="roadmap-list">
+                <div class="roadmap-item"><strong>Oferta semanal</strong><span>Os horários podem variar entre as semanas para atender diferentes disponibilidades dos alunos.</span></div>
+                <div class="roadmap-item"><strong>Coleta de temas</strong><span>Alunos podem sugerir temas ou dúvidas antes do encontro.</span></div>
+                <div class="roadmap-item"><strong>Dúvidas do fórum</strong><span>O monitor também pode selecionar dúvidas enviadas no fórum durante a semana para aprofundar no plantão.</span></div>
+                <div class="roadmap-item"><strong>Entrada pelo Discord</strong><span>Os alunos entram no canal do plantão pelo Discord e acompanham a explicação ao vivo.</span></div>
+                <div class="roadmap-item"><strong>Participação no palco</strong><span>Todos ficam mutados por padrão. Quem quiser falar pode levantar a mão e ser convidado ao palco.</span></div>
+                <div class="roadmap-item"><strong>Registro posterior</strong><span>Depois do plantão, o monitor pode transformar dúvidas importantes em tutoriais ou respostas no fórum.</span></div>
+              </div>
+            </div>
+
+            <div class="office-hours-panel">
+              <h3>Regras rápidas</h3>
+              <p>Orientações para manter os plantões organizados e úteis.</p>
+              <div class="office-hours-list">
+                <div class="office-hours-note"><strong>Frequência</strong><span>Plantões coletivos semanais, sem substituir a monitoria individual quinzenal.</span></div>
+                <div class="office-hours-note"><strong>Revezamento</strong><span>Os monitores se revezam. Cada semana, um monitor ministra o plantão.</span></div>
+                <div class="office-hours-note"><strong>Participação</strong><span>Aluno acompanha mutado, levanta a mão e pode ser chamado para falar.</span></div>
+                <div class="office-hours-note"><strong>Reaproveitamento</strong><span>Dúvidas recorrentes viram posts no fórum com tutorial ou resposta.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="supermodulos">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="kicker">Super Módulos</div>
+              <h2>Cursos extras de especialização com certificado e impacto no ranking.</h2>
+              <p class="lead">Super Módulos serão cursos de 2 a 3 meses sobre temas úteis e atuais da área de tecnologia, com aulas práticas, projeto e matrícula pelo Sistema Web Conecta.</p>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="tile"><h3>Formato</h3><p>Cursos extras de especialização, com duração de 2 a 3 meses.</p></div>
+            <div class="tile"><h3>Ritmo</h3><p>Uma aula por semana, com duração de 2h a 3h.</p></div>
+            <div class="tile"><h3>Foco</h3><p>Assuntos atuais da área de tecnologia, prática guiada e desenvolvimento de projetos.</p></div>
+          </div>
+
+          <div style="height: 16px"></div>
+
+          <div class="office-hours-layout">
+            <div class="roadmap-column projects">
+              <div class="roadmap-head">
+                <h3>Funcionamento</h3>
+                <p>Do cadastro no sistema ao encerramento do acesso no Discord.</p>
+              </div>
+              <div class="roadmap-list">
+                <div class="roadmap-item"><strong>Matrícula no sistema</strong><span>As matrículas serão feitas no Sistema Web Conecta do aluno, com vagas limitadas.</span></div>
+                <div class="roadmap-item"><strong>Limite simultâneo</strong><span>Cada aluno poderá se inscrever em até 2 Super Módulos ao mesmo tempo.</span></div>
+                <div class="roadmap-item"><strong>Instrutores</strong><span>As aulas serão ministradas por monitores ou programadores contratados com experiência no assunto.</span></div>
+                <div class="roadmap-item"><strong>Aulas práticas</strong><span>O conteúdo será focado em prática e desenvolvimento de projetos ao longo do Super Módulo.</span></div>
+                <div class="roadmap-item"><strong>Cargo no Discord</strong><span>Após a matrícula, o aluno recebe o cargo daquele Super Módulo no Discord.</span></div>
+                <div class="roadmap-item"><strong>Canais liberados</strong><span>O cargo libera canais como palco para aulas, tira-dúvidas, projetos, grupos e avisos específicos.</span></div>
+                <div class="roadmap-item"><strong>Encerramento</strong><span>Depois do término do Super Módulo, o aluno perde o cargo e deixa de visualizar os canais daquele módulo.</span></div>
+              </div>
+            </div>
+
+            <div class="office-hours-panel">
+              <h3>Regras rápidas</h3>
+              <p>Critérios de participação, certificado e pontuação no ranking.</p>
+              <div class="office-hours-list">
+                <div class="office-hours-note"><strong>Aprovação</strong><span>Participar de pelo menos 50% das aulas e entregar o projeto final, quando houver.</span></div>
+                <div class="office-hours-note"><strong>Certificado</strong><span>O aluno aprovado recebe certificado de conclusão do Super Módulo.</span></div>
+                <div class="office-hours-note"><strong>Pontos</strong><span>Cada certificado vale 25% dos pontos totais da categoria de Super Módulos.</span></div>
+                <div class="office-hours-note"><strong>100% da categoria</strong><span>Para atingir 100% nessa categoria, o aluno precisa concluir 4 Super Módulos.</span></div>
+                <div class="office-hours-note"><strong>Ranking</strong><span>A conclusão dos Super Módulos ajuda o aluno a subir posições no ranking.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="section-inner">Guia de referência para configurar e conduzir o servidor Discord Conecta.</div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const navLinks = [...document.querySelectorAll('.nav a')];
+    const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+      });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+
+    sections.forEach(section => observer.observe(section));
+
+    document.querySelectorAll('.tabs').forEach(tabList => {
+      const scope = tabList.closest('.tab-set') || tabList.parentElement;
+      const tabs = [...tabList.querySelectorAll('.tab')];
+      const panels = [...scope.querySelectorAll('.tab-panel')];
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = tab.dataset.tab;
+          tabs.forEach(item => item.setAttribute('aria-selected', String(item === tab)));
+          panels.forEach(panel => panel.classList.toggle('active', panel.id === target));
+        });
+      });
+    });
+
+    document.querySelectorAll('.filter').forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        document.querySelectorAll('.filter').forEach(item => item.classList.toggle('active', item === button));
+        document.querySelectorAll('.metric').forEach(metric => {
+          metric.style.display = filter === 'all' || metric.dataset.type === filter ? '' : 'none';
+        });
+      });
+    });
+
+    const ticketCategories = [...document.querySelectorAll('.ticket-category')];
+    const ticketId = document.querySelector('#ticket-id');
+    const ticketCategory = document.querySelector('#ticket-category');
+    const ticketOwner = document.querySelector('#ticket-owner');
+    const ticketDetailTitle = document.querySelector('#ticket-detail-title');
+    const ticketPurpose = document.querySelector('#ticket-purpose');
+    const ticketBaseNote = document.querySelector('#ticket-base-note');
+    const ticketLogLine = document.querySelector('#ticket-log-line');
+    const ticketChat = document.querySelector('#ticket-chat');
+
+    const renderTicketChat = button => {
+      const messages = [
+        ['Aluno', button.dataset.question, '1. dúvida enviada', 'student'],
+        ['Conecta Bot', `Ticket criado em ${button.dataset.ticket}. Categoria: ${button.dataset.category}.`, '2. registro automático', 'bot'],
+        ['Conecta Bot', `Status atualizado para "Aberto" e encaminhado para ${button.dataset.owner}.`, '3. status aberto', 'bot'],
+        ['Monitor', `Assumi este ticket. ${button.dataset.answer}`, '4. monitor assumiu', 'student'],
+        ['Conecta Bot', 'Status atualizado para "Em atendimento".', '5. em atendimento', 'bot'],
+        ['Monitor', 'Caso resolvido. Vou fechar o ticket com um resumo do atendimento.', '6. resolvido', 'student'],
+        ['Conecta Bot', `${button.dataset.ticket} fechado e registrado em logs. ${button.dataset.base}`, '7. log final', 'bot']
+      ];
+
+      ticketChat.innerHTML = messages.map(([author, text, label, kind]) => (
+        `<div class="discord-message ${kind}"><div class="discord-avatar"></div><div class="discord-bubble"><strong>${author}</strong><p>${text}</p><span>${label}</span></div></div>`
+      )).join('');
+    };
+
+    ticketCategories.forEach(button => {
+      button.addEventListener('click', () => {
+        ticketCategories.forEach(item => item.classList.toggle('active', item === button));
+        ticketId.textContent = button.dataset.ticket;
+        ticketCategory.textContent = button.dataset.category;
+        ticketOwner.textContent = button.dataset.owner;
+        ticketDetailTitle.textContent = button.dataset.category;
+        ticketPurpose.textContent = button.dataset.purpose;
+        ticketBaseNote.textContent = button.dataset.base;
+        ticketLogLine.textContent = `${button.dataset.ticket} fechado como resolvido. Categoria: ${button.dataset.category}. Responsável: ${button.dataset.owner}.`;
+        renderTicketChat(button);
+      });
+    });
+
+    const discordChannels = [...document.querySelectorAll('.discord-channel')];
+    const discordCurrentIcon = document.querySelector('#discord-current-icon');
+    const discordCurrentTitle = document.querySelector('#discord-current-title');
+    const discordDetailType = document.querySelector('#discord-detail-type');
+    const discordDetailTitle = document.querySelector('#discord-detail-title');
+    const discordDetailDesc = document.querySelector('#discord-detail-desc');
+    const discordDetailBadge = document.querySelector('#discord-detail-badge');
+    const discordChatPreview = document.querySelector('#discord-chat-preview');
+
+    const typeLabels = {
+      Texto: 'Canal de texto',
+      Fórum: 'Canal de fórum',
+      Voz: 'Canal de voz',
+      Palco: 'Canal de palco',
+      Privado: 'Canal privado'
+    };
+
+    const channelChatOverrides = {
+      'abrir-ticket': [
+        ['Aluno', 'Preciso de ajuda com um problema específico. Por onde começo?'],
+        ['Conecta Bot', 'Clique na categoria correta do ticket. A equipe recebe seu caso com histórico e responsável.'],
+        ['Conecta Bot', 'Use esse canal para problemas individuais, acesso, certificado, dúvidas técnicas ou casos que precisam de acompanhamento.']
+      ],
+      'base-de-dúvidas': [
+        ['Aluno', 'Minha dúvida já pode ter sido respondida antes?'],
+        ['Conecta Bot', 'Sim. Pesquise primeiro neste fórum. As respostas recorrentes ficam organizadas como tutoriais curtos.'],
+        ['Conecta Bot', 'Se não encontrar a solução, abra um ticket ou leve a dúvida para o plantão.']
+      ],
+      'palco-aulas': [
+        ['Aluno', 'Como eu participo de uma aula ou plantão aqui?'],
+        ['Conecta Bot', 'Entre no palco pelo Discord. Você acompanha mutado e pode levantar a mão quando quiser falar.'],
+        ['Conecta Bot', 'O monitor pode convidar alunos ao palco para tirar dúvidas ou complementar a explicação.']
+      ],
+      'temas-plantões': [
+        ['Aluno', 'Posso sugerir uma dúvida para o próximo plantão?'],
+        ['Conecta Bot', 'Pode. Publique o tema neste fórum com contexto e, se possível, exemplos do que você tentou.'],
+        ['Conecta Bot', 'O monitor pode selecionar dúvidas da semana para explicar com mais profundidade ao vivo.']
+      ],
+      'projetos-e-ranking': [
+        ['Aluno', 'Esse canal serve para acompanhar projetos e ranking?'],
+        ['Conecta Bot', 'Sim. Aqui ficam avisos sobre projetos opcionais, desafios, entregas, destaques e regras do ranking.'],
+        ['Conecta Bot', 'Projetos opcionais corrigidos pelos monitores podem gerar pontos e melhorar sua posição.']
+      ],
+      'logs': [
+        ['Monitor', 'Por que esse canal é restrito?'],
+        ['Conecta Bot', 'Ele registra ações sensíveis, como tickets, bots, cargos e moderação.'],
+        ['Conecta Bot', 'Acesso limitado evita exposição de dados e facilita auditoria interna.']
+      ]
+    };
+
+    const chatTemplates = {
+      Texto: channel => [
+        ['Aluno', `Para que serve o canal ${channel.dataset.title}?`],
+        ['Conecta Bot', channel.dataset.desc],
+        ['Conecta Bot', 'Use este canal apenas para o assunto indicado, mantendo a organização do servidor.']
+      ],
+      Fórum: channel => [
+        ['Aluno', `Como eu uso o fórum ${channel.dataset.title}?`],
+        ['Conecta Bot', channel.dataset.desc],
+        ['Conecta Bot', 'Crie ou consulte tópicos por assunto. Isso ajuda outras pessoas a encontrarem a mesma resposta depois.']
+      ],
+      Voz: channel => [
+        ['Aluno', `Quando devo entrar em ${channel.dataset.title}?`],
+        ['Conecta Bot', channel.dataset.desc],
+        ['Conecta Bot', 'Use para conversas ao vivo, estudos em grupo ou momentos em que texto não resolve bem.']
+      ],
+      Palco: channel => [
+        ['Aluno', `Como funciona o palco ${channel.dataset.title}?`],
+        ['Conecta Bot', channel.dataset.desc],
+        ['Conecta Bot', 'Entre como ouvinte, acompanhe mutado e levante a mão se precisar participar.']
+      ],
+      Privado: channel => [
+        ['Monitor', `Qual é o uso interno de ${channel.dataset.title}?`],
+        ['Conecta Bot', channel.dataset.desc],
+        ['Conecta Bot', 'Este canal é restrito à equipe e deve ser usado para operação, acompanhamento e registros internos.']
+      ]
+    };
+
+    const renderDiscordChat = channel => {
+      const messages = channelChatOverrides[channel.dataset.title] || chatTemplates[channel.dataset.type](channel);
+      discordChatPreview.innerHTML = messages.map(([author, text]) => {
+        const kind = author === 'Aluno' || author === 'Monitor' ? 'student' : 'bot';
+        const label = author === 'Conecta Bot' ? 'tutorial rápido' : 'pergunta';
+        return `<div class="discord-message ${kind}"><div class="discord-avatar"></div><div class="discord-bubble"><strong>${author}</strong><p>${text}</p><span>${label}</span></div></div>`;
+      }).join('');
+    };
+
+    discordChannels.forEach(channel => {
+      channel.addEventListener('click', () => {
+        discordChannels.forEach(item => item.classList.toggle('active', item === channel));
+        discordCurrentIcon.textContent = channel.querySelector('.discord-icon').textContent;
+        discordCurrentTitle.textContent = channel.dataset.title;
+        discordDetailType.textContent = channel.dataset.type;
+        discordDetailTitle.textContent = channel.dataset.title;
+        discordDetailDesc.textContent = channel.dataset.desc;
+        discordDetailBadge.textContent = typeLabels[channel.dataset.type] || 'Canal';
+        renderDiscordChat(channel);
+      });
+    });
+
+  </script>
+</body>
+</html>

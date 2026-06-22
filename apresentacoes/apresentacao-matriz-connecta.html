@@ -1,0 +1,3214 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programa Connecta | Apresentação Executiva</title>
+  <link rel="icon" type="image/png" href="assets/branding/connecta-icon.png">
+  <link rel="apple-touch-icon" href="assets/branding/connecta-icon.png">
+  <style>
+    :root {
+      --bg: #f1ede4;
+      --surface: #fffdf8;
+      --surface-2: #edf4f6;
+      --ink: #172536;
+      --muted: #52606b;
+      --line: #d8d2c5;
+      --blue: #2f5fe0;
+      --brand-blue: #12a9df;
+      --brand-orange: #ff6b00;
+      --brand-green: #05bd7b;
+      --green: #15795c;
+      --red: #c24545;
+      --amber: #b97514;
+      --violet: #6550bf;
+      --cyan: #127386;
+      --dark: #111720;
+      --paper: #fffaf1;
+      --paper-blue: #edf6fa;
+      --paper-green: #edf7f1;
+      --paper-orange: #fff2e7;
+      --shadow: 0 18px 44px rgba(30, 43, 61, .12);
+      --radius: 8px;
+      --font-display: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      --font-body: "Avenir Next", "Gill Sans", Aptos, "Segoe UI Variable", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+    body:before {
+      display: none;
+    }
+
+    button, a { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    a { text-decoration: none; }
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.01;
+      letter-spacing: 0;
+      font-family: var(--font-display);
+      font-weight: 800;
+    }
+    p { margin: 0; }
+
+    .progress-bar {
+      position: fixed;
+      inset: 0 0 auto;
+      height: 5px;
+      background: linear-gradient(90deg, var(--brand-blue), var(--brand-orange), var(--brand-green));
+      transform: scaleX(0);
+      transform-origin: left;
+      z-index: 20;
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: 304px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 24px 18px;
+      background: var(--dark);
+      color: #edf3ff;
+      border-right: 1px solid rgba(255, 255, 255, .08);
+      overflow-y: auto;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 6px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      margin-bottom: 18px;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #f4f7fb;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, .24);
+    }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .brand strong {
+      display: block;
+      font-family: Baskerville, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -.01em;
+    }
+    .brand span { display: block; color: #aeb9c9; font-size: 12px; margin-top: 2px; }
+
+    .nav { display: grid; gap: 5px; }
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #c7d1e2;
+      padding: 11px 12px;
+      border-radius: 14px;
+      font-size: 14px;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+    .nav a:hover,
+    .nav a.active {
+      background: rgba(255, 255, 255, .09);
+      color: #fff;
+      transform: translateX(2px);
+    }
+    .nav a.active .dot { color: var(--brand-blue); opacity: 1; }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: currentColor;
+      flex: 0 0 auto;
+      opacity: .75;
+    }
+
+    main { min-width: 0; }
+    section {
+      padding: 64px clamp(20px, 5vw, 78px);
+      position: relative;
+      overflow: hidden;
+    }
+    section:before {
+      content: "";
+      position: absolute;
+      right: clamp(14px, 4vw, 58px);
+      top: 34px;
+      width: 72px;
+      height: 7px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--brand-blue) 0 32%, var(--brand-orange) 32% 65%, var(--brand-green) 65%);
+      opacity: .85;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .section-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      align-items: center;
+      color: #fff;
+      background: var(--dark);
+    }
+    .hero:before {
+      display: none;
+    }
+    .hero:after {
+      display: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+      width: 100%;
+    }
+    .eyebrow {
+      color: #aee8d7;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+    .hero-copy {
+      max-width: 640px;
+      color: #d7e0ed;
+      font-size: clamp(17px, 1.6vw, 20px);
+      margin-top: 10px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .action-button {
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: rgba(255, 255, 255, .10);
+      color: #fff;
+      min-height: 42px;
+      border-radius: 999px;
+      padding: 9px 15px;
+      font-size: 13px;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .action-button:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, .16);
+    }
+    .action-button.primary {
+      background: #fff;
+      color: #101826;
+    }
+    .action-button.primary:hover {
+      background: #eefbff;
+    }
+    .identity-tag {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      padding: 7px 13px 7px 7px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .10);
+      border: 1px solid rgba(255, 255, 255, .18);
+      color: #edf5ff;
+      font-size: 13px;
+      font-family: var(--font-body);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+    .identity-tag img {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: #fff;
+      object-fit: cover;
+    }
+    .action-button .arrow { font-weight: 900; }
+
+    .control-room {
+      background: rgba(255, 255, 255, .10);
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      animation: floatPanel 7s ease-in-out infinite;
+      min-width: 0;
+    }
+    .control-screen {
+      border-radius: 18px;
+      overflow: hidden;
+      background: #0d1320;
+      border: 1px solid rgba(255, 255, 255, .12);
+    }
+    .screen-top {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 14px;
+      background: #192234;
+      color: #cfd8e8;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .window-dot { width: 9px; height: 9px; border-radius: 999px; background: #6ee7b7; }
+    .window-dot:nth-child(2) { background: #ffca67; }
+    .window-dot:nth-child(3) { background: #ff7b7b; margin-right: 8px; }
+    .screen-body {
+      min-height: 440px;
+      padding: 18px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 16px;
+    }
+    .metric-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .metric-box {
+      border-radius: 16px;
+      padding: 13px;
+      min-height: 98px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .11);
+    }
+    .metric-box strong {
+      display: block;
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .metric-box span { display: block; color: #b9c4d4; font-size: 12px; }
+    .radar {
+      position: relative;
+      min-height: 220px;
+      display: grid;
+      place-items: center;
+    }
+    .radar-ring {
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 999px;
+      animation: pulseRing 4s ease-in-out infinite;
+    }
+    .radar-ring:nth-child(1) { width: 210px; height: 210px; }
+    .radar-ring:nth-child(2) { width: 150px; height: 150px; animation-delay: .4s; }
+    .radar-ring:nth-child(3) { width: 90px; height: 90px; animation-delay: .8s; }
+    .radar-core {
+      width: 92px;
+      height: 92px;
+      border-radius: 24px;
+      background: #f4f7fb;
+      padding: 8px;
+      z-index: 1;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, .22);
+    }
+    .radar-core img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .signal-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .signal {
+      min-height: 62px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .11);
+      display: grid;
+      place-items: center;
+      color: #dfe9f7;
+      font-size: 12px;
+      font-weight: 900;
+      text-align: center;
+      padding: 8px;
+    }
+
+    .roadmap-section {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      padding-top: 88px;
+      padding-bottom: 96px;
+    }
+    .roadmap-section .section-head {
+      margin: 0 auto 56px;
+      text-align: center;
+    }
+    .roadmap-list {
+      position: relative;
+      list-style: none;
+      margin: 0 auto;
+      padding: 0;
+      max-width: 1100px;
+    }
+    .roadmap-list:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 92px;
+      bottom: 92px;
+      width: 4px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--brand-blue) 0 34%, var(--brand-orange) 34% 67%, var(--brand-green) 67%);
+      transform: translateX(-50%);
+    }
+    .roadmap-item {
+      --roadmap-color: var(--brand-blue);
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 80px minmax(0, 1fr);
+      align-items: center;
+      min-height: 184px;
+      opacity: .16;
+      transform: translateY(38px) scale(.985);
+      transition: opacity .65s ease, transform .65s cubic-bezier(.2, .8, .2, 1);
+    }
+    .roadmap-item.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .roadmap-item:nth-child(3n + 2) { --roadmap-color: var(--brand-orange); }
+    .roadmap-item:nth-child(3n) { --roadmap-color: var(--brand-green); }
+    .roadmap-node {
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: center;
+      width: 14px;
+      height: 14px;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: var(--roadmap-color);
+      box-shadow: 0 0 0 2px var(--roadmap-color);
+      z-index: 1;
+    }
+    .roadmap-link {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 34px;
+      grid-template-rows: auto auto;
+      gap: 7px 14px;
+      align-items: center;
+      width: 100%;
+      max-width: 440px;
+      min-height: 112px;
+      padding: 18px 4px;
+      border-bottom: 1px solid var(--line);
+      transition: color .2s ease, transform .2s ease;
+    }
+    .roadmap-link:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 40px;
+      border-top: 1px solid var(--roadmap-color);
+    }
+    .roadmap-item:nth-child(odd) .roadmap-link {
+      grid-column: 1;
+      grid-row: 1;
+      grid-template-columns: 34px minmax(0, 1fr);
+      justify-self: end;
+      text-align: right;
+    }
+    .roadmap-item:nth-child(odd) .roadmap-link:before { right: -40px; }
+    .roadmap-item:nth-child(even) .roadmap-link {
+      grid-column: 3;
+      grid-row: 1;
+      justify-self: start;
+    }
+    .roadmap-item:nth-child(even) .roadmap-link:before { left: -40px; }
+    .roadmap-item:nth-child(odd) .roadmap-title,
+    .roadmap-item:nth-child(odd) .roadmap-description { grid-column: 2; }
+    .roadmap-item:nth-child(odd) .roadmap-title { justify-content: flex-end; }
+    .roadmap-item:nth-child(odd) .roadmap-arrow {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+    }
+    .roadmap-item:last-child .roadmap-link { border-bottom: 0; }
+    .roadmap-link:hover,
+    .roadmap-link:focus-visible {
+      color: var(--roadmap-color);
+      outline: none;
+    }
+    .roadmap-item:nth-child(odd) .roadmap-link:hover,
+    .roadmap-item:nth-child(odd) .roadmap-link:focus-visible { transform: translateX(-4px); }
+    .roadmap-item:nth-child(even) .roadmap-link:hover,
+    .roadmap-item:nth-child(even) .roadmap-link:focus-visible { transform: translateX(4px); }
+    .roadmap-title {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-weight: 900;
+    }
+    .roadmap-index {
+      color: var(--roadmap-color);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+    .roadmap-description {
+      grid-column: 1;
+      grid-row: 2;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .roadmap-arrow {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--roadmap-color);
+      font-weight: 900;
+      transition: transform .2s ease, border-color .2s ease;
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+    .roadmap-link:hover .roadmap-arrow,
+    .roadmap-link:focus-visible .roadmap-arrow {
+      transform: translateY(2px);
+      border-color: var(--roadmap-color);
+    }
+
+    .section-head {
+      display: block;
+      max-width: 900px;
+      margin-bottom: 24px;
+    }
+    .section-label {
+      color: var(--brand-blue);
+      font-family: var(--font-body);
+      font-size: clamp(20px, 1.6vw, 24px);
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 900;
+      margin-bottom: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .section-label:before {
+      content: "";
+      width: 54px;
+      height: 7px;
+      flex: 0 0 54px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--brand-blue) 0 32%, var(--brand-orange) 32% 65%, var(--brand-green) 65%);
+    }
+    .lead {
+      color: #445468;
+      font-size: 16px;
+      max-width: 900px;
+      margin-top: 8px;
+    }
+
+    .story-cards,
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 16px;
+    }
+    .story-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card {
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 20px rgba(18, 33, 63, .05);
+      padding: 20px;
+      min-height: 168px;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:after {
+      display: none;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(47, 95, 224, .36);
+    }
+    .brand-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-card:before {
+      display: none;
+    }
+    .brand-card > * { position: relative; }
+    .brand-line {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+    .brand-line i {
+      width: 34px;
+      height: 7px;
+      border-radius: 999px;
+      display: block;
+      background: var(--brand-blue);
+    }
+    .brand-line i:nth-child(2) { background: var(--brand-orange); }
+    .brand-line i:nth-child(3) { background: var(--brand-green); }
+    .card h3 { font-size: 20px; margin-bottom: 9px; }
+    .card p,
+    .card li { color: var(--muted); }
+    .card ul { margin: 8px 0 0; padding-left: 18px; }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .stat {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 20px;
+      padding: 18px;
+      min-height: 112px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat:after {
+      content: "";
+      position: absolute;
+      inset: auto -20px -40px auto;
+      width: 110px;
+      height: 110px;
+      border-radius: 999px;
+      background: rgba(18, 169, 223, .10);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .stat > * { position: relative; z-index: 1; }
+    .stat strong { display: block; font-size: 34px; line-height: 1; font-family: var(--font-display); }
+    .stat span { display: block; color: #b9c4d4; margin-top: 9px; font-size: 13px; position: relative; }
+
+    .dark-band {
+      background: var(--dark);
+      color: #fff;
+    }
+    .dark-band .section-label { color: #8fe3ca; }
+    .dark-band .lead { color: #c8d3e4; }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(140px, 1fr));
+      gap: 12px;
+      counter-reset: step;
+    }
+    .step-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 54px 18px 18px;
+      min-height: 178px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(18, 33, 63, .05);
+    }
+    .step-card:before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      right: 12px;
+      top: 8px;
+      color: rgba(18, 169, 223, .18);
+      font-size: 64px;
+      line-height: 1;
+      font-weight: 900;
+    }
+    .step-card strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .step-card span {
+      color: #4a596d;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .tabbar,
+    .filterbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .tab,
+    .filter {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .78);
+      color: var(--ink);
+      padding: 9px 14px;
+      font-size: 13px;
+      font-weight: 900;
+      transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .tab:hover,
+    .filter:hover { transform: translateY(-2px); }
+    .tab[aria-selected="true"],
+    .filter.active {
+      color: #fff;
+      background: var(--brand-blue);
+      border-color: var(--brand-blue);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active {
+      display: block;
+      animation: fadeUp .35s ease both;
+    }
+
+    .tracks {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .track {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      min-height: 182px;
+      padding: 16px;
+      display: grid;
+      align-content: space-between;
+      box-shadow: 0 8px 20px rgba(18, 33, 63, .05);
+      transition: transform .2s ease, opacity .2s ease, border-color .2s ease;
+    }
+    .track:hover {
+      transform: translateY(-4px);
+      border-color: rgba(47, 95, 224, .36);
+    }
+    .track strong { display: block; font-size: 16px; margin-bottom: 8px; }
+    .track span { display: block; color: #4a596d; font-size: 13px; }
+    .track.hidden { display: none; }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 29px;
+      border-radius: 999px;
+      background: rgba(18, 169, 223, .10);
+      color: #415066;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .support-board {
+      display: grid;
+      grid-template-columns: minmax(280px, .75fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .support-panel {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 24px;
+      padding: 20px;
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      min-height: 100%;
+    }
+    .support-panel h3 { font-size: 24px; }
+    .support-panel p { color: #c8d3e4; font-size: 14px; }
+    .support-note {
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 16px;
+      padding: 13px;
+    }
+    .support-note strong { display: block; margin-bottom: 4px; }
+    .support-note span { color: #c8d3e4; font-size: 13px; }
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      gap: 10px;
+    }
+    .flow-node {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 15px;
+      min-height: 144px;
+      box-shadow: 0 10px 24px rgba(18, 33, 63, .05);
+      position: relative;
+    }
+    .flow-node:after {
+      content: "";
+      position: absolute;
+      right: -7px;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      border-top: 2px solid var(--brand-blue);
+      border-right: 2px solid var(--brand-blue);
+      transform: translateY(-50%) rotate(45deg);
+      background: #fff;
+    }
+    .flow-node:last-child:after { display: none; }
+    .flow-node strong { display: block; margin-bottom: 7px; }
+    .flow-node span { color: #4a596d; font-size: 13px; }
+
+    .priority-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .55fr);
+      gap: 18px;
+      align-items: start;
+    }
+    .priority-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .priority-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--blue);
+      border-radius: 18px;
+      padding: 17px;
+      min-height: 208px;
+      box-shadow: 0 8px 20px rgba(18, 33, 63, .05);
+    }
+    .priority-card.blocker { border-top-color: var(--red); }
+    .priority-card.critical { border-top-color: var(--amber); }
+    .priority-card.important { border-top-color: var(--green); }
+    .priority-card.desired { border-top-color: var(--violet); }
+    .priority-card h3 { font-size: 19px; margin-bottom: 10px; }
+    .priority-card ul { margin: 0; padding-left: 18px; color: #4a596d; }
+    .priority-card li + li { margin-top: 6px; }
+    .decision-box {
+      position: sticky;
+      top: 24px;
+      background: var(--dark);
+      color: #fff;
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .decision-box h3 { font-size: 26px; margin-bottom: 10px; }
+    .decision-box p { color: #c8d3e4; font-size: 14px; }
+    .decision-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .decision-list div {
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 16px;
+      padding: 12px;
+      font-size: 13px;
+      color: #dfe9f7;
+    }
+    .decision-list strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .accordion {
+      display: grid;
+      gap: 10px;
+    }
+    .accordion-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(18, 33, 63, .05);
+    }
+    .accordion-button {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 17px;
+      text-align: left;
+      font-weight: 900;
+      color: var(--ink);
+    }
+    .accordion-button span {
+      color: var(--brand-orange);
+      font-size: 18px;
+      transition: transform .2s ease;
+    }
+    .accordion-item.open .accordion-button span { transform: rotate(45deg); }
+    .accordion-content {
+      display: none;
+      padding: 0 17px 17px;
+      color: #4a596d;
+      font-size: 14px;
+    }
+    .accordion-item.open .accordion-content {
+      display: block;
+      animation: fadeUp .25s ease both;
+    }
+
+    .footer {
+      background: var(--dark);
+      color: #aeb9c9;
+      padding: 28px clamp(20px, 5vw, 74px);
+      font-size: 13px;
+    }
+    .brand-banner {
+      background:
+        linear-gradient(90deg, rgba(17, 23, 32, .90), rgba(17, 23, 32, .50)),
+        url("assets/branding/connecta-banner.png");
+      background-size: cover;
+      background-position: center;
+      border-radius: 28px;
+      min-height: 260px;
+      padding: 28px;
+      color: #fff;
+      display: grid;
+      align-content: end;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, .12);
+      margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-banner:after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      bottom: -90px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 42px solid rgba(255, 255, 255, .16);
+      pointer-events: none;
+    }
+    .brand-banner > * { position: relative; z-index: 1; }
+    .brand-banner strong {
+      display: block;
+      font-size: clamp(26px, 4vw, 44px);
+      line-height: 1.02;
+      max-width: 720px;
+    }
+    .brand-banner span {
+      display: block;
+      color: #d7e0ed;
+      margin-top: 10px;
+      max-width: 680px;
+    }
+
+    .document-viewer {
+      overflow: hidden;
+      border: 1px solid rgba(23, 37, 54, .24);
+      border-radius: 6px;
+      background: #101a28;
+      box-shadow: 10px 12px 0 rgba(18, 169, 223, .11), var(--shadow);
+    }
+    .document-viewer-bar {
+      min-height: 56px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: #edf3ff;
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+      background:
+        linear-gradient(90deg, rgba(18, 169, 223, .16), transparent 42%),
+        #111d2c;
+    }
+    .document-viewer-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .025em;
+    }
+    .document-viewer-title:before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--brand-green);
+      box-shadow: 0 0 0 5px rgba(5, 189, 123, .12);
+    }
+    .document-viewer-link {
+      min-height: 34px;
+      padding: 7px 11px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .document-viewer-link:hover,
+    .document-viewer-link:focus-visible {
+      transform: translateY(-2px);
+      background: var(--brand-blue);
+      border-color: var(--brand-blue);
+      outline: none;
+    }
+    .document-viewer iframe {
+      display: block;
+      width: 100%;
+      height: min(72vh, 760px);
+      min-height: 620px;
+      border: 0;
+      background: #fff;
+    }
+
+    .action-roadmap {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      padding-top: 28px;
+    }
+    .action-roadmap:before {
+      content: "";
+      position: absolute;
+      top: 11px;
+      left: 16.5%;
+      right: 16.5%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brand-blue), var(--brand-orange), var(--brand-green));
+      opacity: .7;
+    }
+    .action-milestone {
+      --action-color: var(--brand-blue);
+      position: relative;
+      min-height: 246px;
+      padding: 22px;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 12px;
+      overflow: hidden;
+      text-align: left;
+      color: #eef5ff;
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-top: 5px solid var(--action-color);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, .055);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .13);
+      transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .action-milestone:nth-child(2) { --action-color: var(--brand-orange); }
+    .action-milestone:nth-child(3) { --action-color: var(--brand-green); }
+    .action-milestone:before {
+      content: "";
+      position: absolute;
+      top: -23px;
+      left: 50%;
+      width: 14px;
+      height: 14px;
+      border: 4px solid var(--dark);
+      border-radius: 50%;
+      background: var(--action-color);
+      box-shadow: 0 0 0 2px var(--action-color);
+      transform: translateX(-50%);
+    }
+    .action-milestone:after {
+      content: "";
+      position: absolute;
+      right: -38px;
+      bottom: -54px;
+      width: 150px;
+      height: 150px;
+      border: 26px solid color-mix(in srgb, var(--action-color) 16%, transparent);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .action-milestone:hover,
+    .action-milestone:focus-visible {
+      transform: translateY(-5px);
+      border-color: color-mix(in srgb, var(--action-color) 70%, white);
+      outline: none;
+    }
+    .action-milestone.is-active {
+      transform: translateY(-7px);
+      background: color-mix(in srgb, var(--action-color) 18%, rgba(255, 255, 255, .07));
+      border-color: var(--action-color);
+      box-shadow: 8px 10px 0 color-mix(in srgb, var(--action-color) 14%, transparent), 0 18px 38px rgba(0, 0, 0, .18);
+    }
+    .action-index {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--action-color) 62%, white);
+      border-radius: 50%;
+      color: var(--action-color);
+      font-family: var(--font-display);
+      font-weight: 900;
+      position: relative;
+      z-index: 1;
+    }
+    .action-milestone h3 {
+      font-size: 23px;
+      line-height: 1.08;
+      position: relative;
+      z-index: 1;
+    }
+    .action-milestone p {
+      color: #c8d3e4;
+      font-size: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .action-state {
+      width: fit-content;
+      padding: 5px 8px;
+      border-left: 3px solid var(--action-color);
+      background: rgba(255, 255, 255, .07);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+    .checkpoint-board {
+      margin-top: 24px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, .045);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
+    }
+    .checkpoint-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+    }
+    .checkpoint-head span {
+      color: #8fe3ca;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .checkpoint-head strong {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 22px;
+      text-align: right;
+    }
+    .checkpoint-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .checkpoint-card {
+      min-height: 164px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, .065);
+      opacity: .46;
+      transform: scale(.985);
+      transition: opacity .25s ease, transform .25s ease, background .25s ease, border-color .25s ease;
+    }
+    .checkpoint-card.is-related {
+      opacity: 1;
+      transform: scale(1);
+      border-color: rgba(143, 227, 202, .58);
+      background: linear-gradient(145deg, rgba(18, 169, 223, .12), rgba(5, 189, 123, .08));
+    }
+    .checkpoint-card h3 {
+      margin-bottom: 9px;
+      color: #fff;
+      font-size: 18px;
+    }
+    .checkpoint-card p {
+      color: #c8d3e4;
+      font-size: 13px;
+    }
+
+    /* Camada editorial: leitura de edital executivo com códigos cromáticos por bloco. */
+    body {
+      background:
+        linear-gradient(rgba(255, 255, 255, .28), rgba(255, 255, 255, .28)),
+        repeating-linear-gradient(0deg, transparent 0 31px, rgba(23, 37, 54, .025) 31px 32px),
+        var(--bg);
+    }
+
+    .sidebar {
+      background:
+        linear-gradient(90deg, var(--brand-blue) 0 5px, transparent 5px),
+        radial-gradient(circle at 12% 8%, rgba(18, 169, 223, .18), transparent 28%),
+        #101a28;
+      border-right-color: rgba(18, 169, 223, .28);
+      box-shadow: 12px 0 38px rgba(13, 24, 38, .12);
+    }
+    .brand {
+      border-bottom: 2px solid rgba(255, 255, 255, .12);
+    }
+    .brand strong { letter-spacing: .02em; }
+    .nav a {
+      position: relative;
+      border: 1px solid transparent;
+      border-radius: 6px;
+    }
+    .nav a:hover,
+    .nav a.active {
+      background: linear-gradient(90deg, rgba(18, 169, 223, .18), rgba(255, 255, 255, .06));
+      border-color: rgba(255, 255, 255, .1);
+      box-shadow: inset 3px 0 0 var(--brand-blue);
+    }
+    .nav a:nth-child(3n + 2) .dot { color: var(--brand-orange); }
+    .nav a:nth-child(3n) .dot { color: var(--brand-green); }
+
+    main > section:not(.hero):not(.dark-band) {
+      border-top: 1px solid rgba(23, 37, 54, .12);
+      border-bottom: 1px solid rgba(255, 255, 255, .72);
+    }
+    main > section:not(.hero):not(.dark-band):nth-of-type(4n + 1) {
+      background: linear-gradient(120deg, rgba(255, 255, 255, .86), rgba(237, 246, 250, .82));
+    }
+    main > section:not(.hero):not(.dark-band):nth-of-type(4n + 2) {
+      background: linear-gradient(120deg, rgba(255, 253, 248, .94), rgba(255, 242, 231, .72));
+    }
+    main > section:not(.hero):not(.dark-band):nth-of-type(4n + 3) {
+      background: linear-gradient(120deg, rgba(255, 253, 248, .94), rgba(237, 247, 241, .78));
+    }
+    main > section:not(.hero):not(.dark-band):nth-of-type(4n) {
+      background: linear-gradient(120deg, rgba(255, 253, 248, .94), rgba(241, 237, 228, .82));
+    }
+    main > section:not(.hero):not(.dark-band):after {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 clamp(16px, 2.4vw, 38px);
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(18, 169, 223, .25) 14%, rgba(18, 169, 223, .25) 86%, transparent);
+      pointer-events: none;
+    }
+    main > section.dark-band {
+      background:
+        radial-gradient(circle at 88% 10%, rgba(18, 169, 223, .17), transparent 24%),
+        radial-gradient(circle at 12% 88%, rgba(5, 189, 123, .12), transparent 26%),
+        repeating-linear-gradient(135deg, transparent 0 34px, rgba(255, 255, 255, .018) 34px 35px),
+        var(--dark);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 84% 22%, rgba(18, 169, 223, .22), transparent 27%),
+        radial-gradient(circle at 22% 92%, rgba(255, 107, 0, .12), transparent 28%),
+        linear-gradient(135deg, #0f1927 0%, #15243a 54%, #10252a 100%);
+    }
+    .hero:after {
+      display: block;
+      content: "";
+      position: absolute;
+      inset: 26px 26px 26px auto;
+      width: min(28vw, 340px);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-left: 0;
+      pointer-events: none;
+    }
+    .identity-tag {
+      border-radius: 4px;
+      background: rgba(255, 255, 255, .07);
+      border-left: 4px solid var(--brand-orange);
+    }
+    .action-button { border-radius: 5px; }
+    .control-room {
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      box-shadow: 14px 14px 0 rgba(5, 189, 123, .13), var(--shadow);
+    }
+    .control-screen { border-radius: 4px; }
+    .metric-box,
+    .signal { border-radius: 4px; }
+    .metric-box:nth-child(1) { box-shadow: inset 0 4px 0 var(--brand-blue); }
+    .metric-box:nth-child(2) { box-shadow: inset 0 4px 0 var(--brand-orange); }
+    .metric-box:nth-child(3) { box-shadow: inset 0 4px 0 var(--brand-green); }
+
+    .section-head {
+      position: relative;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(23, 37, 54, .16);
+    }
+    .section-head:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 118px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brand-blue) 0 40%, var(--brand-orange) 40% 70%, var(--brand-green) 70%);
+    }
+    .section-label {
+      text-wrap: balance;
+      letter-spacing: .055em;
+    }
+    .section-label:before {
+      width: 14px;
+      height: 34px;
+      flex-basis: 14px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--brand-blue) 0 34%, var(--brand-orange) 34% 67%, var(--brand-green) 67%);
+      box-shadow: 4px 4px 0 rgba(18, 169, 223, .12);
+    }
+    .dark-band .section-head { border-bottom-color: rgba(255, 255, 255, .16); }
+
+    .card,
+    .track,
+    .step-card,
+    .flow-node,
+    .accordion-item,
+    .priority-card {
+      background: rgba(255, 253, 248, .94);
+      border-color: rgba(23, 37, 54, .15);
+      box-shadow: 0 10px 0 rgba(23, 37, 54, .025), 0 16px 30px rgba(23, 37, 54, .07);
+    }
+    .card { border-radius: 5px; }
+    .card:after {
+      display: block;
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: var(--card-accent, var(--brand-blue));
+    }
+    :is(.story-cards, .grid-3, .grid-4) > .card:nth-child(3n + 1) { --card-accent: var(--brand-blue); }
+    :is(.story-cards, .grid-3, .grid-4) > .card:nth-child(3n + 2) { --card-accent: var(--brand-orange); }
+    :is(.story-cards, .grid-3, .grid-4) > .card:nth-child(3n) { --card-accent: var(--brand-green); }
+    .card:hover {
+      transform: translateY(-5px) rotate(-.15deg);
+      border-color: var(--card-accent, var(--brand-blue));
+      box-shadow: 7px 9px 0 color-mix(in srgb, var(--card-accent, var(--brand-blue)) 12%, transparent), var(--shadow);
+    }
+    .brand-line i {
+      width: 24px;
+      height: 5px;
+      border-radius: 1px;
+    }
+
+    .stat {
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      box-shadow: 7px 7px 0 rgba(23, 37, 54, .08);
+    }
+    .stat:nth-child(4n + 1) { background: #153e62; }
+    .stat:nth-child(4n + 2) { background: #9d481b; }
+    .stat:nth-child(4n + 3) { background: #17654f; }
+    .stat:nth-child(4n) { background: #493f72; }
+    .stat:after {
+      border-radius: 0;
+      transform: rotate(18deg);
+      background: rgba(255, 255, 255, .055);
+    }
+
+    .roadmap-section {
+      background:
+        linear-gradient(90deg, transparent 49.85%, rgba(23, 37, 54, .025) 50%, transparent 50.15%),
+        var(--surface);
+    }
+    .roadmap-link {
+      background: rgba(255, 253, 248, .78);
+      border: 1px solid rgba(23, 37, 54, .1);
+      border-left: 4px solid var(--roadmap-color);
+      border-radius: 4px;
+      padding: 18px;
+      box-shadow: 0 8px 0 rgba(23, 37, 54, .025);
+    }
+    .roadmap-item:nth-child(odd) .roadmap-link { border-left-width: 1px; border-right: 4px solid var(--roadmap-color); }
+    .roadmap-item:last-child .roadmap-link { border-bottom: 1px solid rgba(23, 37, 54, .1); }
+
+    .step-card,
+    .flow-node { border-radius: 5px; }
+    .step-card { border-top: 4px solid var(--brand-blue); }
+    .step-card:nth-child(3n + 2) { border-top-color: var(--brand-orange); }
+    .step-card:nth-child(3n) { border-top-color: var(--brand-green); }
+    .step-card:before { font-family: var(--font-display); }
+    .flow-node { border-bottom: 4px solid var(--brand-blue); }
+    .flow-node:nth-child(3n + 2) { border-bottom-color: var(--brand-orange); }
+    .flow-node:nth-child(3n) { border-bottom-color: var(--brand-green); }
+
+    .tab,
+    .filter {
+      border-radius: 4px;
+      background: rgba(255, 253, 248, .9);
+      box-shadow: 3px 3px 0 rgba(23, 37, 54, .06);
+    }
+    .tab[aria-selected="true"],
+    .filter.active {
+      box-shadow: 4px 4px 0 rgba(18, 169, 223, .2);
+    }
+    .track { border-radius: 5px; border-top: 5px solid var(--brand-blue); }
+    .track[data-track~="dados"] { border-top-color: var(--violet); }
+    .track[data-track~="infra"] { border-top-color: var(--brand-green); }
+    .track[data-track~="negocios"] { border-top-color: var(--brand-orange); }
+    .track[data-track~="dev"] .chip { background: rgba(18, 169, 223, .11); }
+    .track[data-track~="dados"] .chip { background: rgba(101, 80, 191, .11); }
+    .track[data-track~="infra"] .chip { background: rgba(5, 189, 123, .11); }
+    .track[data-track~="negocios"] .chip { background: rgba(255, 107, 0, .11); }
+
+    .support-panel,
+    .decision-box {
+      border-radius: 6px;
+      border-top: 6px solid var(--brand-orange);
+      background: linear-gradient(145deg, #142234, #172d38);
+      box-shadow: 9px 9px 0 rgba(18, 169, 223, .1), var(--shadow);
+    }
+    .decision-box { border-top-color: var(--brand-green); }
+    .support-note,
+    .decision-list div { border-radius: 4px; }
+    .priority-card { border-radius: 5px; }
+    .priority-card.blocker { background: linear-gradient(145deg, #fffdf8, #fff0ec); }
+    .priority-card.critical { background: linear-gradient(145deg, #fffdf8, #fff5df); }
+    .priority-card.important { background: linear-gradient(145deg, #fffdf8, #eaf7ef); }
+    .priority-card.desired { background: linear-gradient(145deg, #fffdf8, #f1eefb); }
+
+    .accordion-item {
+      border-radius: 4px;
+      border-left: 4px solid var(--brand-blue);
+    }
+    .accordion-item:nth-child(3n + 2) { border-left-color: var(--brand-orange); }
+    .accordion-item:nth-child(3n) { border-left-color: var(--brand-green); }
+    .accordion-item.open {
+      background: linear-gradient(90deg, rgba(18, 169, 223, .055), rgba(255, 253, 248, .96) 34%);
+    }
+    .footer {
+      border-top: 5px solid;
+      border-image: linear-gradient(90deg, var(--brand-blue), var(--brand-orange), var(--brand-green)) 1;
+    }
+
+    .reveal {
+      transform: translateY(18px);
+      transition: transform .6s ease;
+    }
+    .reveal.visible {
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes floatPanel {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes pulseRing {
+      0%, 100% { opacity: .45; transform: scale(1); }
+      50% { opacity: .95; transform: scale(1.04); }
+    }
+    @keyframes slowTurn {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *:before, *:after {
+        animation-duration: .001ms !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar {
+        position: relative;
+        height: auto;
+      }
+      .nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-grid,
+      .section-head,
+      .support-board,
+      .priority-layout {
+        grid-template-columns: 1fr;
+      }
+      .story-cards,
+      .grid-3,
+      .grid-4,
+      .stat-grid,
+      .tracks,
+      .timeline,
+      .flow-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .decision-box { position: relative; top: auto; }
+      .action-roadmap { grid-template-columns: 1fr; padding-top: 0; }
+      .action-roadmap:before,
+      .action-milestone:before { display: none; }
+      .action-milestone { min-height: 0; }
+      .checkpoint-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (min-width: 1101px) and (max-width: 1420px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(360px, .82fr);
+        gap: 30px;
+      }
+      .screen-body { min-height: 400px; }
+    }
+
+    @media (max-width: 700px) {
+      section { padding: 56px 18px; }
+      .hero { min-height: auto; }
+      .sidebar { padding: 18px; }
+      .brand { padding-bottom: 16px; margin-bottom: 12px; }
+      .nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
+      .nav a { padding: 9px 10px; min-width: 0; }
+      .hero-copy { font-size: 17px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; }
+      .action-button { justify-content: center; width: 100%; }
+      .control-room { padding: 10px; border-radius: var(--radius); }
+      .control-screen { border-radius: var(--radius); }
+      .screen-body { min-height: 0; padding: 14px; }
+      .metric-box,
+      .signal { min-height: 0; }
+      .radar { min-height: 190px; }
+      section:before { width: 54px; right: 18px; }
+      .roadmap-section { padding-top: 64px; padding-bottom: 72px; }
+      .roadmap-section .section-head { margin-bottom: 34px; text-align: left; }
+      .roadmap-list:before {
+        left: 10px;
+        top: 68px;
+        bottom: 68px;
+        transform: none;
+      }
+      .roadmap-item { grid-template-columns: 28px minmax(0, 1fr); min-height: 142px; }
+      .roadmap-node { grid-column: 1; margin-left: 5px; justify-self: start; }
+      .roadmap-item:nth-child(odd) .roadmap-link,
+      .roadmap-item:nth-child(even) .roadmap-link {
+        grid-column: 2;
+        grid-row: 1;
+        grid-template-columns: minmax(0, 1fr) 32px;
+        gap: 10px;
+        min-height: 112px;
+        max-width: none;
+        padding: 14px 4px 14px 10px;
+        text-align: left;
+        justify-self: stretch;
+      }
+      .roadmap-item:nth-child(odd) .roadmap-link:before,
+      .roadmap-item:nth-child(even) .roadmap-link:before { left: -18px; right: auto; width: 18px; }
+      .roadmap-item:nth-child(odd) .roadmap-title,
+      .roadmap-item:nth-child(even) .roadmap-title {
+        grid-column: 1;
+        justify-content: flex-start;
+        align-self: end;
+      }
+      .roadmap-item:nth-child(odd) .roadmap-description,
+      .roadmap-item:nth-child(even) .roadmap-description { grid-column: 1; align-self: start; }
+      .roadmap-item:nth-child(odd) .roadmap-arrow,
+      .roadmap-item:nth-child(even) .roadmap-arrow { grid-column: 2; grid-row: 1 / span 2; }
+      .roadmap-item:nth-child(odd) .roadmap-link:hover,
+      .roadmap-item:nth-child(even) .roadmap-link:hover { transform: translateX(3px); }
+      .story-cards,
+      .grid-3,
+      .grid-4,
+      .stat-grid,
+      .tracks,
+      .timeline,
+      .flow-grid,
+      .priority-grid,
+      .metric-strip,
+      .signal-row {
+        grid-template-columns: 1fr;
+      }
+      .flow-node:after { display: none; }
+      .document-viewer-bar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+      .document-viewer-link { width: 100%; }
+      .document-viewer iframe {
+        height: 68vh;
+        min-height: 520px;
+      }
+      .checkpoint-head { align-items: start; flex-direction: column; }
+      .checkpoint-head strong { text-align: left; }
+      .checkpoint-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Ajustes de robustez visual e ritmo entre componentes. */
+    html { scroll-padding-top: 18px; }
+    main { overflow: clip; }
+    img, iframe { max-width: 100%; }
+    :is(.card, .track, .step-card, .flow-node, .priority-card, .support-panel, .decision-box) {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+    .section-inner > :is(
+      .story-cards,
+      .grid-3,
+      .grid-4,
+      .stat-grid,
+      .timeline,
+      .tabbar,
+      .tab-panel,
+      .filterbar,
+      .tracks,
+      .support-board,
+      .flow-grid,
+      .priority-layout,
+      .accordion,
+      .document-viewer,
+      .action-roadmap,
+      .checkpoint-board
+    ) {
+      margin-top: 24px;
+    }
+    .section-head + :is(
+      .story-cards,
+      .grid-3,
+      .grid-4,
+      .timeline,
+      .tabbar,
+      .filterbar,
+      .support-board,
+      .priority-layout,
+      .document-viewer
+    ) {
+      margin-top: 30px;
+    }
+    .section-head { margin-bottom: 0; }
+    .tabbar + .tab-panel,
+    .filterbar + .tracks { margin-top: 0; }
+    .accordion-button { align-items: flex-start; }
+    .accordion-button span { flex: 0 0 auto; }
+
+    .hero-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(240px, .58fr);
+      isolation: isolate;
+    }
+    .hero-content { min-width: 0; }
+    .hero-title {
+      max-width: 820px;
+      font-family: Baskerville, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: clamp(62px, 7vw, 104px);
+      line-height: .9;
+      letter-spacing: -.055em;
+      text-wrap: balance;
+    }
+    .hero-title span {
+      display: block;
+      color: #8fe3ca;
+    }
+    .hero-intro {
+      max-width: 620px;
+      margin-top: 22px;
+      color: #c8d3e4;
+      font-size: 15px;
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+    .hero-logo-float {
+      position: relative;
+      min-height: 390px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+    .hero-logo-float:before,
+    .hero-logo-float:after {
+      content: "";
+      position: absolute;
+      width: min(28vw, 330px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 50%;
+      z-index: -1;
+      animation: pulseRing 5s ease-in-out infinite;
+    }
+    .hero-logo-float:after {
+      width: min(20vw, 235px);
+      border-color: rgba(143, 227, 202, .22);
+      animation-delay: .7s;
+    }
+    .hero-logo-float img {
+      width: min(18vw, 220px);
+      aspect-ratio: 1;
+      object-fit: contain;
+      border-radius: 24%;
+      filter: drop-shadow(0 28px 38px rgba(0, 0, 0, .32));
+      animation: floatPanel 6s ease-in-out infinite;
+    }
+    .hero .control-room { width: 100%; }
+    .hero .metric-box,
+    .hero .signal { min-width: 0; }
+    .support-board > .flow-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .support-board > .flow-grid .flow-node:after { display: none; }
+
+    @media (max-width: 1100px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+      .hero-content { max-width: 760px; }
+      .hero-logo-float { min-height: 300px; }
+      .hero-logo-float img { width: min(28vw, 210px); }
+    }
+
+    @media (max-width: 700px) {
+      html { scroll-padding-top: 8px; }
+      .hero { padding-top: 58px; padding-bottom: 64px; }
+      .hero:after {
+        inset: 24px 18px 24px auto;
+        width: 35vw;
+      }
+      .hero-title {
+        font-size: clamp(58px, 18vw, 82px);
+        text-align: center;
+      }
+      .hero-grid { gap: 34px; }
+      .hero-content { display: grid; place-items: center; }
+      .hero-intro { max-width: 340px; text-align: center; }
+      .hero-logo-float { min-height: 250px; }
+      .hero-logo-float:before { width: 230px; }
+      .hero-logo-float:after { width: 170px; }
+      .hero-logo-float img { width: 150px; }
+      .hero .metric-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .hero .metric-box { padding: 11px 8px; text-align: center; }
+      .hero .metric-box strong { font-size: 22px; }
+      .hero .signal-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero .radar { min-height: 176px; }
+      .section-label { align-items: flex-start; }
+      .section-label:before { margin-top: 1px; }
+      .section-inner > :is(
+        .story-cards,
+        .grid-3,
+        .grid-4,
+        .stat-grid,
+        .timeline,
+        .tabbar,
+        .tab-panel,
+        .filterbar,
+        .tracks,
+        .support-board,
+        .flow-grid,
+        .priority-layout,
+        .accordion,
+        .document-viewer,
+        .action-roadmap,
+        .checkpoint-board
+      ) { margin-top: 20px; }
+      .section-head + :is(
+        .story-cards,
+        .grid-3,
+        .grid-4,
+        .timeline,
+        .tabbar,
+        .filterbar,
+        .support-board,
+        .priority-layout,
+        .document-viewer
+      ) { margin-top: 24px; }
+      .tabbar + .tab-panel,
+      .filterbar + .tracks { margin-top: 0; }
+      .card,
+      .priority-card,
+      .step-card,
+      .track,
+      .flow-node { min-height: 0; }
+    }
+
+    @media (max-width: 420px) {
+      .nav a { min-height: 42px; }
+      .identity-tag { max-width: 100%; }
+      .control-room { padding: 8px; }
+      .screen-top { padding-inline: 10px; }
+      .hero .metric-box span { font-size: 11px; }
+      .document-viewer iframe { min-height: 460px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progress-bar"></div>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><img src="assets/branding/connecta-icon.png" alt="Logo Connecta"></div>
+        <div>
+          <strong>Programa Connecta</strong>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navegação da apresentação">
+        <a href="#inicio" class="active"><span class="dot"></span> Início</a>
+        <a href="#roadmap"><span class="dot"></span> Roadmap</a>
+        <a href="#infraestrutura"><span class="dot"></span> Sistemas NIC</a>
+        <a href="#selecao"><span class="dot"></span> Seleção e prova</a>
+        <a href="#aluno"><span class="dot"></span> Matrícula e aluno</a>
+        <a href="#lancamento"><span class="dot"></span> Lançamento</a>
+        <a href="#trilhas"><span class="dot"></span> Curso e trilhas</a>
+        <a href="#operacao"><span class="dot"></span> Suporte e monitoria</a>
+        <a href="#discord"><span class="dot"></span> Discord e comunidade</a>
+        <a href="#engajamento"><span class="dot"></span> Projetos e oportunidades</a>
+        <a href="#equipe"><span class="dot"></span> Equipe e funcionamento</a>
+        <a href="#proximos"><span class="dot"></span> Próximos passos</a>
+      </nav>
+
+    </aside>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="section-inner hero-grid">
+          <div class="hero-content reveal">
+            <h1 class="hero-title">Programa <span>Connecta</span></h1>
+            <p class="hero-intro">Formação profissional em tecnologia para moradores de Santa Bárbara, com capacitação prática, suporte contínuo e conexão com oportunidades reais de trabalho.</p>
+          </div>
+
+          <div class="hero-logo-float reveal">
+            <img src="assets/branding/connecta-icon.png" alt="Logo Connecta">
+          </div>
+        </div>
+      </section>
+
+      <section id="infraestrutura">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <div>
+              <h2 class="section-label">Sistemas e plataformas da NIC</h2>
+              <p class="lead">
+                Sistemas da NIC que apoiam inscrição, prova, resultados, área acadêmica, conexões entre plataformas e acompanhamento do programa.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-3 reveal">
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Portal de Processo Seletivo</h3>
+              <p>
+                Sistema de inscrição e acompanhamento do candidato, com CPF único, dados obrigatórios, gabarito, resultados, convocados e lista de espera.
+              </p>
+              <ul>
+                <li>Formulário de inscrição com dados do edital.</li>
+                <li>Consulta individual do candidato.</li>
+                <li>Controle de convocação e abertura de vagas.</li>
+                <li>Tratamento de dados conforme requisitos de proteção de dados.</li>
+              </ul>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>App Exame</h3>
+              <p>
+                Aplicação digital da prova objetiva presencial, com identificação do candidato, controle de tempo, registro de respostas, bloqueios de segurança e exportação dos dados para correção.
+              </p>
+              <ul>
+                <li>Aplicação presencial em computadores preparados.</li>
+                <li>Controle de tempo e envio das respostas.</li>
+                <li>Bloqueio de navegação externa e capturas de tela.</li>
+                <li>Conexão com o Portal de Processo Seletivo.</li>
+              </ul>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Plataforma Institucional</h3>
+              <p>
+                Ambiente acadêmico oficial do Connecta, onde ficarão hospedadas as aulas gravadas, materiais de estudo, conteúdos complementares e recursos de acompanhamento dos alunos.
+              </p>
+              <ul>
+                <li>Acesso às aulas gravadas.</li>
+                <li>Materiais escritos, guias e documentação técnica.</li>
+                <li>Exercícios, projetos, quizzes e avaliações.</li>
+                <li>Base para acompanhamento pedagógico e evolução do aluno.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="stat-grid reveal">
+            <div class="stat">
+              <strong>3</strong>
+              <span>plataformas principais sob responsabilidade da NIC</span>
+            </div>
+            <div class="stat">
+              <strong>1</strong>
+              <span>fluxo integrado entre inscrição, prova, resultado e matrícula</span>
+            </div>
+            <div class="stat">
+              <strong>LGPD</strong>
+              <span>atenção ao tratamento e proteção dos dados dos candidatos</span>
+            </div>
+            <div class="stat">
+              <strong>Teste</strong>
+              <span>validação e testes de carga antes da abertura operacional</span>
+            </div>
+          </div>
+
+          <div class="accordion reveal" style="margin-top:18px">
+            <div class="accordion-item open">
+              <button class="accordion-button">O que precisa ser validado pela NIC? <span>+</span></button>
+              <div class="accordion-content">
+                Marcos de entrega das plataformas, integração entre App Exame e Portal de Processo Seletivo, teste de carga, simulação do fluxo de prova, segurança da aplicação e disponibilidade da Plataforma Institucional antes do início da turma.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button">Qual é o principal risco técnico? <span>+</span></button>
+              <div class="accordion-content">
+                Abrir inscrições ou divulgar datas sem que Portal, App Exame, integrações, correção, publicação de resultados e infraestrutura de aplicação estejam testados em cenário realista.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="selecao">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <div>
+              <h2 class="section-label">Processo seletivo e prova</h2>
+              <p class="lead">
+                O processo seletivo cobre inscrição, validação de candidatos, prova presencial digital, classificação, recursos, convocação e matrícula da primeira turma.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline reveal">
+            <div class="step-card">
+              <strong>Inscrição</strong>
+              <span>Portal de Processo Seletivo com CPF único, dados obrigatórios, aceite do edital e validação inicial dos requisitos.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Validação</strong>
+              <span>Conferência de idade mínima, residência em Santa Bárbara/MG, documento, WhatsApp, e-mail e dados do responsável quando menor.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Prova presencial digital</strong>
+              <span>Aplicação pelo App Exame, com controle de tempo, registro de respostas, bloqueios de segurança e aplicação em turnos se necessário.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Resultado e recursos</strong>
+              <span>Correção, gabarito, resultado preliminar, prazo para recursos, julgamento e publicação do resultado final.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Convocação e matrícula</strong>
+              <span>Convocação de 50 alunos, formação da lista de até 200 suplentes e matrícula com conferência documental e Termo de Compromisso.</span>
+            </div>
+          </div>
+
+          <div class="tabbar reveal" role="tablist" aria-label="Detalhes da seleção">
+            <button class="tab" data-tab="prova" aria-selected="true">Prova</button>
+            <button class="tab" data-tab="requisitos" aria-selected="false">Requisitos</button>
+            <button class="tab" data-tab="classificacao" aria-selected="false">Classificação</button>
+            <button class="tab" data-tab="riscos" aria-selected="false">Pontos de atenção</button>
+          </div>
+
+          <div class="tab-panel active" id="prova">
+            <div class="grid-4">
+              <div class="card">
+                <h3>Matriz prevista: 40 questões</h3>
+                <p>20 questões de raciocínio lógico-matemático, 10 de língua portuguesa/interpretação e 10 de conhecimentos gerais e cultura digital.</p>
+              </div>
+
+              <div class="card">
+                <h3>100 pontos</h3>
+                <p>Prova classificatória e eliminatória, com pontuação total prevista de 100 pontos.</p>
+              </div>
+
+              <div class="card">
+                <h3>Até 2 horas</h3>
+                <p>Duração total prevista, incluindo identificação, orientações iniciais e envio das respostas.</p>
+              </div>
+
+              <div class="card">
+                <h3>Resultado após os turnos</h3>
+                <p>O resultado individual não deve aparecer ao final da prova para evitar vazamento de informações entre candidatos.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="requisitos">
+            <div class="grid-3">
+              <div class="card">
+                <h3>Requisitos do candidato</h3>
+                <p>Ter a partir de 15 anos, residir em Santa Bárbara/MG, possuir CPF próprio, documento oficial com foto, WhatsApp, e-mail válido e disponibilidade para o programa.</p>
+              </div>
+
+              <div class="card">
+                <h3>Dados de inscrição</h3>
+                <p>Nome completo, CPF, data de nascimento, documento, endereço, telefone, e-mail, escolaridade, disponibilidade e aceite das regras do edital.</p>
+              </div>
+
+              <div class="card">
+                <h3>Menores de idade</h3>
+                <p>Candidatos menores de 18 anos devem apresentar dados e autorização expressa do responsável legal no processo de matrícula.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="classificacao">
+            <div class="grid-3">
+              <div class="card">
+                <h3>50 convocados</h3>
+                <p>Os 50 primeiros colocados serão chamados para matrícula inicial, conforme a ordem decrescente de pontuação na prova objetiva.</p>
+              </div>
+
+              <div class="card">
+                <h3>Até 200 suplentes</h3>
+                <p>A lista de espera poderá ser usada em casos de não matrícula, desistência, abandono, reprovação, desligamento ou abertura de novas vagas.</p>
+              </div>
+
+              <div class="card">
+                <h3>Critérios de desempate</h3>
+                <p>Maior nota em lógica, maior nota em língua portuguesa, maioridade e, se necessário, sorteio público.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="riscos">
+            <div class="grid-3">
+              <div class="card">
+                <h3>Conteúdo da prova pendente</h3>
+                <p>A estrutura da prova está prevista, mas o banco de questões, validação pedagógica e versões equivalentes por turno ainda precisam ser definidos.</p>
+              </div>
+
+              <div class="card">
+                <h3>Turnos e capacidade</h3>
+                <p>A quantidade de candidatos pode exceder a capacidade simultânea dos computadores disponíveis, exigindo distribuição por turnos e controle de entrada e saída.</p>
+              </div>
+
+              <div class="card">
+                <h3>Teste operacional no local</h3>
+              <p>App Exame, internet, máquinas, computadores reserva, fluxo de fiscalização e plano de emergência precisam ser simulados antes da aplicação oficial.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="aluno">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <div>
+              <h2 class="section-label">Matrícula, permanência e equipamentos</h2>
+              <p class="lead">
+                Fluxo de entrada e acompanhamento do aluno após a convocação: matrícula, Termo de Compromisso, entrega de kit, configuração de acessos, permanência obrigatória e devolução de equipamentos quando aplicável.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-4 reveal">
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Matrícula</h3>
+              <p>
+                Os convocados devem apresentar documentação, confirmar os dados exigidos pelo edital e confirmar a matrícula no programa dentro do prazo definido.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Termo de Compromisso</h3>
+              <p>
+                A matrícula inclui assinatura do Termo de Compromisso, com regras de participação, uso, conservação e devolução dos equipamentos.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Kit do aluno</h3>
+              <p>
+                Cada aluno receberá equipamentos e materiais do programa, com registro individual de entrega, responsabilidade de uso e regras de devolução.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Primeiro acesso</h3>
+              <p>
+                A entrada da turma deve incluir configuração dos notebooks, acesso à Plataforma Institucional, entrada no Discord, senhas e orientações iniciais.
+              </p>
+            </article>
+          </div>
+
+          <div class="timeline reveal" style="margin-top:18px">
+            <div class="step-card">
+              <strong>Convocação</strong>
+              <span>Aluno aprovado é chamado conforme classificação e disponibilidade de vaga.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Conferência documental</strong>
+              <span>Equipe valida documentos, dados cadastrais e requisitos previstos no edital.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Assinatura dos termos</strong>
+              <span>Aluno ou responsável legal confirma que conhece as regras de permanência e uso dos equipamentos.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Entrega e configuração</strong>
+              <span>Kit é entregue, registrado e configurado com acessos à plataforma, Discord e orientações iniciais.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Acompanhamento</strong>
+              <span>Aluno passa a seguir rotina de aulas, atividades, monitorias, chamados e participação na comunidade.</span>
+            </div>
+          </div>
+
+          <div class="grid-3 reveal" style="margin-top:18px">
+            <article class="card">
+              <h3>Critério de permanência</h3>
+              <p>
+                O aluno deve acessar a plataforma, acompanhar aulas, realizar atividades no prazo, participar de monitoria pelo menos a cada 15 dias, manter dados atualizados e responder aos chamados da coordenação.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Inatividade</h3>
+              <p>
+                Ausência de acesso ou participação por mais de 15 dias corridos sem justificativa pode caracterizar inatividade. A coordenação deve emitir alertas antes de qualquer desligamento.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Desligamento</h3>
+              <p>
+                Desistência formal libera a vaga para um suplente. Abandono injustificado, fraude ou descumprimento grave pode gerar desligamento e impedimento de participação em novas iniciativas por período definido no edital.
+              </p>
+            </article>
+          </div>
+
+          <div class="accordion reveal" style="margin-top:18px">
+            <div class="accordion-item open">
+              <button class="accordion-button">Como funciona a logística reversa dos equipamentos? <span>+</span></button>
+              <div class="accordion-content">
+                Em caso de desistência, abandono ou desligamento, o aluno deve devolver os equipamentos na sede local dentro do prazo definido no Termo de Compromisso. Um técnico responsável recebe, registra, inspeciona e encaminha manutenção quando necessário.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button">O que acontece se o aluno não devolver o equipamento? <span>+</span></button>
+              <div class="accordion-content">
+                A coordenação deve realizar contato formal por e-mail e WhatsApp. Após esgotadas as tentativas, o caso pode ser encaminhado para medidas administrativas ou jurídicas conforme previsto no edital e no termo assinado.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="lancamento">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <div>
+              <h2 class="section-label">Evento de lançamento</h2>
+              <p class="lead">
+                Etapa presencial de entrada da turma, com apresentação da estrutura do programa, entrega dos kits, configuração dos acessos, orientação inicial e validação da logística de suporte.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-4 reveal">
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Objetivo do evento</h3>
+              <p>
+                Iniciar oficialmente a primeira turma, apresentar a dinâmica do Connecta, alinhar expectativas de participação e orientar os alunos sobre curso, suporte, comunidade e responsabilidades.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Entrega dos kits</h3>
+              <p>
+                Entrega dos equipamentos e materiais aos alunos, com registro individual de recebimento e responsabilidade.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Configuração inicial</h3>
+              <p>
+                O evento deve incluir estações para primeiro acesso, configuração dos notebooks, entrada na Plataforma Institucional, acesso ao Discord, senhas e orientações operacionais.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Suporte de hardware</h3>
+              <p>
+                Os alunos devem ser orientados sobre como reportar defeitos, onde levar equipamentos com problema e como funcionará o suporte técnico na sede local.
+              </p>
+            </article>
+          </div>
+
+          <div class="timeline reveal" style="margin-top:18px">
+            <div class="step-card">
+              <strong>Credenciamento</strong>
+              <span>Recepção dos alunos, confirmação de presença, conferência final de dados e organização do fluxo de entrada.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Apresentação</strong>
+              <span>Explicação da estrutura do programa, trilhas, monitorias, Discord, projetos, eventos e regras de permanência.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Entrega do kit</strong>
+              <span>Distribuição dos equipamentos e materiais, com registro individual de recebimento e orientação de responsabilidade.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Configuração</strong>
+              <span>Primeiro acesso à Plataforma Institucional, entrada no Discord, validação de senhas e configuração inicial dos notebooks.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Encaminhamento</strong>
+              <span>Alunos saem com próximos passos claros: rotina de estudos, canais oficiais, monitoria obrigatória e suporte disponível.</span>
+            </div>
+          </div>
+
+          <div class="grid-3 reveal" style="margin-top:18px">
+            <article class="card">
+              <h3>Estrutura do local</h3>
+              <p>
+                O espaço precisa comportar mais de 50 pessoas, ter internet, energia, organização para estações de configuração, circulação dos alunos e equipe de apoio técnico.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Organização dos equipamentos</h3>
+              <p>
+                É necessário organizar transporte, conferência, separação dos kits, registro de entrega e plano de suporte para eventuais problemas no primeiro acesso.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Divulgação e cobertura institucional</h3>
+              <p>
+                A operação deve prever divulgação prévia, material visual, cobertura fotográfica/audiovisual e peças para redes sociais e canais institucionais.
+              </p>
+            </article>
+          </div>
+
+          <div class="priority-grid reveal" style="margin-top:18px">
+            <div class="priority-card critical">
+              <h3>Pendências críticas</h3>
+              <ul>
+                <li>Definir data e local do evento.</li>
+                <li>Elaborar roteiro completo.</li>
+                <li>Definir equipe responsável por cada etapa.</li>
+                <li>Confirmar logística de transporte dos equipamentos.</li>
+              </ul>
+            </div>
+
+            <div class="priority-card important">
+              <h3>Pontos de validação</h3>
+              <ul>
+                <li>Validar se o local comporta estações de configuração.</li>
+                <li>Testar internet e energia para operação simultânea.</li>
+                <li>Confirmar fluxo de credenciamento e entrega dos kits.</li>
+                <li>Garantir suporte técnico no dia do evento.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="trilhas">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <div>
+              <h2 class="section-label">Curso, trilhas e forma de avaliação</h2>
+              <p class="lead">
+                O Connecta terá trilhas organizadas por área, com duração, carga horária, possibilidades de atuação, materiais didáticos e critérios comuns de avaliação.
+              </p>
+            </div>
+          </div>
+
+          <div class="filterbar reveal" aria-label="Filtros de trilhas">
+            <button class="filter active" data-filter="all">Todas</button>
+            <button class="filter" data-filter="dev">Desenvolvimento</button>
+            <button class="filter" data-filter="dados">Dados e IA</button>
+            <button class="filter" data-filter="infra">Infra e segurança</button>
+            <button class="filter" data-filter="negocios">Negócios</button>
+          </div>
+
+          <div class="tracks reveal">
+            <article class="track" data-track="infra">
+              <div>
+                <strong>Suporte Técnico e Helpdesk</strong>
+                <span>Base prática para atendimento, informática, suporte ao usuário e operação de TI.</span>
+              </div>
+              <div class="chips">
+                <span class="chip">6 meses</span>
+                <span class="chip">240h</span>
+                <span class="chip">Técnico de Suporte</span>
+              </div>
+            </article>
+
+            <article class="track" data-track="dev">
+              <div>
+                <strong>Desenvolvimento Web Full Stack</strong>
+                <span>Front-end, back-end, projetos web, versionamento e construção de portfólio.</span>
+              </div>
+              <div class="chips">
+                <span class="chip">12 meses</span>
+                <span class="chip">480h</span>
+                <span class="chip">Full Stack Jr.</span>
+              </div>
+            </article>
+
+            <article class="track" data-track="dados">
+              <div>
+                <strong>Análise de Dados e BI</strong>
+                <span>Relatórios, dashboards, indicadores, análise de dados e inteligência de mercado.</span>
+              </div>
+              <div class="chips">
+                <span class="chip">10 meses</span>
+                <span class="chip">400h</span>
+                <span class="chip">Analista de Dados Jr.</span>
+              </div>
+            </article>
+
+            <article class="track" data-track="infra">
+              <div>
+                <strong>Cibersegurança</strong>
+                <span>Fundamentos de segurança, práticas defensivas, análise inicial e operação em SOC.</span>
+              </div>
+              <div class="chips">
+                <span class="chip">8 meses</span>
+                <span class="chip">320h</span>
+                <span class="chip">SOC Analyst L1</span>
+              </div>
+            </article>
+
+            <article class="track" data-track="infra">
+              <div>
+                <strong>DevOps Essencial</strong>
+                <span>CI/CD, containers, cloud, infraestrutura como código e operação moderna.</span>
+              </div>
+              <div class="chips">
+                <span class="chip">8 meses</span>
+                <span class="chip">320h</span>
+                <span class="chip">DevOps Jr.</span>
+              </div>
+            </article>
+
+            <article class="track" data-track="infra">
+              <div>
+                <strong>DevOps Avançado</strong>
+                <span>SRE, monitoramento, GitOps, automação e engenharia de plataforma.</span>
+              </div>
+              <div class="chips">
+                <span class="chip">12 meses</span>
+                <span class="chip">480h</span>
+                <span class="chip">SRE / Platform</span>
+              </div>
+            </article>
+
+            <article class="track" data-track="negocios dados">
+              <div>
+                <strong>IA para Negócios</strong>
+                <span>Aplicações práticas sem código, automações corporativas e uso de IA em processos.</span>
+              </div>
+              <div class="chips">
+                <span class="chip">5 meses</span>
+                <span class="chip">200h</span>
+                <span class="chip">Assistente de IA</span>
+              </div>
+            </article>
+
+            <article class="track" data-track="dados dev">
+              <div>
+                <strong>ML e IA para Devs</strong>
+                <span>Machine learning, IA aplicada, engenharia de features e desenvolvimento de soluções inteligentes.</span>
+              </div>
+              <div class="chips">
+                <span class="chip">10 meses</span>
+                <span class="chip">400h</span>
+                <span class="chip">ML Engineer Jr.</span>
+              </div>
+            </article>
+
+            <article class="track" data-track="dados negocios">
+              <div>
+                <strong>IA Aplicada e Automação</strong>
+                <span>RPA, prompts, automações, integrações e soluções práticas com inteligência artificial.</span>
+              </div>
+              <div class="chips">
+                <span class="chip">14 meses</span>
+                <span class="chip">560h</span>
+                <span class="chip">Automação / IA Jr.</span>
+              </div>
+            </article>
+
+            <article class="track" data-track="infra">
+              <div>
+                <strong>Redes e Cloud Computing</strong>
+                <span>Administração de redes, computação em nuvem, sistemas e infraestrutura.</span>
+              </div>
+              <div class="chips">
+                <span class="chip">18 meses</span>
+                <span class="chip">720h</span>
+                <span class="chip">Cloud Engineer Jr.</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="grid-3 reveal" style="margin-top:18px">
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Formato do conteúdo</h3>
+              <p>
+                O curso deve combinar aulas gravadas, materiais escritos, guias técnicos, exercícios práticos, projetos guiados, quizzes e avaliações.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Plataforma Institucional</h3>
+              <p>
+                O material ficará na Plataforma Institucional do Connecta, acessível pelos notebooks fornecidos e usado como base para acompanhamento dos alunos.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Conteúdo complementar</h3>
+              <p>
+                Lives gravadas, sessões de aulas práticas ao vivo e dúvidas recorrentes registradas pela monitoria podem apoiar a evolução do material didático.
+              </p>
+            </article>
+          </div>
+
+          <div class="section-head reveal" style="margin-top:32px">
+            <div>
+              <h2 class="section-label">Critérios de avaliação</h2>
+              <p class="lead">
+                Critérios padronizados para avaliação de projetos, entregas e desafios, reduzindo subjetividade e garantindo consistência entre monitores.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-4 reveal">
+            <article class="card">
+              <h3>40% Código e funcionalidade</h3>
+              <p>
+                Verifica se a solução funciona conforme os requisitos, qualidade do código, boas práticas, organização e versionamento.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>25% Interface e experiência</h3>
+              <p>
+                Avalia layout, usabilidade, responsividade, clareza visual e acessibilidade básica quando aplicável.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>20% Entendimento do problema e da solução</h3>
+              <p>
+                Considera problema resolvido, proposta de valor, viabilidade, entendimento do usuário e coerência da solução.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>15% Documentação e apresentação</h3>
+              <p>
+                Analisa README, pitch, clareza da explicação, organização da entrega e capacidade de comunicar o projeto.
+              </p>
+            </article>
+          </div>
+
+          <div class="accordion reveal" style="margin-top:18px">
+            <div class="accordion-item open">
+              <button class="accordion-button">O que ainda precisa ser definido no curso? <span>+</span></button>
+              <div class="accordion-content">
+                Ementa detalhada de cada trilha, produção do material didático, cronograma de produção, aprovação dos critérios de avaliação e definição de como lives e aulas práticas ao vivo serão reaproveitadas como conteúdo complementar.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button">Por que os critérios de avaliação são importantes? <span>+</span></button>
+              <div class="accordion-content">
+                Os critérios de avaliação reduzem avaliações subjetivas, orientam os alunos antes da entrega, padronizam a correção entre monitores e facilitam o registro de desempenho em projetos e desafios.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="operacao">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <div>
+              <h2 class="section-label">Suporte e monitoria</h2>
+              <p class="lead">
+                Acompanhamento técnico dos alunos, com agendamento via Calendly, primeiro atendimento no Discord, tickets, chamadas, registros, base de conhecimento, lives e encaminhamento.
+              </p>
+            </div>
+          </div>
+
+          <div class="support-board">
+            <div class="support-panel reveal">
+              <h3>Equipe e funcionamento recomendados</h3>
+              <p>A cobertura diária principal depende dos dois monitores técnicos. O primeiro atendimento complementa o suporte organizado e ainda precisa ter responsável definido.</p>
+
+              <div class="support-note">
+                <strong>Monitor técnico — manhã</strong>
+                <span>Atendimento previsto das 09h às 15h, com monitorias técnicas, chamadas e apoio às entregas.</span>
+              </div>
+
+              <div class="support-note">
+                <strong>Monitor técnico — tarde</strong>
+                <span>Atendimento previsto das 15h às 21h, mantendo cobertura total de 12 horas diárias.</span>
+              </div>
+
+              <div class="support-note">
+                <strong>Responsável pelo primeiro atendimento no Discord</strong>
+                <span>Recebe demandas, classifica tickets, registra solicitações, direciona responsáveis e acompanha encaminhamentos.</span>
+              </div>
+
+              <div class="support-note">
+                <strong>Coordenações sob demanda</strong>
+                <span>Negócios, operação, design, NIC e administração entram quando o caso exige decisão especializada.</span>
+              </div>
+            </div>
+
+            <div class="flow-grid reveal">
+              <div class="flow-node">
+                <strong>Dúvida ou demanda</strong>
+                <span>Aluno precisa de ajuda técnica, acadêmica, operacional ou orientação de projeto.</span>
+              </div>
+
+              <div class="flow-node">
+                <strong>Entrada</strong>
+                <span>Demanda chega por Calendly, ticket no Discord ou WhatsApp auxiliar do responsável pelo primeiro atendimento.</span>
+              </div>
+
+              <div class="flow-node">
+                <strong>Primeiro atendimento</strong>
+                <span>Responsável identifica categoria, urgência, responsável e melhor caminho de atendimento.</span>
+              </div>
+
+              <div class="flow-node">
+                <strong>Atendimento</strong>
+                <span>Monitor atende por chamada, resolve a dúvida, registra o caso ou aciona especialista.</span>
+              </div>
+
+              <div class="flow-node">
+                <strong>Registro</strong>
+                <span>Atendimento é fechado com status, resumo, responsável e possíveis pendências operacionais.</span>
+              </div>
+
+              <div class="flow-node">
+                <strong>Base ou live</strong>
+                <span>Dúvida recorrente vira base de conhecimento, tutorial ou live complementar.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-3 reveal" style="margin-top:18px">
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Calendly</h3>
+              <p>
+                Link fixado no Discord e no WhatsApp auxiliar para agendamento de monitorias técnicas de 30 a 40 minutos dentro dos turnos disponíveis.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Tickets no Discord</h3>
+              <p>
+                Como funciona para dúvidas que precisam de registro, atendimento privado, status, responsável, histórico ou encaminhamento.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Base de conhecimento</h3>
+              <p>
+                Dúvidas recorrentes devem virar tutoriais, respostas padronizadas ou posts de referência para reduzir retrabalho da equipe.
+              </p>
+            </article>
+
+          </div>
+
+          <div class="stat-grid reveal">
+            <div class="stat">
+              <strong>2</strong>
+              <span>monitores técnicos em turnos separados</span>
+            </div>
+
+            <div class="stat">
+              <strong>12h</strong>
+              <span>cobertura diária prevista de atendimento</span>
+            </div>
+
+            <div class="stat">
+              <strong>15d</strong>
+              <span>intervalo máximo previsto entre monitorias obrigatórias</span>
+            </div>
+
+            <div class="stat">
+              <strong>48h</strong>
+              <span>SLA máximo previsto para resposta em tickets</span>
+            </div>
+          </div>
+
+          <div class="accordion reveal" style="margin-top:18px">
+            <div class="accordion-item open">
+              <button class="accordion-button">Como a monitoria evita evasão? <span>+</span></button>
+              <div class="accordion-content">
+                Cada aluno deve participar de pelo menos uma monitoria a cada 15 dias. Esse contato recorrente ajuda a identificar travas cedo, acompanhar evolução e acionar a coordenação antes que o aluno abandone o curso.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button">Qual é o papel do primeiro atendimento? <span>+</span></button>
+              <div class="accordion-content">
+                O primeiro atendimento não precisa resolver todas as dúvidas. Seu papel é receber, registrar, classificar, encaminhar para o responsável correto, acompanhar status, sinalizar acúmulo de demandas e fazer os encaminhamentos necessários.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button">Quando uma dúvida vira base de conhecimento? <span>+</span></button>
+              <div class="accordion-content">
+                Quando a mesma dúvida aparece em tickets, monitorias, fóruns ou plantões, a equipe deve registrar a solução em um guia com problema, causa, passo a passo e orientação sobre quando abrir ticket.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button">Quando acionar coordenação ou especialista? <span>+</span></button>
+              <div class="accordion-content">
+                Casos sensíveis, dúvidas fora do escopo técnico, decisões pedagógicas, problemas de conduta, questões de negócio, design ou infraestrutura devem ser encaminhados para a coordenação ou área responsável.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="discord">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <div>
+              <h2 class="section-label">Discord e comunidade</h2>
+              <p class="lead">Veja o guia completo do Discord no visor abaixo.</p>
+            </div>
+          </div>
+
+          <div class="document-viewer reveal">
+            <div class="document-viewer-bar">
+              <strong class="document-viewer-title">Guia completo · Discord Conecta</strong>
+              <a class="document-viewer-link" href="apresentacao-discord-conecta.html" target="_blank" rel="noopener">Abrir em nova página ↗</a>
+            </div>
+            <iframe
+              src="apresentacao-discord-conecta.html"
+              title="Guia completo do Discord Conecta"
+              loading="lazy"
+            >
+              <a href="apresentacao-discord-conecta.html">Abrir guia completo do Discord Conecta</a>
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="engajamento">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <div>
+              <h2 class="section-label">Projetos, participação e oportunidades</h2>
+              <p class="lead">
+                Desafios, projetos e atividades em grupo mantêm a comunidade ativa, geram portfólio e aproximam os alunos de novas oportunidades.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-4 reveal">
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Desafios</h3>
+              <p>
+                Competições periódicas com descrição da atividade, prazo e critérios de avaliação. São opcionais, fora da carga horária e voltadas à prática, portfólio e reconhecimento dos melhores projetos.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Grupos de projeto</h3>
+              <p>
+                Grupos multidisciplinares formados por alunos de trilhas diferentes para simular uma operação real, desenvolver projetos e criar entregas de portfólio.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Aulas práticas ao vivo</h3>
+              <p>
+                Sessões ao vivo conduzidas pelo time da NIC ou monitores técnicos, com desenvolvimento de soluções em tempo real, explicações e dúvidas dos alunos.
+              </p>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Oportunidades</h3>
+              <p>
+                Vagas, eventos externos, dicas de carreira, projetos reais e conexões com mercado podem ser organizados em canais próprios no Discord e no sistema.
+              </p>
+            </article>
+          </div>
+
+          <div class="timeline reveal" style="margin-top:18px">
+            <div class="step-card">
+              <strong>Descrição da atividade</strong>
+              <span>Equipe define desafio, projeto ou oportunidade com objetivo, escopo, prazo e critérios de avaliação.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Participação</strong>
+              <span>Alunos participam individualmente ou em grupos de projeto, conforme a natureza da atividade e as competências necessárias.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Acompanhamento</strong>
+              <span>Monitores, coordenação de negócios, design ou NIC podem apoiar dúvidas, decisões técnicas e orientação de entrega.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Entrega e avaliação</strong>
+              <span>Projetos e desafios são avaliados com critérios de avaliação padronizados, considerando código, interface, entendimento do problema e da solução, documentação e apresentação.</span>
+            </div>
+
+            <div class="step-card">
+              <strong>Portfólio e destaque</strong>
+              <span>Entregas relevantes alimentam portfólio, podem gerar destaque na comunidade e ajudam a evidenciar evolução prática dos alunos.</span>
+            </div>
+          </div>
+
+          <div class="grid-3 reveal" style="margin-top:18px">
+            <article class="card">
+              <h3>Super Módulos</h3>
+              <p>
+                Cursos extras de 2 a 3 meses, com uma aula semanal de 2 a 3 horas, certificado, presença mínima e projeto final.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Vagas e eventos externos</h3>
+              <p>
+                A frente de oportunidades pode organizar vagas, eventos externos, orientações de carreira, mural de talentos e divulgação de projetos.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Projetos reais</h3>
+              <p>
+                O Connecta pode divulgar oportunidades reais, mas negociação, pagamento, escopo e entrega devem ocorrer diretamente entre alunos e clientes, fora da responsabilidade pelo funcionamento do programa.
+              </p>
+            </article>
+          </div>
+
+          <div class="priority-grid reveal" style="margin-top:18px">
+            <div class="priority-card important">
+              <h3>Pontos de validação</h3>
+              <ul>
+                <li>Definir frequência e calendário dos eventos online.</li>
+                <li>Definir responsáveis por desafios, projetos, live codes e Super Módulos.</li>
+                <li>Definir os primeiros temas de desafios e Super Módulos.</li>
+                <li>Validar se a equipe atual comporta uma rotina semanal de eventos.</li>
+              </ul>
+            </div>
+
+            <div class="priority-card critical">
+              <h3>Regras de proteção</h3>
+              <ul>
+                <li>Projetos reais devem ter acesso restrito a alunos maiores de 18 anos.</li>
+                <li>Pode ser exigido nível mínimo no ranking para acesso ao canal.</li>
+                <li>Negociação, pagamento e entrega são responsabilidade de alunos e clientes.</li>
+                <li>Projetos reais não devem contar para ranking na primeira versão.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion reveal" style="margin-top:18px">
+            <div class="accordion-item open">
+              <button class="accordion-button">Qual é o papel dos desafios? <span>+</span></button>
+              <div class="accordion-content">
+                Os desafios criam prática recorrente fora da carga horária, estimulam entregas e ajudam na construção de portfólio. O reconhecimento de cada edição será definido em regulamento.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button">Como funcionam os grupos de projeto? <span>+</span></button>
+              <div class="accordion-content">
+                Os grupos de projeto reúnem alunos de trilhas diferentes para simular uma equipe real. A composição pode considerar competências complementares e, futuramente, testes de perfil para formar grupos equilibrados.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button">Por que projetos reais exigem regra específica? <span>+</span></button>
+              <div class="accordion-content">
+                Porque envolvem clientes, pagamento, escopo, prazos e responsabilidade externa. A restrição para maiores de 18 anos e a separação clara de responsabilidades reduzem riscos para o Programa Connecta.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button">Como as aulas práticas ao vivo entram no material didático? <span>+</span></button>
+              <div class="accordion-content">
+                Quando gravadas, sessões de aulas práticas ao vivo podem virar conteúdo complementar, exemplos práticos, tutoriais ou material de reforço para dúvidas recorrentes dos alunos.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="equipe">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <div>
+              <h2 class="section-label">Equipe e funcionamento</h2>
+              <p class="lead">
+                Papéis necessários para sustentar o Connecta institucionalmente, com apoio técnico, logística local, gestão e definições pendentes para o funcionamento.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-3 reveal">
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Cobertura fixa diária</h3>
+              <p>
+                Estrutura principal para manter atendimento técnico recorrente e acompanhamento contínuo da turma nos dois turnos previstos.
+              </p>
+              <ul>
+                <li>2 monitores técnicos de tecnologia.</li>
+                <li>Cobertura prevista de 12 horas diárias.</li>
+                <li>Responsável pelo primeiro atendimento recomendado, ainda a definir.</li>
+              </ul>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Equipe sob demanda</h3>
+              <p>
+                Pessoas ou áreas chamadas quando necessário por necessidade pedagógica, técnica, operacional ou estratégica, sem obrigatoriedade de atendimento contínuo diário.
+              </p>
+              <ul>
+                <li>Coordenação de negócios.</li>
+                <li>Coordenação operacional.</li>
+                <li>Suporte design.</li>
+                <li>Time NIC.</li>
+              </ul>
+            </article>
+
+            <article class="card brand-card">
+              <div class="brand-line"><i></i><i></i><i></i></div>
+              <h3>Gestão e apoio local</h3>
+              <p>
+                Estruturas de apoio institucional, jurídico, logístico e físico, necessárias para contrato, edital, evento, equipamentos e suporte presencial.
+              </p>
+              <ul>
+                <li>Técnico da sede local.</li>
+                <li>Logística e comunicação institucional.</li>
+                <li>Direção e jurídico.</li>
+                <li>Prefeitura e parceiros locais.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="stat-grid reveal">
+            <div class="stat">
+              <strong>2</strong>
+              <span>monitores técnicos como cobertura fixa diária principal</span>
+            </div>
+
+            <div class="stat">
+              <strong>2</strong>
+              <span>turnos técnicos previstos: manhã e tarde/noite</span>
+            </div>
+
+            <div class="stat">
+              <strong>12h</strong>
+              <span>cobertura diária planejada para atendimento aos alunos</span>
+            </div>
+
+            <div class="stat">
+              <strong>9</strong>
+              <span>papéis operacionais e institucionais mapeados</span>
+            </div>
+          </div>
+
+          <div class="grid-3 reveal" style="margin-top:18px">
+            <article class="card">
+              <h3>Time NIC</h3>
+              <p>
+                Responsável por plataformas, integrações, bots, suporte técnico de sistemas, lives técnicas e evolução dos sistemas e plataformas.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Técnico local</h3>
+              <p>
+                Responsável por suporte físico aos equipamentos, recebimento, inspeção, manutenção e apoio à logística reversa.
+              </p>
+            </article>
+          </div>
+
+          <div class="priority-grid reveal" style="margin-top:18px">
+            <div class="priority-card critical">
+              <h3>Pendências críticas</h3>
+              <ul>
+                <li>Contratar ou confirmar os 2 monitores técnicos.</li>
+                <li>Definir o responsável pelo primeiro atendimento no Discord.</li>
+                <li>Construir o Manual do Monitor.</li>
+                <li>Definir fluxos de encaminhamento para casos sensíveis.</li>
+              </ul>
+            </div>
+
+            <div class="priority-card important">
+              <h3>Pontos de organização</h3>
+              <ul>
+                <li>Definir responsáveis por lives, eventos e desafios.</li>
+                <li>Definir suporte design e atuação sob demanda.</li>
+                <li>Alinhar o papel do técnico local na sede.</li>
+                <li>Padronizar registro de atendimentos e performance.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion reveal" style="margin-top:18px">
+            <div class="accordion-item open">
+              <button class="accordion-button">Qual é a cobertura fixa diária? <span>+</span></button>
+              <div class="accordion-content">
+                A cobertura fixa diária principal considera 2 monitores técnicos, um por turno. Para suporte organizado, recomenda-se também 1 responsável pelo primeiro atendimento no Discord, função que ainda precisa ser definida. As demais áreas entram sob demanda ou conforme cronograma.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button">Por que o Manual do Monitor é crítico? <span>+</span></button>
+              <div class="accordion-content">
+                Porque padroniza atendimento, uso do Discord, tickets, Calendly, permissões, scripts de resposta, registros, critérios de avaliação, regras de conduta e encaminhamento.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button">Como evitar sobrecarga da equipe fixa? <span>+</span></button>
+              <div class="accordion-content">
+                O primeiro atendimento deve filtrar demandas, dúvidas recorrentes devem virar base de conhecimento, casos especializados devem ser encaminhados e lives podem ser usadas quando muitos alunos tiverem a mesma dificuldade.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button">Quais papéis ainda precisam de definição? <span>+</span></button>
+              <div class="accordion-content">
+                Responsável pelo primeiro atendimento, suporte de design, responsáveis por eventos, calendário de lives, responsáveis por desafios e formato final do acompanhamento de desempenho.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="roadmap-section" id="roadmap">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <div>
+              <h2 class="section-label">Roadmap de implementação</h2>
+              <p class="lead">Etapas de implementação do programa. As datas dependem do contrato e aprovação oficial e da validação das entregas que impedem o avanço.</p>
+            </div>
+          </div>
+
+          <ol class="roadmap-list">
+            <li class="roadmap-item">
+              <span class="roadmap-node" aria-hidden="true"></span>
+              <a class="roadmap-link" href="#infraestrutura">
+                <span class="roadmap-title"><span class="roadmap-index">01</span>Sistemas e plataformas</span>
+                <span class="roadmap-description">Preparação e testes do Portal de Processo Seletivo, App Exame, Plataforma Institucional e conexões entre os sistemas da NIC.</span>
+                <span class="roadmap-arrow" aria-hidden="true">↓</span>
+              </a>
+            </li>
+            <li class="roadmap-item">
+              <span class="roadmap-node" aria-hidden="true"></span>
+              <a class="roadmap-link" href="#selecao">
+                <span class="roadmap-title"><span class="roadmap-index">02</span>Seleção da primeira turma</span>
+                <span class="roadmap-description">Publicação do edital, inscrições, aplicação da prova, classificação e convocação dos candidatos.</span>
+                <span class="roadmap-arrow" aria-hidden="true">↓</span>
+              </a>
+            </li>
+            <li class="roadmap-item">
+              <span class="roadmap-node" aria-hidden="true"></span>
+              <a class="roadmap-link" href="#aluno">
+                <span class="roadmap-title"><span class="roadmap-index">03</span>Matrícula e preparação da turma</span>
+                <span class="roadmap-description">Matrícula dos alunos, Termo de Compromisso, separação dos kits e configuração dos acessos.</span>
+                <span class="roadmap-arrow" aria-hidden="true">↓</span>
+              </a>
+            </li>
+            <li class="roadmap-item">
+              <span class="roadmap-node" aria-hidden="true"></span>
+              <a class="roadmap-link" href="#lancamento">
+                <span class="roadmap-title"><span class="roadmap-index">04</span>Lançamento e início do curso</span>
+                <span class="roadmap-description">Evento presencial, entrega dos equipamentos, orientação inicial dos alunos e início das trilhas formativas.</span>
+                <span class="roadmap-arrow" aria-hidden="true">↓</span>
+              </a>
+            </li>
+            <li class="roadmap-item">
+              <span class="roadmap-node" aria-hidden="true"></span>
+              <a class="roadmap-link" href="#operacao">
+                <span class="roadmap-title"><span class="roadmap-index">05</span>Preparação da equipe e do suporte</span>
+                <span class="roadmap-description">Contratação dos monitores, definição do primeiro atendimento, Manual do Monitor e configuração do Discord e dos bots.</span>
+                <span class="roadmap-arrow" aria-hidden="true">↓</span>
+              </a>
+            </li>
+            <li class="roadmap-item">
+              <span class="roadmap-node" aria-hidden="true"></span>
+              <a class="roadmap-link" href="#engajamento">
+                <span class="roadmap-title"><span class="roadmap-index">06</span>Comunidade, projetos e participação</span>
+                <span class="roadmap-description">Monitorias, lives, grupos de projeto, desafios mensais e produção de portfólio.</span>
+                <span class="roadmap-arrow" aria-hidden="true">↓</span>
+              </a>
+            </li>
+            <li class="roadmap-item">
+              <span class="roadmap-node" aria-hidden="true"></span>
+              <a class="roadmap-link" href="#proximos">
+                <span class="roadmap-title"><span class="roadmap-index">07</span>Contrato e aprovação oficial</span>
+                <span class="roadmap-description">Assinatura do contrato com a Prefeitura de Santa Bárbara, aprovações jurídicas e definição do cronograma oficial.</span>
+                <span class="roadmap-arrow" aria-hidden="true">↓</span>
+              </a>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="proximos" class="dark-band">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <div>
+              <h2 class="section-label">Próximos passos</h2>
+              <p class="lead">
+                Ordem sugerida para fechar o cronograma, reduzir riscos na execução e preparar a abertura do processo seletivo.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-3 reveal" style="margin-top:18px">
+            <article class="card">
+              <h3>O que precisa sair primeiro</h3>
+              <p>
+                Contrato assinado, cronograma oficial e definição das datas principais do Processo seletivo.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>O que precisa ser testado</h3>
+              <p>
+                Prova digital, sistemas da NIC, logística do local, internet, máquinas e fluxo de suporte.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>O que precisa estar pronto</h3>
+              <p>
+                Equipe, Manual do Monitor, material didático, Discord, bots, kits e organização do lançamento.
+              </p>
+            </article>
+          </div>
+
+          <div class="action-roadmap reveal" aria-label="Marcos dos próximos passos">
+            <button class="action-milestone is-active" type="button" data-action-phase="contrato" data-action-focus="Contrato e cronograma" aria-pressed="true">
+              <span class="action-index">01</span>
+              <h3>Formalizar contrato e cronograma</h3>
+              <p>
+                Sem contrato assinado, o cronograma permanece provisório. O contrato e a aprovação oficial devem viabilizar a publicação do edital, as inscrições, a prova, a matrícula, o lançamento e o início da turma.
+              </p>
+              <span class="action-state">Marco inicial</span>
+            </button>
+
+            <button class="action-milestone" type="button" data-action-phase="validacao" data-action-focus="Prova e infraestrutura" aria-pressed="false">
+              <span class="action-index">02</span>
+              <h3>Validar prova, plataformas e logística</h3>
+              <p>
+                Portal de Processo Seletivo, App Exame, correção, resultados, segurança, conexões entre sistemas, máquinas, internet, turnos, equipe de fiscalização e plano de emergência precisam ser testados antes da abertura ao público.
+              </p>
+              <span class="action-state">Liberação técnica</span>
+            </button>
+
+            <button class="action-milestone" type="button" data-action-phase="preparacao" data-action-focus="Turma, lançamento e curso" aria-pressed="false">
+              <span class="action-index">03</span>
+              <h3>Preparar alunos, equipe e lançamento</h3>
+              <p>
+                Matrícula, termos, kits, Discord, bots, monitores, primeiro atendimento, Manual do Monitor, material didático, evento de lançamento e suporte local precisam estar prontos antes do início do curso.
+              </p>
+              <span class="action-state">Entrada da turma</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="section-inner">Apresentação baseada na Matriz Connecta V2. As datas continuam condicionadas às aprovações necessárias indicadas ao longo do material.</div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const heroSection = document.querySelector('#inicio');
+    const roadmapSection = document.querySelector('#roadmap');
+    if (heroSection && roadmapSection) heroSection.after(roadmapSection);
+
+    const navLinks = [...document.querySelectorAll('.nav a')];
+    const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    const progressBar = document.querySelector('#progress-bar');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.forEach(item => item.classList.toggle('active', item === link));
+      });
+    });
+
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+    sections.forEach(section => navObserver.observe(section));
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: .15 });
+    document.querySelectorAll('.reveal, .roadmap-item').forEach(item => revealObserver.observe(item));
+
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const value = max > 0 ? window.scrollY / max : 0;
+      progressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, value))})`;
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    document.querySelectorAll('.tabbar').forEach(tabbar => {
+      const tabs = [...tabbar.querySelectorAll('.tab')];
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(item => item.setAttribute('aria-selected', String(item === tab)));
+          document.querySelectorAll('.tab-panel').forEach(panel => {
+            panel.classList.toggle('active', panel.id === tab.dataset.tab);
+          });
+        });
+      });
+    });
+
+    document.querySelectorAll('.filter').forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        document.querySelectorAll('.filter').forEach(item => item.classList.toggle('active', item === button));
+        document.querySelectorAll('.track').forEach(track => {
+          const values = track.dataset.track.split(' ');
+          track.classList.toggle('hidden', filter !== 'all' && !values.includes(filter));
+        });
+      });
+    });
+
+    document.querySelectorAll('.accordion-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.accordion-item');
+        item.classList.toggle('open');
+      });
+    });
+
+    const actionFocus = document.querySelector('#action-focus');
+    const actionMilestones = [...document.querySelectorAll('.action-milestone')];
+    const actionCheckpoints = [...document.querySelectorAll('.checkpoint-card')];
+
+    actionMilestones.forEach(button => {
+      button.addEventListener('click', () => {
+        const phase = button.dataset.actionPhase;
+
+        actionMilestones.forEach(item => {
+          const active = item === button;
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+
+        actionCheckpoints.forEach(card => {
+          const phases = card.dataset.actionCheckpoint.split(' ');
+          card.classList.toggle('is-related', phases.includes(phase));
+        });
+
+        if (actionFocus) actionFocus.textContent = button.dataset.actionFocus;
+      });
+    });
+  </script>
+</body>
+</html>
