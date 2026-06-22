@@ -929,10 +929,50 @@
     .check-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 16px; }
     .check-item { display: flex; gap: 9px; align-items: flex-start; font-size: 14px; }
     .check-item:before { content: "✓"; flex: 0 0 auto; width: 21px; height: 21px; display: grid; place-items: center; border-radius: 50%; background: rgba(5,189,123,.16); color: #7ce8be; font-weight: 900; }
-    .data-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+    .data-table-wrap {
+      position: relative;
+      overflow-x: auto;
+      border: 1px solid rgba(18, 169, 223, .24);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: 0 12px 30px rgba(18, 33, 63, .08);
+    }
+    .data-table-wrap:before {
+      content: "";
+      position: sticky;
+      left: 0;
+      display: block;
+      width: 100%;
+      min-width: 720px;
+      height: 6px;
+      background: linear-gradient(90deg, var(--brand-blue) 0 34%, var(--brand-orange) 34% 67%, var(--brand-green) 67%);
+    }
     .data-table { width: 100%; border-collapse: collapse; min-width: 720px; }
-    .data-table th { padding: 13px 15px; text-align: left; background: var(--dark); color: #fff; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
-    .data-table td { padding: 13px 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; vertical-align: top; }
+    .data-table th {
+      padding: 14px 15px;
+      text-align: left;
+      background: linear-gradient(135deg, #0e8fc2, var(--brand-blue));
+      color: #fff;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      border-right: 1px solid rgba(255, 255, 255, .18);
+    }
+    .data-table th:last-child { border-right: 0; }
+    .data-table td {
+      padding: 14px 15px;
+      border-top: 1px solid rgba(18, 169, 223, .15);
+      color: var(--muted);
+      font-size: 14px;
+      vertical-align: top;
+      transition: background .2s ease, color .2s ease;
+    }
+    .data-table tbody tr:nth-child(even) td { background: var(--paper-blue); }
+    .data-table tbody tr:nth-child(3n) td:first-child { border-left: 4px solid var(--brand-green); }
+    .data-table tbody tr:nth-child(3n + 1) td:first-child { border-left: 4px solid var(--brand-blue); }
+    .data-table tbody tr:nth-child(3n + 2) td:first-child { border-left: 4px solid var(--brand-orange); }
+    .data-table tbody tr:hover td { background: var(--paper-orange); color: var(--ink); }
+    .data-table td:first-child { color: var(--cyan); font-weight: 900; }
     .data-table td strong { color: var(--ink); }
     .pending-checklist { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; list-style: none; padding: 0; margin: 14px 0 0; }
     .pending-checklist li { padding: 12px; border: 1px solid var(--line); border-radius: 14px; background: #fff; font-size: 13px; font-weight: 800; }
